@@ -1,0 +1,405 @@
+Batch/CLI mode
+Namespace(model_fname='/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937.pt', diffusionx=1.0)
+diffusionx ----> 1.0
+model_dir /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937/
+model_seed ----> 3031937
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace/
+(248, 5)
+[4]
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//scree_3031937.png
+{'odor_ma': 10, 'odor_ewm': 10, 'odor_enc': 10}
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_outcome_3031937.png
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_regime_3031937.png
+odor_lastenc 0 220
+odor_lastenc 0 203
+odor_lastenc 0 199
+odor_lastenc 0 196
+odor_lastenc 0 296
+odor_lastenc 0 249
+odor_lastenc 0 233
+odor_lastenc 0 157
+odor_lastenc 0 26
+odor_lastenc 0 26
+odor_lastenc 0 38
+odor_lastenc 0 21
+odor_lastenc 0 22
+odor_lastenc 0 143
+odor_lastenc 0 125
+odor_lastenc 0 173
+odor_lastenc 0 138
+odor_lastenc 0 168
+odor_lastenc 0 104
+odor_lastenc 0 48
+odor_lastenc 0 122
+odor_lastenc 0 40
+odor_lastenc 0 128
+odor_lastenc 0 213
+odor_lastenc 0 150
+odor_lastenc 0 148
+odor_lastenc 0 148
+odor_lastenc 0 136
+Here1
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_odor_lastenc_3031937.png
+stray_distance 0.011463395199226534 0.91391164840227
+stray_distance 0.01599932727225284 1.0113436929081627
+stray_distance 0.006846375835677655 0.8946833834107891
+stray_distance 0.006480124390784998 0.9943783878104605
+stray_distance 0.1994330359287762 2.0021037450754244
+stray_distance 0.4004620571430022 2.0223632768618733
+stray_distance 0.4536344339394156 2.0115739307176206
+stray_distance 0.447374422258983 2.0185091552179726
+stray_distance 0.004056661661986457 0.2690308220837726
+stray_distance 0.004786803367377316 0.37279762923148474
+stray_distance 0.005152465973031658 0.350671619396342
+stray_distance 0.004655707822224668 0.4376723835478453
+stray_distance 0.007441126184228447 0.38417141991176723
+stray_distance 0.013780458401759317 2.0106589407456408
+stray_distance 0.006608618311810096 2.001187848222287
+stray_distance 0.016990288767622985 2.0066121299273574
+stray_distance 0.032623091117220775 2.1079285388936033
+stray_distance 0.0075475124838883705 2.0090192902457193
+stray_distance 0.005613599170831754 1.2056970198398886
+stray_distance 0.00366144743412741 0.3779697039923712
+stray_distance 0.010934549318377377 1.4222719745240755
+stray_distance 0.005322359524179481 0.4190777394456948
+stray_distance 0.0055037556274125056 1.7539631864117775
+stray_distance 0.06491020800607697 2.0561369656013757
+stray_distance 0.0026702500227563275 2.014339978760435
+stray_distance 0.00805953789070841 2.0670714712407654
+stray_distance 0.005317341618822259 2.0181308958424435
+stray_distance 0.013193794885429372 2.003194615098506
+Here1
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_stray_distance_3031937.png
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 0
+odor_01 0 0
+odor_01 0 0
+odor_01 0 0
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 0
+odor_01 0 1
+odor_01 0 0
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+odor_01 0 1
+Here1
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_odor_01_3031937.png
+best odor_ma_10 odor_ma
+odor_ma_10 0.0 0.4
+odor_ma_10 0.0 0.4
+odor_ma_10 0.0 0.5286089360713959
+odor_ma_10 0.0 0.36622052192687987
+odor_ma_10 0.0 0.0
+odor_ma_10 0.0 0.0
+odor_ma_10 0.0 0.0
+odor_ma_10 0.0 0.0
+odor_ma_10 0.0 0.6090211428701877
+odor_ma_10 0.0 0.568629914522171
+odor_ma_10 0.0 0.46555349230766296
+odor_ma_10 0.0 0.5527620438486338
+odor_ma_10 0.0 0.5281462341547012
+odor_ma_10 0.0 0.006976026861229912
+odor_ma_10 0.0 0.004480345256160945
+odor_ma_10 0.0 0.0
+odor_ma_10 0.0 0.004474165290594101
+odor_ma_10 0.0 0.0
+odor_ma_10 0.0 0.5528065204620362
+odor_ma_10 0.0 0.5591138198971748
+odor_ma_10 0.0 0.7378070116043091
+odor_ma_10 0.0 0.584404612891376
+odor_ma_10 0.0 0.7370165467262269
+odor_ma_10 0.0 0.005957270786166191
+odor_ma_10 0.0 0.010741869732737542
+odor_ma_10 0.0 0.05244096261449158
+odor_ma_10 0.0 0.05028793374076486
+odor_ma_10 0.0 0.06543971709907055
+Here1
+Here2
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_odor_ma_10_3031937.png
+best odor_ewm_10 odor_ewm
+odor_ewm_10 0.0 0.3946785733378553
+odor_ewm_10 0.0 0.4547915462669125
+odor_ewm_10 0.0 0.6092496014380356
+odor_ewm_10 0.0 0.5081279941538324
+odor_ewm_10 0.0 0.0
+odor_ewm_10 0.0 0.0
+odor_ewm_10 0.0 0.0
+odor_ewm_10 0.0 0.0
+odor_ewm_10 0.0 0.7045961160295886
+odor_ewm_10 0.0 0.6453661594016135
+odor_ewm_10 0.0 0.6336164336749939
+odor_ewm_10 0.0 0.64119911453945
+odor_ewm_10 0.0 0.5739689085981883
+odor_ewm_10 0.0 0.00630957342010453
+odor_ewm_10 0.0 0.005273286245375439
+odor_ewm_10 0.0 0.0
+odor_ewm_10 0.0 0.008142098356930748
+odor_ewm_10 0.0 0.0
+odor_ewm_10 5.860548869971511e-12 0.6622369587733512
+odor_ewm_10 0.0 0.6383048362012862
+odor_ewm_10 0.0 0.6526682623205643
+odor_ewm_10 0.0 0.6733865425888097
+odor_ewm_10 0.0 0.6795600629039942
+odor_ewm_10 1.880300491468199e-21 0.021764330565929413
+odor_ewm_10 0.0 0.01302017918723781
+odor_ewm_10 0.0 0.05791408436534375
+odor_ewm_10 0.0 0.05757480393010494
+odor_ewm_10 0.0 0.0665120242685833
+Here1
+Here2
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_odor_ewm_10_3031937.png
+best odor_enc_10 odor_enc
+odor_enc_10 0.0 10.23511345175192
+odor_enc_10 0.0 9.568357370137113
+odor_enc_10 0.0 10.198207309338251
+odor_enc_10 0.0 11.233972530151167
+odor_enc_10 0.0 0.0
+odor_enc_10 0.0 0.0
+odor_enc_10 0.0 0.0
+odor_enc_10 0.0 0.0
+odor_enc_10 0.0 9.892272539608195
+odor_enc_10 0.0 9.208365665940985
+odor_enc_10 0.0 6.5878332006494595
+odor_enc_10 0.0 8.236386138613861
+odor_enc_10 0.0 8.478411148706611
+odor_enc_10 0.0 5.911905032453495
+odor_enc_10 0.0 10.033799524566469
+odor_enc_10 0.0 0.0
+odor_enc_10 0.0 4.5495069069350365
+odor_enc_10 0.0 0.0
+odor_enc_10 0.0 8.591222724810647
+odor_enc_10 0.0 7.923286062276475
+odor_enc_10 0.0 8.212824352860167
+odor_enc_10 0.0 7.03606831777165
+odor_enc_10 0.0 8.58018403780678
+odor_enc_10 0.0 4.5454545454545485
+odor_enc_10 0.0 5.909033649606651
+odor_enc_10 0.0 4.545487333843971
+odor_enc_10 0.0 4.545487333843971
+odor_enc_10 0.0 5.292292653655586
+Here1
+Here2
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_odor_enc_10_3031937.png
+wind_theta_obs 0.001824361915882089 0.9996465876126313
+wind_theta_obs 0.0055767992120112075 0.9980726136034506
+wind_theta_obs 0.0010328481268245815 0.9970613678215665
+wind_theta_obs 0.004333890937303797 0.9974741893684791
+wind_theta_obs 0.0020143529451545628 0.9980725008647737
+wind_theta_obs 0.024058065343988855 0.9981843695594632
+wind_theta_obs 0.017545764902349215 0.9983973100508072
+wind_theta_obs 0.010411675629549588 0.9911887628289753
+wind_theta_obs 0.006738786010997144 0.9961114323182065
+wind_theta_obs 0.0013152485773157974 0.9991191337589456
+wind_theta_obs 0.00025429143970157053 0.9967269120610864
+wind_theta_obs 0.0030667572140322674 0.9955104934839452
+wind_theta_obs 0.0006463625801445549 0.9979659244577266
+wind_theta_obs 0.005088360016488991 0.9990138538751681
+wind_theta_obs 0.0001568499320425687 0.994439540936408
+wind_theta_obs 0.00211901685885979 0.9947761430471209
+wind_theta_obs 0.009876158107841815 0.9846738959566856
+wind_theta_obs 0.0038862898182132066 0.990105833932257
+wind_theta_obs 0.017027501521811705 0.9977415370817768
+wind_theta_obs 0.0015710551940609774 0.9995663236614587
+wind_theta_obs 0.007551749904991856 0.9928053828239848
+wind_theta_obs 0.0067093337320813795 0.9993968239733277
+wind_theta_obs 0.013109392952992072 0.9878353576532586
+wind_theta_obs 0.0007113950442490524 0.9999710707219774
+wind_theta_obs 0.0007988439433917471 0.9985035953321936
+wind_theta_obs 0.0018475558772468315 0.9921643473957446
+wind_theta_obs 0.000307256635766362 0.9983404892371839
+wind_theta_obs 0.000834195462070253 0.9988040802624549
+Here1
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_wind_theta_obs_3031937.png
+agent_angle_ground 0.0016722381114959162 0.9991860464215281
+agent_angle_ground 0.00020867586135797644 0.9975249841809266
+agent_angle_ground 0.0004388615489002712 0.997288756072521
+agent_angle_ground 0.00148808211088175 0.9989551529288295
+agent_angle_ground 0.00038769468665067475 0.9978740029036994
+agent_angle_ground 0.003435965627431592 0.9975713267922401
+agent_angle_ground 0.0003637447953223072 0.9967072904109954
+agent_angle_ground 0.0004131793975829523 0.9977421201765537
+agent_angle_ground 0.0005490668118001696 0.9989668875932695
+agent_angle_ground 0.0005270875990389667 0.9996166042983532
+agent_angle_ground 0.0026681907474994104 0.9989851526916027
+agent_angle_ground 0.0016482807695866186 0.9996329657733442
+agent_angle_ground 0.0016845166683198687 0.9966146163642408
+agent_angle_ground 0.0033765248954299443 0.9957770481705667
+agent_angle_ground 7.882341742482257e-05 0.9977928437292574
+agent_angle_ground 0.002794116735458263 0.9972506053745747
+agent_angle_ground 0.003147941082715877 0.9997086115181446
+agent_angle_ground 0.0007887482643127441 0.9961885660886766
+agent_angle_ground 0.0010811127722262226 0.9997278116643429
+agent_angle_ground 0.0014641918241975471 0.9997458569705484
+agent_angle_ground 0.010172307491302934 0.9983652010560039
+agent_angle_ground 0.002242393791675623 0.996055491268635
+agent_angle_ground 0.001847133040427884 0.9935993365943432
+agent_angle_ground 0.00355082005262386 0.9893514029681683
+agent_angle_ground 0.004027035087346753 0.9937515072524545
+agent_angle_ground 0.0038961358368397314 0.9931628815829754
+agent_angle_ground 0.006402216851711218 0.9973300136625767
+agent_angle_ground 0.010134823620319255 0.9998776577413081
+Here1
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_agent_angle_ground_3031937.png
+turn 0.00018489361 0.99959064
+turn 0.00019344687 0.9998106
+turn 0.0001886785 0.999743
+turn 0.0001949966 0.99956405
+turn 0.00020107627 0.5588433
+turn 0.00020337105 0.74037385
+turn 0.0001976192 0.7811557
+turn 0.00021511316 0.76352394
+turn 0.0006455481 0.9998348
+turn 0.00027287006 0.99980736
+turn 0.0002861917 0.99982214
+turn 0.00019073486 0.9998417
+turn 0.00018823147 0.999911
+turn 0.00020158291 0.5702626
+turn 0.00020381808 0.8664441
+turn 0.0001898408 0.57483214
+turn 0.0002015233 0.8215461
+turn 0.00020310283 0.9014696
+turn 0.00018534064 0.99964225
+turn 0.00083482265 0.9998467
+turn 0.0001847744 0.99972296
+turn 0.0004337132 0.99977094
+turn 0.00017434359 0.99958616
+turn 0.00020030141 0.69357276
+turn 0.00021782517 0.81901634
+turn 0.0002105236 0.8075858
+turn 0.00021100044 0.81552356
+turn 0.00020161271 0.7026402
+Here1
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_turn_3031937.png
+step 0.004003495 0.99714005
+step 0.004373312 0.99798954
+step 0.003913611 0.99780613
+step 0.0039767623 0.9975759
+step 0.005157292 0.99690723
+step 0.0053684413 0.9967959
+step 0.0050406754 0.99218833
+step 0.0058551133 0.99296695
+step 0.35842553 0.99750984
+step 0.015779346 0.9977709
+step 0.006566882 0.9974867
+step 0.02407378 0.99803317
+step 0.004336834 0.997597
+step 0.004923463 0.9967745
+step 0.0053479075 0.9974092
+step 0.004900694 0.99680483
+step 0.0053113997 0.9973237
+step 0.0055167675 0.997452
+step 0.0059632957 0.9969193
+step 0.0052666664 0.99811804
+step 0.005950004 0.99735117
+step 0.005287349 0.9980202
+step 0.004631996 0.9973308
+step 0.0039537847 0.9967316
+step 0.006267011 0.99663794
+step 0.0062960386 0.9964975
+step 0.0062916577 0.99656177
+step 0.0053379834 0.99646527
+Here1
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_step_3031937.png
+neural_velocity 0.0 5.693973
+neural_velocity 0.0 5.2681775
+neural_velocity 0.0 6.0777893
+neural_velocity 0.0 5.7825875
+neural_velocity 0.0 2.0061817
+neural_velocity 0.0 2.2473514
+neural_velocity 0.0 2.0516496
+neural_velocity 0.0 2.0223517
+neural_velocity 0.0 7.6202993
+neural_velocity 0.0 6.5485177
+neural_velocity 0.0 5.9936905
+neural_velocity 0.0 6.639608
+neural_velocity 0.0 6.3594093
+neural_velocity 0.0 1.3319798
+neural_velocity 0.0 1.3040471
+neural_velocity 0.0 1.6864127
+neural_velocity 0.0 1.6205091
+neural_velocity 0.0 1.2661151
+neural_velocity 0.0 6.080953
+neural_velocity 0.0 4.982156
+neural_velocity 0.0 6.4791465
+neural_velocity 0.0 6.6079726
+neural_velocity 0.0 5.856772
+neural_velocity 0.0 1.6829702
+neural_velocity 0.0 2.096336
+neural_velocity 0.0 1.6521622
+neural_velocity 0.0 1.7232286
+neural_velocity 0.0 1.7580708
+Here1
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_neural_velocity_3031937.png
+HOME [125, 100, 160, 90]
+OOB [39, 34, 69, 29]
+Coloring 125 HOME
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_neural_3031937_HOME_ep125.png
+constantx5b5
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_traj_3031937_HOME_ep125.png
+Coloring 100 HOME
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_neural_3031937_HOME_ep100.png
+constantx5b5
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_traj_3031937_HOME_ep100.png
+Coloring 160 HOME
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_neural_3031937_HOME_ep160.png
+constantx5b5
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_traj_3031937_HOME_ep160.png
+Coloring 90 HOME
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_neural_3031937_HOME_ep90.png
+constantx5b5
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_traj_3031937_HOME_ep90.png
+Coloring 39 OOB
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_neural_3031937_OOB_ep39.png
+constantx5b5
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_traj_3031937_OOB_ep39.png
+Coloring 34 OOB
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_neural_3031937_OOB_ep34.png
+constantx5b5
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_traj_3031937_OOB_ep34.png
+Coloring 69 OOB
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_neural_3031937_OOB_ep69.png
+constantx5b5
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_traj_3031937_OOB_ep69.png
+Coloring 29 OOB
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_neural_3031937_OOB_ep29.png
+constantx5b5
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//regime_traj_3031937_OOB_ep29.png
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//centroids_3031937_HOME.png
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//centroids_3031937_OOB.png
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_by_centroid_3031937.png
+(69, 17)
+(319, 17)
+switch45x5b5
+40 3.7302751941606402 38
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//limitcycle_3031937_181.png
+switch45x5b5
+19 4.8223789148032665 17
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//limitcycle_3031937_115.png
+switch45x5b5
+40 1.2555875508114696 38
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//limitcycle_3031937_195.png
+switch45x5b5
+21 3.85331245418638 19
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//limitcycle_3031937_235.png
+switch45x5b5
+21 4.059601375833154 19
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//limitcycle_3031937_230.png
+switch45x5b5
+20 0.9956162013113499 18
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//limitcycle_3031937_140.png

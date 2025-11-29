@@ -1,0 +1,65 @@
+CUDA: False
+Namespace(algo='ppo', lr=0.0003, eps=1e-05, alpha=0.99, gamma=0.99, use_gae=True, gae_lambda=0.95, entropy_coef=0.005, value_loss_coef=0.5, max_grad_norm=0.5, seed=19165, cuda_deterministic=False, num_processes=2, num_steps=2048, ppo_epoch=10, num_mini_batch=2, clip_param=0.2, log_interval=1, save_interval=100, no_cuda=False, use_proper_time_limits=False, recurrent_policy=True, use_linear_lr_decay=True, env_name='plume', log_dir='/tmp/gym/', save_dir='./trained_models/ExptWalking20250731/', dynamic=False, eval_type='fixed', eval_episodes=20, eval_interval=None, weight_decay=0.00012, rnn_type='VRNN', hidden_size=64, betadist=False, stacking=0, masking=None, stride=1, dataset=['constantx5b5', 'noisy3x5b5'], num_env_steps=[1000000, 200000], qvar=[0.4, 0.5], birthx=[2.25, 2.0], diff_max=[0.8, 0.8], diff_min=[0.7, 0.4], birthx_max=1.0, dryrun=False, curriculum=False, turnx=1.0, movex=1.0, auto_movex=False, auto_reward=False, loc_algo='uniform', time_algo='uniform', env_dt=0.04, outsuffix='walk-v4_20250731_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.252_t1000000200000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n2_walking_seed19165e0', walking=True, radiusx=1.0, diffusion_min=1.0, diffusion_max=1.0, r_shaping=['step', 'oob', 'metabolic'], wind_rel=True, action_feedback=False, squash_action=True, flipping=True, odor_scaling=True, stray_max=2.0, test_episodes=50, viz_episodes=10, model_fname='', obs_noise=0.0, act_noise=0.0, cuda=False)
+PPO Args ---> Namespace(algo='ppo', lr=0.0003, eps=1e-05, alpha=0.99, gamma=0.99, use_gae=True, gae_lambda=0.95, entropy_coef=0.005, value_loss_coef=0.5, max_grad_norm=0.5, seed=19165, cuda_deterministic=False, num_processes=2, num_steps=2048, ppo_epoch=10, num_mini_batch=2, clip_param=0.2, log_interval=1, save_interval=100, no_cuda=False, use_proper_time_limits=False, recurrent_policy=True, use_linear_lr_decay=True, env_name='plume', log_dir='/tmp/gym/', save_dir='./trained_models/ExptWalking20250731/', dynamic=False, eval_type='fixed', eval_episodes=20, eval_interval=None, weight_decay=0.00012, rnn_type='VRNN', hidden_size=64, betadist=False, stacking=0, masking=None, stride=1, dataset=['constantx5b5', 'noisy3x5b5'], num_env_steps=[1000000, 200000], qvar=[0.4, 0.5], birthx=[2.25, 2.0], diff_max=[0.8, 0.8], diff_min=[0.7, 0.4], birthx_max=1.0, dryrun=False, curriculum=False, turnx=1.0, movex=1.0, auto_movex=False, auto_reward=False, loc_algo='uniform', time_algo='uniform', env_dt=0.04, outsuffix='walk-v4_20250731_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.252_t1000000200000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n2_walking_seed19165e0', walking=True, radiusx=1.0, diffusion_min=1.0, diffusion_max=1.0, r_shaping=['step', 'oob', 'metabolic'], wind_rel=True, action_feedback=False, squash_action=True, flipping=True, odor_scaling=True, stray_max=2.0, test_episodes=50, viz_episodes=10, model_fname='', obs_noise=0.0, act_noise=0.0, cuda=False)
+Using Precomputed Plume...
+Using Precomputed Plume...
+2025-07-31 12:21:27.257 python[71373:57332203] +[NSXPCSharedListener endpointForReply:withListenerName:replyErrorCode:]: an error occurred while attempting to obtain endpoint for listener 'ClientCallsAuxiliary': Connection invalid
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x30ec82d00>, 't_val_min': 10.0, 'sim_steps_max': 2050, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 2.25, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.4, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.7, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 19165, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic']
+Using MLPBase
+hidden_size 64
+Using VanillaRNN
+Saved ./trained_models/ExptWalking20250731//plume_walk-v4_20250731_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.252_t1000000200000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n2_walking_seed19165e0.pt.start
+Stage: 0/2 - constantx5b5 b2.25 q0.4 n1000000
+Saved ./trained_models/ExptWalking20250731/plume_walk-v4_20250731_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.252_t1000000200000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n2_walking_seed19165e0.pt
+Update 0/244, T 4096, FPS 181, 24-training-episode: mean/median -4.1/-3.5, min/max -8.1/-1.5
+Update 1/244, T 8192, FPS 180, 50-training-episode: mean/median -3.8/-2.7, min/max -8.7/-1.4
+Update 2/244, T 12288, FPS 175, 50-training-episode: mean/median -3.7/-2.7, min/max -9.4/-1.4
+Update 3/244, T 16384, FPS 173, 50-training-episode: mean/median -3.9/-2.9, min/max -9.5/-1.4
+Update 4/244, T 20480, FPS 175, 50-training-episode: mean/median -4.4/-3.0, min/max -9.6/-1.2
+Update 5/244, T 24576, FPS 178, 50-training-episode: mean/median -4.6/-3.1, min/max -10.3/-1.2
+Update 6/244, T 28672, FPS 180, 50-training-episode: mean/median -4.5/-3.1, min/max -11.1/-1.2
+Update 7/244, T 32768, FPS 181, 50-training-episode: mean/median -4.8/-3.4, min/max -11.1/-1.2
+Update 8/244, T 36864, FPS 180, 50-training-episode: mean/median -4.7/-3.1, min/max -11.1/-1.2
+Update 9/244, T 40960, FPS 182, 50-training-episode: mean/median -5.6/-5.7, min/max -13.0/-1.2
+Update 10/244, T 45056, FPS 184, 50-training-episode: mean/median -6.3/-6.9, min/max -14.0/-1.4
+Update 11/244, T 49152, FPS 185, 50-training-episode: mean/median -6.6/-7.3, min/max -14.0/-1.4
+Update 12/244, T 53248, FPS 187, 50-training-episode: mean/median -7.0/-7.5, min/max -14.8/-1.4
+Update 13/244, T 57344, FPS 188, 50-training-episode: mean/median -8.0/-8.8, min/max -17.9/-1.4
+Update 14/244, T 61440, FPS 189, 50-training-episode: mean/median -8.5/-9.9, min/max -18.3/-1.5
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x1021e7220>, 't_val_min': 10.0, 'sim_steps_max': 2050, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 2.25, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.4, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.7, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 19165, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic']
+list index out of range 1662 363 10.0 [90.8, 90.84, 90.88, 90.92, 90.96000000000001] [9080, 9084, 9088, 9092, 9096]
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/main.py", line 617, in <module>
+    main()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/main.py", line 569, in main
+    training_log, eval_log = training_loop(agent, envs, args, device, actor_critic,
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/main.py", line 343, in training_loop
+    obs, reward, done, infos = envs.step(action)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/base_vec_env.py", line 163, in step
+    return self.step_wait()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 220, in step_wait
+    obs, reward, done, info = self.venv.step_wait()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 175, in step_wait
+    obs, rewards, dones, infos = self.venv.step_wait()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/subproc_vec_env.py", line 121, in step_wait
+    results = [remote.recv() for remote in self.remotes]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/subproc_vec_env.py", line 121, in <listcomp>
+    results = [remote.recv() for remote in self.remotes]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/multiprocessing/connection.py", line 414, in _recv_bytes
+    buf = self._recv(4)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/multiprocessing/connection.py", line 383, in _recv
+    raise EOFError
+EOFError

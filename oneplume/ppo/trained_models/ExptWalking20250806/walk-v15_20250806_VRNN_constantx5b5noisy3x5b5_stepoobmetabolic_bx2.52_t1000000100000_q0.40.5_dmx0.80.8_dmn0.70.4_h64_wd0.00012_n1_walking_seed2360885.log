@@ -1,0 +1,1366 @@
+CUDA: False
+Namespace(algo='ppo', lr=0.0003, eps=1e-05, alpha=0.99, gamma=0.99, use_gae=True, gae_lambda=0.95, entropy_coef=0.005, value_loss_coef=0.5, max_grad_norm=0.5, seed=23608, cuda_deterministic=False, num_processes=1, num_steps=2048, ppo_epoch=10, num_mini_batch=1, clip_param=0.2, log_interval=1, save_interval=100, no_cuda=False, use_proper_time_limits=False, recurrent_policy=True, use_linear_lr_decay=True, env_name='plume', log_dir='/tmp/gym/', save_dir='./trained_models/ExptWalking20250806/', dynamic=False, eval_type='fixed', eval_episodes=20, eval_interval=None, weight_decay=0.00012, rnn_type='VRNN', hidden_size=64, betadist=False, stacking=0, masking=None, stride=1, dataset=['constantx5b5', 'noisy3x5b5'], num_env_steps=[1000000, 100000], qvar=[0.4, 0.5], birthx=[2.5, 2.0], diff_max=[0.8, 0.8], diff_min=[0.7, 0.4], birthx_max=1.0, dryrun=False, curriculum=False, turnx=1.0, movex=1.0, auto_movex=False, auto_reward=False, loc_algo='uniform', time_algo='uniform', env_dt=0.04, outsuffix='walk-v15_20250806_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.52_t1000000100000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n1_walking_seed2360885', walking=True, radiusx=1.0, diffusion_min=1.0, diffusion_max=1.0, r_shaping=['step', 'oob', 'metabolic'], wind_rel=True, action_feedback=False, squash_action=True, flipping=True, odor_scaling=True, stray_max=2.0, test_episodes=50, viz_episodes=10, model_fname='', obs_noise=0.0, act_noise=0.0, cuda=False)
+PPO Args ---> Namespace(algo='ppo', lr=0.0003, eps=1e-05, alpha=0.99, gamma=0.99, use_gae=True, gae_lambda=0.95, entropy_coef=0.005, value_loss_coef=0.5, max_grad_norm=0.5, seed=23608, cuda_deterministic=False, num_processes=1, num_steps=2048, ppo_epoch=10, num_mini_batch=1, clip_param=0.2, log_interval=1, save_interval=100, no_cuda=False, use_proper_time_limits=False, recurrent_policy=True, use_linear_lr_decay=True, env_name='plume', log_dir='/tmp/gym/', save_dir='./trained_models/ExptWalking20250806/', dynamic=False, eval_type='fixed', eval_episodes=20, eval_interval=None, weight_decay=0.00012, rnn_type='VRNN', hidden_size=64, betadist=False, stacking=0, masking=None, stride=1, dataset=['constantx5b5', 'noisy3x5b5'], num_env_steps=[1000000, 100000], qvar=[0.4, 0.5], birthx=[2.5, 2.0], diff_max=[0.8, 0.8], diff_min=[0.7, 0.4], birthx_max=1.0, dryrun=False, curriculum=False, turnx=1.0, movex=1.0, auto_movex=False, auto_reward=False, loc_algo='uniform', time_algo='uniform', env_dt=0.04, outsuffix='walk-v15_20250806_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.52_t1000000100000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n1_walking_seed2360885', walking=True, radiusx=1.0, diffusion_min=1.0, diffusion_max=1.0, r_shaping=['step', 'oob', 'metabolic'], wind_rel=True, action_feedback=False, squash_action=True, flipping=True, odor_scaling=True, stray_max=2.0, test_episodes=50, viz_episodes=10, model_fname='', obs_noise=0.0, act_noise=0.0, cuda=False)
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x17dcd5250>, 't_val_min': 10.0, 'sim_steps_max': 2200, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 2.5, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.4, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.7, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 23608, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic']
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x17dcc8520>, 't_val_min': 10.0, 'sim_steps_max': 2200, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 2.5, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.4, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.7, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 23608, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic']
+Using MLPBase
+hidden_size 64
+Using VanillaRNN
+Saved ./trained_models/ExptWalking20250806//plume_walk-v15_20250806_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.52_t1000000100000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n1_walking_seed2360885.pt.start
+Stage: 0/2 - constantx5b5 b2.5 q0.4 n1000000
+Saved ./trained_models/ExptWalking20250806/plume_walk-v15_20250806_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.52_t1000000100000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n1_walking_seed2360885.pt
+Update 0/488, T 2048, FPS 121, 28-training-episode: mean/median -1.4/-1.3, min/max -2.6/-0.3
+Update 1/488, T 4096, FPS 133, 40-training-episode: mean/median 1.2/-1.2, min/max -4.5/101.1
+Update 2/488, T 6144, FPS 130, 50-training-episode: mean/median 0.7/-1.2, min/max -4.5/101.1
+Update 3/488, T 8192, FPS 130, 50-training-episode: mean/median 0.8/-1.0, min/max -4.5/101.1
+Update 4/488, T 10240, FPS 125, 50-training-episode: mean/median 0.9/-1.0, min/max -3.1/101.6
+Update 5/488, T 12288, FPS 124, 50-training-episode: mean/median 5.1/-0.9, min/max -3.1/101.6
+Update 6/488, T 14336, FPS 125, 50-training-episode: mean/median 17.5/-0.9, min/max -2.7/102.1
+Update 7/488, T 16384, FPS 126, 50-training-episode: mean/median 23.6/-0.7, min/max -3.0/102.1
+Update 8/488, T 18432, FPS 127, 50-training-episode: mean/median 21.6/-0.6, min/max -3.2/102.1
+Update 9/488, T 20480, FPS 126, 50-training-episode: mean/median 19.6/-0.6, min/max -3.2/102.3
+Update 10/488, T 22528, FPS 124, 50-training-episode: mean/median 19.5/-0.7, min/max -3.2/102.3
+Update 11/488, T 24576, FPS 124, 50-training-episode: mean/median 29.8/-0.8, min/max -2.3/102.3
+Update 12/488, T 26624, FPS 124, 50-training-episode: mean/median 31.9/-0.8, min/max -2.1/102.2
+Update 13/488, T 28672, FPS 124, 50-training-episode: mean/median 36.0/-0.7, min/max -1.6/102.3
+Update 14/488, T 30720, FPS 124, 50-training-episode: mean/median 38.0/-0.3, min/max -1.9/102.3
+Update 15/488, T 32768, FPS 124, 50-training-episode: mean/median 42.2/-0.1, min/max -1.9/102.3
+Update 16/488, T 34816, FPS 124, 50-training-episode: mean/median 40.1/-0.6, min/max -1.9/102.3
+Update 17/488, T 36864, FPS 124, 50-training-episode: mean/median 42.1/-0.7, min/max -1.9/102.3
+Update 18/488, T 38912, FPS 124, 50-training-episode: mean/median 38.2/-0.3, min/max -2.1/102.3
+Update 19/488, T 40960, FPS 124, 50-training-episode: mean/median 27.9/-0.6, min/max -2.1/102.2
+Update 20/488, T 43008, FPS 124, 50-training-episode: mean/median 34.1/-0.4, min/max -1.6/102.3
+Update 21/488, T 45056, FPS 124, 50-training-episode: mean/median 46.3/-0.1, min/max -1.7/102.3
+Update 22/488, T 47104, FPS 124, 50-training-episode: mean/median 40.1/-0.4, min/max -1.7/102.2
+Update 23/488, T 49152, FPS 123, 50-training-episode: mean/median 38.1/-0.4, min/max -1.9/102.1
+Update 24/488, T 51200, FPS 124, 50-training-episode: mean/median 50.4/50.7, min/max -1.9/102.3
+Update 25/488, T 53248, FPS 124, 50-training-episode: mean/median 54.6/101.3, min/max -1.9/102.3
+Update 26/488, T 55296, FPS 124, 50-training-episode: mean/median 56.6/101.3, min/max -1.6/102.3
+Update 27/488, T 57344, FPS 124, 50-training-episode: mean/median 50.4/50.6, min/max -1.6/102.3
+Update 28/488, T 59392, FPS 124, 50-training-episode: mean/median 44.4/-0.1, min/max -1.6/102.3
+Update 29/488, T 61440, FPS 124, 50-training-episode: mean/median 42.3/-0.2, min/max -1.8/102.3
+Update 30/488, T 63488, FPS 124, 50-training-episode: mean/median 40.2/-0.3, min/max -1.8/102.3
+Update 31/488, T 65536, FPS 124, 50-training-episode: mean/median 32.0/-0.3, min/max -1.5/102.2
+Update 32/488, T 67584, FPS 124, 50-training-episode: mean/median 36.2/-0.0, min/max -1.5/102.2
+Update 33/488, T 69632, FPS 124, 50-training-episode: mean/median 40.3/-0.0, min/max -1.9/102.3
+Update 34/488, T 71680, FPS 124, 50-training-episode: mean/median 42.2/-0.0, min/max -1.9/102.3
+Update 35/488, T 73728, FPS 124, 50-training-episode: mean/median 38.1/-0.5, min/max -1.7/102.2
+Update 36/488, T 75776, FPS 124, 50-training-episode: mean/median 42.2/0.1, min/max -1.7/102.2
+Update 37/488, T 77824, FPS 124, 50-training-episode: mean/median 48.3/0.2, min/max -1.7/102.2
+Update 38/488, T 79872, FPS 124, 50-training-episode: mean/median 50.4/50.7, min/max -1.7/102.3
+Update 39/488, T 81920, FPS 124, 50-training-episode: mean/median 48.4/0.3, min/max -1.6/102.4
+Update 40/488, T 83968, FPS 124, 50-training-episode: mean/median 46.3/-0.3, min/max -1.7/102.4
+Update 41/488, T 86016, FPS 124, 50-training-episode: mean/median 42.3/-0.5, min/max -1.7/102.3
+Update 42/488, T 88064, FPS 124, 50-training-episode: mean/median 36.1/-0.7, min/max -1.7/102.2
+Update 43/488, T 90112, FPS 124, 50-training-episode: mean/median 40.1/-0.4, min/max -1.7/102.2
+Update 44/488, T 92160, FPS 124, 50-training-episode: mean/median 48.3/0.4, min/max -1.9/102.1
+Update 45/488, T 94208, FPS 124, 50-training-episode: mean/median 54.5/101.2, min/max -1.9/102.3
+Update 46/488, T 96256, FPS 124, 50-training-episode: mean/median 56.5/101.3, min/max -1.9/102.3
+Update 47/488, T 98304, FPS 124, 50-training-episode: mean/median 46.2/-0.5, min/max -1.7/102.2
+Update 48/488, T 100352, FPS 124, 50-training-episode: mean/median 46.2/-0.6, min/max -1.6/102.2
+Update 49/488, T 102400, FPS 124, 50-training-episode: mean/median 46.2/-0.6, min/max -1.8/102.1
+Update 50/488, T 104448, FPS 124, 50-training-episode: mean/median 52.4/101.0, min/max -1.8/102.2
+Update 51/488, T 106496, FPS 124, 50-training-episode: mean/median 52.4/101.1, min/max -1.8/102.2
+Update 52/488, T 108544, FPS 124, 50-training-episode: mean/median 48.4/0.1, min/max -1.6/102.2
+Update 53/488, T 110592, FPS 124, 50-training-episode: mean/median 52.4/101.0, min/max -1.6/102.2
+Update 54/488, T 112640, FPS 124, 50-training-episode: mean/median 54.5/101.2, min/max -1.6/102.3
+Update 55/488, T 114688, FPS 123, 50-training-episode: mean/median 52.4/101.2, min/max -1.6/102.3
+Update 56/488, T 116736, FPS 123, 50-training-episode: mean/median 52.4/101.2, min/max -1.7/102.2
+Update 57/488, T 118784, FPS 123, 50-training-episode: mean/median 48.2/-0.7, min/max -1.8/102.2
+Update 58/488, T 120832, FPS 123, 50-training-episode: mean/median 52.2/100.9, min/max -1.8/102.1
+Update 59/488, T 122880, FPS 123, 50-training-episode: mean/median 54.4/101.0, min/max -1.8/102.2
+Update 60/488, T 124928, FPS 123, 50-training-episode: mean/median 58.5/101.2, min/max -1.8/102.2
+Update 61/488, T 126976, FPS 123, 50-training-episode: mean/median 62.6/101.4, min/max -1.8/102.2
+Update 62/488, T 129024, FPS 123, 50-training-episode: mean/median 62.6/101.3, min/max -1.7/102.2
+Update 63/488, T 131072, FPS 123, 50-training-episode: mean/median 62.7/101.4, min/max -1.7/102.2
+Update 64/488, T 133120, FPS 123, 50-training-episode: mean/median 54.5/101.4, min/max -1.7/102.3
+Update 65/488, T 135168, FPS 123, 50-training-episode: mean/median 54.4/101.1, min/max -1.7/102.3
+Update 66/488, T 137216, FPS 123, 50-training-episode: mean/median 58.5/101.3, min/max -1.8/102.3
+Update 67/488, T 139264, FPS 122, 50-training-episode: mean/median 62.6/101.4, min/max -1.8/102.2
+Update 68/488, T 141312, FPS 122, 50-training-episode: mean/median 56.5/101.2, min/max -1.8/102.2
+Update 69/488, T 143360, FPS 122, 50-training-episode: mean/median 54.4/101.1, min/max -1.7/102.2
+Update 70/488, T 145408, FPS 123, 50-training-episode: mean/median 52.4/101.0, min/max -1.6/102.2
+Update 71/488, T 147456, FPS 123, 50-training-episode: mean/median 52.5/101.0, min/max -1.6/102.2
+Update 72/488, T 149504, FPS 122, 50-training-episode: mean/median 50.4/50.6, min/max -1.7/102.2
+Update 73/488, T 151552, FPS 123, 50-training-episode: mean/median 58.7/101.3, min/max -1.7/102.3
+Update 74/488, T 153600, FPS 123, 50-training-episode: mean/median 58.6/101.3, min/max -1.7/102.3
+Update 75/488, T 155648, FPS 123, 50-training-episode: mean/median 64.7/101.4, min/max -1.6/102.2
+Update 76/488, T 157696, FPS 122, 50-training-episode: mean/median 54.5/101.2, min/max -1.7/102.2
+Update 77/488, T 159744, FPS 123, 50-training-episode: mean/median 40.1/-0.6, min/max -1.7/102.2
+Update 78/488, T 161792, FPS 122, 50-training-episode: mean/median 44.1/-0.6, min/max -1.7/102.2
+Update 79/488, T 163840, FPS 122, 50-training-episode: mean/median 52.4/101.2, min/max -1.6/102.2
+Update 80/488, T 165888, FPS 122, 50-training-episode: mean/median 56.5/101.2, min/max -1.8/102.4
+Update 81/488, T 167936, FPS 122, 50-training-episode: mean/median 54.4/101.2, min/max -1.8/102.4
+Update 82/488, T 169984, FPS 122, 50-training-episode: mean/median 52.4/100.9, min/max -1.6/102.3
+Update 83/488, T 172032, FPS 123, 50-training-episode: mean/median 50.3/50.3, min/max -1.7/102.3
+Update 84/488, T 174080, FPS 123, 50-training-episode: mean/median 50.3/50.4, min/max -1.7/102.3
+Update 85/488, T 176128, FPS 123, 50-training-episode: mean/median 46.2/-0.6, min/max -1.7/102.3
+Update 86/488, T 178176, FPS 123, 50-training-episode: mean/median 54.5/101.3, min/max -1.7/102.3
+Update 87/488, T 180224, FPS 123, 50-training-episode: mean/median 62.7/101.4, min/max -1.7/102.3
+Update 88/488, T 182272, FPS 123, 50-training-episode: mean/median 64.7/101.4, min/max -1.7/102.3
+Update 89/488, T 184320, FPS 123, 50-training-episode: mean/median 62.6/101.3, min/max -1.6/102.2
+Update 90/488, T 186368, FPS 123, 50-training-episode: mean/median 50.4/50.6, min/max -1.6/102.2
+Update 91/488, T 188416, FPS 123, 50-training-episode: mean/median 42.2/-0.3, min/max -1.7/102.2
+Update 92/488, T 190464, FPS 123, 50-training-episode: mean/median 42.2/-0.4, min/max -1.8/102.1
+Update 93/488, T 192512, FPS 123, 50-training-episode: mean/median 42.1/-0.4, min/max -1.8/102.2
+Update 94/488, T 194560, FPS 123, 50-training-episode: mean/median 52.3/101.0, min/max -1.8/102.2
+Update 95/488, T 196608, FPS 123, 50-training-episode: mean/median 58.5/101.2, min/max -1.7/102.3
+Update 96/488, T 198656, FPS 123, 50-training-episode: mean/median 62.7/101.4, min/max -1.7/102.3
+Update 97/488, T 200704, FPS 123, 50-training-episode: mean/median 56.6/101.3, min/max -1.6/102.3
+Update 98/488, T 202752, FPS 123, 50-training-episode: mean/median 64.7/101.4, min/max -1.6/102.3
+Update 99/488, T 204800, FPS 123, 50-training-episode: mean/median 60.6/101.3, min/max -1.6/102.3
+Saved ./trained_models/ExptWalking20250806/plume_walk-v15_20250806_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.52_t1000000100000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n1_walking_seed2360885.pt
+Saved ./trained_models/ExptWalking20250806/plume_walk-v15_20250806_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.52_t1000000100000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n1_walking_seed2360885.pt.best
+Update 100/488, T 206848, FPS 123, 50-training-episode: mean/median 56.6/101.3, min/max -1.6/102.3
+Update 101/488, T 208896, FPS 123, 50-training-episode: mean/median 52.4/101.0, min/max -1.6/102.2
+Update 102/488, T 210944, FPS 123, 50-training-episode: mean/median 54.5/101.2, min/max -1.6/102.4
+Update 103/488, T 212992, FPS 124, 50-training-episode: mean/median 48.4/-0.3, min/max -1.5/102.4
+Update 104/488, T 215040, FPS 124, 50-training-episode: mean/median 54.5/101.2, min/max -1.6/102.2
+Update 105/488, T 217088, FPS 123, 50-training-episode: mean/median 58.4/101.3, min/max -1.8/102.3
+Update 106/488, T 219136, FPS 124, 50-training-episode: mean/median 56.5/101.3, min/max -1.8/102.3
+Update 107/488, T 221184, FPS 124, 50-training-episode: mean/median 60.7/101.4, min/max -1.6/102.2
+Update 108/488, T 223232, FPS 124, 50-training-episode: mean/median 50.4/50.8, min/max -1.7/102.2
+Update 109/488, T 225280, FPS 124, 50-training-episode: mean/median 46.3/-0.5, min/max -1.8/102.2
+Update 110/488, T 227328, FPS 124, 50-training-episode: mean/median 46.2/-0.6, min/max -1.8/102.3
+Update 111/488, T 229376, FPS 124, 50-training-episode: mean/median 48.3/-0.2, min/max -1.8/102.3
+Update 112/488, T 231424, FPS 124, 50-training-episode: mean/median 48.3/-0.2, min/max -1.8/102.3
+Update 113/488, T 233472, FPS 124, 50-training-episode: mean/median 54.4/101.2, min/max -1.8/102.3
+Update 114/488, T 235520, FPS 124, 50-training-episode: mean/median 54.4/101.2, min/max -1.7/102.3
+Update 115/488, T 237568, FPS 124, 50-training-episode: mean/median 46.3/-0.3, min/max -1.7/102.3
+Update 116/488, T 239616, FPS 124, 50-training-episode: mean/median 50.4/50.4, min/max -1.7/102.2
+Update 117/488, T 241664, FPS 124, 50-training-episode: mean/median 60.7/101.3, min/max -1.7/102.3
+Update 118/488, T 243712, FPS 124, 50-training-episode: mean/median 48.4/0.3, min/max -1.7/102.3
+Update 119/488, T 245760, FPS 124, 50-training-episode: mean/median 50.4/50.6, min/max -1.5/102.3
+Update 120/488, T 247808, FPS 124, 50-training-episode: mean/median 46.4/0.3, min/max -1.6/102.3
+Update 121/488, T 249856, FPS 124, 50-training-episode: mean/median 38.2/-0.2, min/max -1.8/102.3
+Update 122/488, T 251904, FPS 124, 50-training-episode: mean/median 40.1/-0.3, min/max -1.8/102.2
+Update 123/488, T 253952, FPS 124, 50-training-episode: mean/median 48.4/0.3, min/max -1.8/102.2
+Update 124/488, T 256000, FPS 124, 50-training-episode: mean/median 56.7/101.5, min/max -1.7/102.3
+Update 125/488, T 258048, FPS 124, 50-training-episode: mean/median 62.9/101.5, min/max -1.6/102.3
+Update 126/488, T 260096, FPS 125, 50-training-episode: mean/median 60.7/101.4, min/max -1.6/102.3
+Update 127/488, T 262144, FPS 125, 50-training-episode: mean/median 44.2/-0.6, min/max -1.6/102.3
+Update 128/488, T 264192, FPS 125, 50-training-episode: mean/median 46.4/0.3, min/max -1.6/102.3
+Update 129/488, T 266240, FPS 125, 50-training-episode: mean/median 44.4/-0.0, min/max -1.8/102.3
+Update 130/488, T 268288, FPS 125, 50-training-episode: mean/median 40.2/-0.3, min/max -1.8/102.3
+Update 131/488, T 270336, FPS 125, 50-training-episode: mean/median 42.4/0.1, min/max -1.7/102.3
+Update 132/488, T 272384, FPS 125, 50-training-episode: mean/median 50.5/50.8, min/max -1.8/102.3
+Update 133/488, T 274432, FPS 125, 50-training-episode: mean/median 48.5/0.3, min/max -1.8/102.3
+Update 134/488, T 276480, FPS 125, 50-training-episode: mean/median 52.6/101.4, min/max -1.7/102.3
+Update 135/488, T 278528, FPS 125, 50-training-episode: mean/median 46.4/0.3, min/max -1.7/102.3
+Update 136/488, T 280576, FPS 125, 50-training-episode: mean/median 40.3/-0.1, min/max -1.7/102.3
+Update 137/488, T 282624, FPS 125, 50-training-episode: mean/median 40.2/-0.3, min/max -1.6/102.3
+Update 138/488, T 284672, FPS 125, 50-training-episode: mean/median 40.1/-0.1, min/max -1.6/102.3
+Update 139/488, T 286720, FPS 125, 50-training-episode: mean/median 38.2/0.0, min/max -1.7/102.3
+Update 140/488, T 288768, FPS 125, 50-training-episode: mean/median 32.1/-0.4, min/max -1.7/102.3
+Update 141/488, T 290816, FPS 125, 50-training-episode: mean/median 36.1/-0.5, min/max -1.7/102.3
+Update 142/488, T 292864, FPS 125, 50-training-episode: mean/median 36.0/-0.7, min/max -1.7/102.3
+Update 143/488, T 294912, FPS 125, 50-training-episode: mean/median 23.8/-0.7, min/max -1.7/102.3
+Update 144/488, T 296960, FPS 125, 50-training-episode: mean/median 23.8/-0.7, min/max -1.7/102.4
+Update 145/488, T 299008, FPS 125, 50-training-episode: mean/median 34.1/-0.6, min/max -1.6/102.4
+Update 146/488, T 301056, FPS 125, 50-training-episode: mean/median 34.0/-0.6, min/max -1.7/102.3
+Update 147/488, T 303104, FPS 125, 50-training-episode: mean/median 40.1/-0.3, min/max -1.7/102.3
+Update 148/488, T 305152, FPS 125, 50-training-episode: mean/median 50.5/50.8, min/max -1.7/102.4
+Update 149/488, T 307200, FPS 125, 50-training-episode: mean/median 44.3/-0.1, min/max -1.8/102.4
+Update 150/488, T 309248, FPS 124, 50-training-episode: mean/median 34.1/-0.5, min/max -1.8/102.3
+Update 151/488, T 311296, FPS 124, 50-training-episode: mean/median 25.9/-0.7, min/max -1.7/102.3
+Update 152/488, T 313344, FPS 124, 50-training-episode: mean/median 30.0/-0.4, min/max -2.3/102.3
+Update 153/488, T 315392, FPS 124, 50-training-episode: mean/median 36.1/-0.3, min/max -2.3/102.3
+Update 154/488, T 317440, FPS 124, 50-training-episode: mean/median 32.0/-0.2, min/max -1.8/102.1
+Update 155/488, T 319488, FPS 124, 50-training-episode: mean/median 34.1/-0.1, min/max -1.8/102.0
+Update 156/488, T 321536, FPS 124, 50-training-episode: mean/median 34.1/-0.4, min/max -1.7/102.2
+Update 157/488, T 323584, FPS 124, 50-training-episode: mean/median 29.9/-0.6, min/max -1.8/102.2
+Update 158/488, T 325632, FPS 124, 50-training-episode: mean/median 32.1/-0.3, min/max -1.8/102.4
+Update 159/488, T 327680, FPS 124, 50-training-episode: mean/median 32.0/-0.7, min/max -1.7/102.3
+Update 160/488, T 329728, FPS 124, 50-training-episode: mean/median 30.0/-0.7, min/max -1.7/102.4
+Update 161/488, T 331776, FPS 124, 50-training-episode: mean/median 30.1/-0.2, min/max -1.7/102.4
+Update 162/488, T 333824, FPS 124, 50-training-episode: mean/median 36.4/-0.0, min/max -1.7/102.4
+Update 163/488, T 335872, FPS 124, 50-training-episode: mean/median 34.4/0.3, min/max -1.4/102.3
+Update 164/488, T 337920, FPS 124, 50-training-episode: mean/median 40.3/0.2, min/max -1.8/102.3
+Update 165/488, T 339968, FPS 124, 50-training-episode: mean/median 44.5/0.4, min/max -1.8/102.3
+Update 166/488, T 342016, FPS 124, 50-training-episode: mean/median 44.4/0.3, min/max -1.7/102.4
+Update 167/488, T 344064, FPS 124, 50-training-episode: mean/median 30.1/-0.6, min/max -1.8/102.3
+Update 168/488, T 346112, FPS 124, 50-training-episode: mean/median 32.0/-0.6, min/max -1.8/102.3
+Update 169/488, T 348160, FPS 124, 50-training-episode: mean/median 44.2/-0.2, min/max -1.7/102.3
+Update 170/488, T 350208, FPS 124, 50-training-episode: mean/median 40.1/-0.2, min/max -1.6/102.3
+Update 171/488, T 352256, FPS 123, 50-training-episode: mean/median 32.0/-0.2, min/max -1.6/102.3
+Update 172/488, T 354304, FPS 123, 50-training-episode: mean/median 26.0/-0.2, min/max -1.6/102.1
+Update 173/488, T 356352, FPS 123, 50-training-episode: mean/median 23.9/-0.5, min/max -1.8/102.3
+Update 174/488, T 358400, FPS 123, 50-training-episode: mean/median 21.8/-0.6, min/max -1.8/102.3
+Update 175/488, T 360448, FPS 123, 50-training-episode: mean/median 25.9/-0.5, min/max -1.8/102.3
+Update 176/488, T 362496, FPS 123, 50-training-episode: mean/median 21.8/-0.6, min/max -1.8/102.3
+Update 177/488, T 364544, FPS 123, 50-training-episode: mean/median 28.0/-0.6, min/max -1.7/102.3
+Update 178/488, T 366592, FPS 123, 50-training-episode: mean/median 38.2/-0.5, min/max -1.6/102.3
+Update 179/488, T 368640, FPS 123, 50-training-episode: mean/median 42.3/-0.1, min/max -1.6/102.3
+Update 180/488, T 370688, FPS 123, 50-training-episode: mean/median 38.2/-0.2, min/max -1.6/102.4
+Update 181/488, T 372736, FPS 123, 50-training-episode: mean/median 32.1/-0.2, min/max -1.7/102.4
+Update 182/488, T 374784, FPS 123, 50-training-episode: mean/median 25.9/-0.3, min/max -1.7/102.3
+Update 183/488, T 376832, FPS 123, 50-training-episode: mean/median 28.0/-0.2, min/max -1.7/102.1
+Update 184/488, T 378880, FPS 123, 50-training-episode: mean/median 30.1/-0.2, min/max -1.7/102.3
+Update 185/488, T 380928, FPS 123, 50-training-episode: mean/median 30.1/-0.2, min/max -1.5/102.3
+Update 186/488, T 382976, FPS 123, 50-training-episode: mean/median 28.1/-0.2, min/max -1.7/102.4
+Update 187/488, T 385024, FPS 123, 50-training-episode: mean/median 30.1/-0.2, min/max -1.7/102.4
+Update 188/488, T 387072, FPS 123, 50-training-episode: mean/median 42.2/0.1, min/max -1.8/102.3
+Update 189/488, T 389120, FPS 123, 50-training-episode: mean/median 34.0/-0.5, min/max -1.8/102.3
+Update 190/488, T 391168, FPS 123, 50-training-episode: mean/median 28.0/-0.5, min/max -1.6/102.3
+Update 191/488, T 393216, FPS 123, 50-training-episode: mean/median 32.1/-0.5, min/max -1.7/102.3
+Update 192/488, T 395264, FPS 123, 50-training-episode: mean/median 44.3/0.2, min/max -1.7/102.3
+Update 193/488, T 397312, FPS 123, 50-training-episode: mean/median 46.5/0.3, min/max -1.7/102.3
+Update 194/488, T 399360, FPS 123, 50-training-episode: mean/median 46.6/0.4, min/max -1.5/102.4
+Update 195/488, T 401408, FPS 123, 50-training-episode: mean/median 36.2/-0.4, min/max -1.5/102.4
+Update 196/488, T 403456, FPS 123, 50-training-episode: mean/median 36.1/-0.5, min/max -1.7/102.1
+Update 197/488, T 405504, FPS 123, 50-training-episode: mean/median 40.1/-0.5, min/max -1.7/102.3
+Update 198/488, T 407552, FPS 123, 50-training-episode: mean/median 38.0/-0.8, min/max -1.6/102.3
+Update 199/488, T 409600, FPS 123, 50-training-episode: mean/median 42.1/-0.6, min/max -1.8/102.3
+Saved ./trained_models/ExptWalking20250806/plume_walk-v15_20250806_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.52_t1000000100000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n1_walking_seed2360885.pt
+Update 200/488, T 411648, FPS 123, 50-training-episode: mean/median 48.3/0.2, min/max -1.8/102.4
+Update 201/488, T 413696, FPS 123, 50-training-episode: mean/median 48.4/0.3, min/max -1.7/102.4
+Update 202/488, T 415744, FPS 123, 50-training-episode: mean/median 50.3/50.6, min/max -2.2/102.1
+Update 203/488, T 417792, FPS 123, 50-training-episode: mean/median 54.3/101.2, min/max -2.2/102.2
+Update 204/488, T 419840, FPS 123, 50-training-episode: mean/median 50.3/50.5, min/max -1.8/102.4
+Update 205/488, T 421888, FPS 123, 50-training-episode: mean/median 52.5/101.2, min/max -1.5/102.4
+Update 206/488, T 423936, FPS 123, 50-training-episode: mean/median 46.3/0.3, min/max -1.6/102.2
+Update 207/488, T 425984, FPS 123, 50-training-episode: mean/median 48.4/0.3, min/max -1.6/102.2
+Update 208/488, T 428032, FPS 123, 50-training-episode: mean/median 44.2/0.1, min/max -1.8/102.2
+Update 209/488, T 430080, FPS 123, 50-training-episode: mean/median 46.4/0.3, min/max -1.8/102.3
+Update 210/488, T 432128, FPS 123, 50-training-episode: mean/median 48.4/0.2, min/max -1.7/102.3
+Update 211/488, T 434176, FPS 123, 50-training-episode: mean/median 60.8/101.4, min/max -1.8/102.3
+Update 212/488, T 436224, FPS 123, 50-training-episode: mean/median 64.8/101.4, min/max -1.8/102.3
+Update 213/488, T 438272, FPS 123, 50-training-episode: mean/median 54.6/101.4, min/max -1.5/102.2
+Update 214/488, T 440320, FPS 123, 50-training-episode: mean/median 44.4/0.3, min/max -1.6/102.3
+Update 215/488, T 442368, FPS 123, 50-training-episode: mean/median 36.2/-0.1, min/max -1.6/102.4
+Update 216/488, T 444416, FPS 123, 50-training-episode: mean/median 40.3/-0.1, min/max -1.7/102.4
+Update 217/488, T 446464, FPS 123, 50-training-episode: mean/median 42.3/-0.3, min/max -1.7/102.3
+Update 218/488, T 448512, FPS 122, 50-training-episode: mean/median 25.8/-0.7, min/max -1.7/102.3
+Update 219/488, T 450560, FPS 122, 50-training-episode: mean/median 27.8/-0.7, min/max -1.7/102.2
+Update 220/488, T 452608, FPS 122, 50-training-episode: mean/median 42.3/0.0, min/max -1.7/102.3
+Update 221/488, T 454656, FPS 122, 50-training-episode: mean/median 44.2/-0.5, min/max -1.7/102.3
+Update 222/488, T 456704, FPS 122, 50-training-episode: mean/median 29.9/-0.6, min/max -1.6/102.4
+Update 223/488, T 458752, FPS 122, 50-training-episode: mean/median 30.0/-0.3, min/max -1.7/102.4
+Update 224/488, T 460800, FPS 122, 50-training-episode: mean/median 44.3/0.0, min/max -1.7/102.3
+Update 225/488, T 462848, FPS 122, 50-training-episode: mean/median 46.4/0.1, min/max -1.6/102.3
+Update 226/488, T 464896, FPS 123, 50-training-episode: mean/median 52.5/101.2, min/max -1.6/102.3
+Update 227/488, T 466944, FPS 123, 50-training-episode: mean/median 56.6/101.3, min/max -1.6/102.3
+Update 228/488, T 468992, FPS 123, 50-training-episode: mean/median 48.5/0.2, min/max -1.4/102.3
+Update 229/488, T 471040, FPS 123, 50-training-episode: mean/median 44.4/-0.1, min/max -1.5/102.3
+Update 230/488, T 473088, FPS 123, 50-training-episode: mean/median 44.3/-0.2, min/max -1.7/102.3
+Update 231/488, T 475136, FPS 123, 50-training-episode: mean/median 46.3/-0.1, min/max -1.7/102.3
+Update 232/488, T 477184, FPS 123, 50-training-episode: mean/median 46.4/0.1, min/max -1.7/102.3
+Update 233/488, T 479232, FPS 123, 50-training-episode: mean/median 46.4/0.2, min/max -1.7/102.2
+Update 234/488, T 481280, FPS 123, 50-training-episode: mean/median 46.4/0.2, min/max -1.7/102.3
+Update 235/488, T 483328, FPS 123, 50-training-episode: mean/median 46.4/0.2, min/max -1.5/102.3
+Update 236/488, T 485376, FPS 123, 50-training-episode: mean/median 38.1/-0.6, min/max -1.7/102.3
+Update 237/488, T 487424, FPS 123, 50-training-episode: mean/median 32.0/-0.6, min/max -1.7/102.0
+Update 238/488, T 489472, FPS 123, 50-training-episode: mean/median 40.2/-0.2, min/max -1.7/102.3
+Update 239/488, T 491520, FPS 123, 50-training-episode: mean/median 46.3/-0.1, min/max -1.7/102.3
+Update 240/488, T 493568, FPS 123, 50-training-episode: mean/median 46.4/0.2, min/max -1.6/102.3
+Update 241/488, T 495616, FPS 123, 50-training-episode: mean/median 44.4/0.1, min/max -1.6/102.3
+Update 242/488, T 497664, FPS 123, 50-training-episode: mean/median 40.2/-0.1, min/max -1.7/102.2
+Update 243/488, T 499712, FPS 123, 50-training-episode: mean/median 36.1/-0.6, min/max -1.7/102.2
+Update 244/488, T 501760, FPS 123, 50-training-episode: mean/median 44.4/0.3, min/max -1.6/102.3
+Update 245/488, T 503808, FPS 123, 50-training-episode: mean/median 46.5/0.3, min/max -1.6/102.3
+Update 246/488, T 505856, FPS 123, 50-training-episode: mean/median 33.9/-0.8, min/max -1.8/102.2
+Update 247/488, T 507904, FPS 123, 50-training-episode: mean/median 34.0/-0.7, min/max -1.7/102.3
+Update 248/488, T 509952, FPS 123, 50-training-episode: mean/median 42.3/-0.3, min/max -1.7/102.3
+Update 249/488, T 512000, FPS 123, 50-training-episode: mean/median 46.4/-0.0, min/max -1.6/102.2
+Update 250/488, T 514048, FPS 123, 50-training-episode: mean/median 54.6/101.3, min/max -1.6/102.2
+Update 251/488, T 516096, FPS 123, 50-training-episode: mean/median 60.8/101.4, min/max -1.6/102.3
+Update 252/488, T 518144, FPS 123, 50-training-episode: mean/median 62.8/101.4, min/max -1.5/102.4
+Update 253/488, T 520192, FPS 122, 50-training-episode: mean/median 42.2/-0.6, min/max -1.8/102.4
+Update 254/488, T 522240, FPS 122, 50-training-episode: mean/median 38.1/-0.6, min/max -1.8/102.3
+Update 255/488, T 524288, FPS 122, 50-training-episode: mean/median 48.3/-0.2, min/max -1.8/102.2
+Update 256/488, T 526336, FPS 122, 50-training-episode: mean/median 60.7/101.5, min/max -1.5/102.3
+Update 257/488, T 528384, FPS 122, 50-training-episode: mean/median 73.0/101.5, min/max -1.5/102.3
+Update 258/488, T 530432, FPS 122, 50-training-episode: mean/median 60.7/101.3, min/max -1.4/102.3
+Update 259/488, T 532480, FPS 122, 50-training-episode: mean/median 58.6/101.5, min/max -1.6/102.3
+Update 260/488, T 534528, FPS 122, 50-training-episode: mean/median 50.4/50.2, min/max -1.7/102.3
+Update 261/488, T 536576, FPS 122, 50-training-episode: mean/median 48.3/-0.3, min/max -1.7/102.3
+Update 262/488, T 538624, FPS 122, 50-training-episode: mean/median 50.4/50.4, min/max -1.7/102.4
+Update 263/488, T 540672, FPS 122, 50-training-episode: mean/median 56.6/101.3, min/max -2.1/102.4
+Update 264/488, T 542720, FPS 122, 50-training-episode: mean/median 52.4/101.0, min/max -2.1/102.3
+Update 265/488, T 544768, FPS 122, 50-training-episode: mean/median 52.5/100.9, min/max -1.7/102.3
+Update 266/488, T 546816, FPS 122, 50-training-episode: mean/median 54.6/101.0, min/max -1.7/102.3
+Update 267/488, T 548864, FPS 122, 50-training-episode: mean/median 50.4/50.7, min/max -1.6/102.4
+Update 268/488, T 550912, FPS 122, 50-training-episode: mean/median 42.1/-0.7, min/max -1.6/102.3
+Update 269/488, T 552960, FPS 122, 50-training-episode: mean/median 60.7/101.4, min/max -1.7/102.3
+Update 270/488, T 555008, FPS 122, 50-training-episode: mean/median 54.7/101.3, min/max -1.7/102.4
+Update 271/488, T 557056, FPS 122, 50-training-episode: mean/median 50.7/50.9, min/max -1.7/102.4
+Update 272/488, T 559104, FPS 122, 50-training-episode: mean/median 44.4/0.4, min/max -1.4/102.3
+Update 273/488, T 561152, FPS 122, 50-training-episode: mean/median 58.6/101.2, min/max -1.6/102.3
+Update 274/488, T 563200, FPS 122, 50-training-episode: mean/median 44.4/0.2, min/max -1.6/102.3
+Update 275/488, T 565248, FPS 123, 50-training-episode: mean/median 50.5/50.8, min/max -1.6/102.2
+Update 276/488, T 567296, FPS 123, 50-training-episode: mean/median 50.6/50.9, min/max -1.6/102.2
+Update 277/488, T 569344, FPS 123, 50-training-episode: mean/median 52.7/101.3, min/max -1.8/102.3
+Update 278/488, T 571392, FPS 123, 50-training-episode: mean/median 46.5/0.5, min/max -1.8/102.3
+Update 279/488, T 573440, FPS 123, 50-training-episode: mean/median 40.2/-0.6, min/max -1.7/102.3
+Update 280/488, T 575488, FPS 123, 50-training-episode: mean/median 36.1/-0.6, min/max -1.6/102.4
+Update 281/488, T 577536, FPS 123, 50-training-episode: mean/median 40.1/-0.3, min/max -1.8/102.4
+Update 282/488, T 579584, FPS 123, 50-training-episode: mean/median 50.4/50.6, min/max -1.8/102.4
+Update 283/488, T 581632, FPS 123, 50-training-episode: mean/median 48.5/0.5, min/max -1.4/102.4
+Update 284/488, T 583680, FPS 123, 50-training-episode: mean/median 48.5/0.5, min/max -1.7/102.3
+Update 285/488, T 585728, FPS 123, 50-training-episode: mean/median 42.4/0.0, min/max -2.3/102.3
+Update 286/488, T 587776, FPS 123, 50-training-episode: mean/median 46.4/0.1, min/max -2.3/102.3
+Update 287/488, T 589824, FPS 123, 50-training-episode: mean/median 40.4/0.1, min/max -1.7/102.3
+Update 288/488, T 591872, FPS 123, 50-training-episode: mean/median 30.1/-0.2, min/max -1.8/102.3
+Update 289/488, T 593920, FPS 123, 50-training-episode: mean/median 36.1/-0.6, min/max -1.8/102.3
+Update 290/488, T 595968, FPS 123, 50-training-episode: mean/median 46.3/0.2, min/max -1.7/102.2
+Update 291/488, T 598016, FPS 123, 50-training-episode: mean/median 52.5/101.4, min/max -1.6/102.3
+Update 292/488, T 600064, FPS 123, 50-training-episode: mean/median 48.4/0.3, min/max -1.7/102.3
+Update 293/488, T 602112, FPS 123, 50-training-episode: mean/median 46.4/0.3, min/max -1.7/102.4
+Update 294/488, T 604160, FPS 123, 50-training-episode: mean/median 44.3/-0.5, min/max -1.7/102.4
+Update 295/488, T 606208, FPS 123, 50-training-episode: mean/median 38.2/-0.6, min/max -1.6/102.3
+Update 296/488, T 608256, FPS 123, 50-training-episode: mean/median 44.3/-0.1, min/max -1.7/102.4
+Update 297/488, T 610304, FPS 123, 50-training-episode: mean/median 46.4/0.2, min/max -1.7/102.4
+Update 298/488, T 612352, FPS 123, 50-training-episode: mean/median 46.4/0.2, min/max -1.5/102.3
+Update 299/488, T 614400, FPS 123, 50-training-episode: mean/median 32.0/-0.6, min/max -1.8/102.1
+Saved ./trained_models/ExptWalking20250806/plume_walk-v15_20250806_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.52_t1000000100000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n1_walking_seed2360885.pt
+Update 300/488, T 616448, FPS 123, 50-training-episode: mean/median 32.0/-0.5, min/max -1.8/102.1
+Update 301/488, T 618496, FPS 123, 50-training-episode: mean/median 29.9/-0.7, min/max -1.8/102.3
+Update 302/488, T 620544, FPS 123, 50-training-episode: mean/median 34.0/-0.7, min/max -1.7/102.3
+Update 303/488, T 622592, FPS 123, 50-training-episode: mean/median 32.0/-0.6, min/max -1.5/102.3
+Update 304/488, T 624640, FPS 123, 50-training-episode: mean/median 23.8/-0.6, min/max -1.5/102.3
+Update 305/488, T 626688, FPS 123, 50-training-episode: mean/median 19.8/-0.6, min/max -1.9/102.2
+Update 306/488, T 628736, FPS 123, 50-training-episode: mean/median 19.7/-0.8, min/max -1.9/102.2
+Update 307/488, T 630784, FPS 123, 50-training-episode: mean/median 21.8/-0.7, min/max -1.9/102.3
+Update 308/488, T 632832, FPS 123, 50-training-episode: mean/median 32.1/-0.4, min/max -1.4/102.3
+Update 309/488, T 634880, FPS 123, 50-training-episode: mean/median 36.3/-0.2, min/max -1.5/102.4
+Update 310/488, T 636928, FPS 123, 50-training-episode: mean/median 30.0/-0.6, min/max -1.6/102.4
+Update 311/488, T 638976, FPS 124, 50-training-episode: mean/median 30.0/-0.6, min/max -1.6/102.3
+Update 312/488, T 641024, FPS 124, 50-training-episode: mean/median 28.0/-0.5, min/max -1.7/102.4
+Update 313/488, T 643072, FPS 124, 50-training-episode: mean/median 27.9/-0.6, min/max -1.7/102.4
+Update 314/488, T 645120, FPS 124, 50-training-episode: mean/median 34.0/-0.6, min/max -1.7/102.4
+Update 315/488, T 647168, FPS 124, 50-training-episode: mean/median 21.7/-0.7, min/max -1.6/102.4
+Update 316/488, T 649216, FPS 124, 50-training-episode: mean/median 25.9/-0.5, min/max -1.6/102.1
+Update 317/488, T 651264, FPS 124, 50-training-episode: mean/median 23.8/-0.6, min/max -1.6/102.1
+Update 318/488, T 653312, FPS 124, 50-training-episode: mean/median 23.8/-0.6, min/max -1.6/102.3
+Update 319/488, T 655360, FPS 124, 50-training-episode: mean/median 21.9/-0.5, min/max -1.7/102.3
+Update 320/488, T 657408, FPS 124, 50-training-episode: mean/median 15.7/-0.5, min/max -1.7/102.3
+Update 321/488, T 659456, FPS 124, 50-training-episode: mean/median 19.8/-0.4, min/max -1.8/102.3
+Update 322/488, T 661504, FPS 124, 50-training-episode: mean/median 30.0/-0.5, min/max -1.8/102.4
+Update 323/488, T 663552, FPS 124, 50-training-episode: mean/median 23.8/-0.6, min/max -1.7/102.4
+Update 324/488, T 665600, FPS 124, 50-training-episode: mean/median 15.6/-0.6, min/max -1.8/102.3
+Update 325/488, T 667648, FPS 124, 50-training-episode: mean/median 21.8/-0.5, min/max -1.8/102.3
+Update 326/488, T 669696, FPS 124, 50-training-episode: mean/median 34.1/-0.3, min/max -1.8/102.3
+Update 327/488, T 671744, FPS 124, 50-training-episode: mean/median 40.3/-0.2, min/max -1.7/102.3
+Update 328/488, T 673792, FPS 124, 50-training-episode: mean/median 32.0/-0.7, min/max -1.7/102.3
+Update 329/488, T 675840, FPS 124, 50-training-episode: mean/median 23.8/-0.7, min/max -1.8/102.3
+Update 330/488, T 677888, FPS 124, 50-training-episode: mean/median 38.1/-0.5, min/max -1.8/102.2
+Update 331/488, T 679936, FPS 124, 50-training-episode: mean/median 40.2/-0.5, min/max -1.8/102.2
+Update 332/488, T 681984, FPS 124, 50-training-episode: mean/median 30.0/-0.5, min/max -1.8/102.4
+Update 333/488, T 684032, FPS 124, 50-training-episode: mean/median 19.8/-0.6, min/max -1.8/102.4
+Update 334/488, T 686080, FPS 124, 50-training-episode: mean/median 25.9/-0.4, min/max -1.9/102.4
+Update 335/488, T 688128, FPS 124, 50-training-episode: mean/median 32.1/-0.6, min/max -1.9/102.4
+Update 336/488, T 690176, FPS 124, 50-training-episode: mean/median 38.2/-0.4, min/max -1.7/102.3
+Update 337/488, T 692224, FPS 124, 50-training-episode: mean/median 36.1/-0.6, min/max -1.7/102.3
+Update 338/488, T 694272, FPS 124, 50-training-episode: mean/median 27.9/-0.7, min/max -1.7/102.3
+Update 339/488, T 696320, FPS 124, 50-training-episode: mean/median 21.8/-0.7, min/max -2.0/102.3
+Update 340/488, T 698368, FPS 124, 50-training-episode: mean/median 25.9/-0.6, min/max -2.0/102.2
+Update 341/488, T 700416, FPS 124, 50-training-episode: mean/median 32.0/-0.6, min/max -1.5/102.3
+Update 342/488, T 702464, FPS 124, 50-training-episode: mean/median 32.0/-0.4, min/max -1.5/102.3
+Update 343/488, T 704512, FPS 124, 50-training-episode: mean/median 17.7/-0.6, min/max -1.6/102.3
+Update 344/488, T 706560, FPS 124, 50-training-episode: mean/median 17.8/-0.6, min/max -1.7/102.3
+Update 345/488, T 708608, FPS 124, 50-training-episode: mean/median 28.0/-0.4, min/max -1.7/102.3
+Update 346/488, T 710656, FPS 124, 50-training-episode: mean/median 38.2/-0.3, min/max -1.7/102.3
+Update 347/488, T 712704, FPS 124, 50-training-episode: mean/median 36.1/-0.4, min/max -1.8/102.3
+Update 348/488, T 714752, FPS 125, 50-training-episode: mean/median 28.0/-0.6, min/max -1.8/102.3
+Update 349/488, T 716800, FPS 125, 50-training-episode: mean/median 23.9/-0.6, min/max -1.5/102.4
+Update 350/488, T 718848, FPS 125, 50-training-episode: mean/median 25.9/-0.6, min/max -1.5/102.4
+Update 351/488, T 720896, FPS 125, 50-training-episode: mean/median 23.9/-0.6, min/max -1.6/102.0
+Update 352/488, T 722944, FPS 125, 50-training-episode: mean/median 23.9/-0.4, min/max -1.6/102.3
+Update 353/488, T 724992, FPS 125, 50-training-episode: mean/median 21.9/-0.5, min/max -1.6/102.3
+Update 354/488, T 727040, FPS 125, 50-training-episode: mean/median 23.8/-0.7, min/max -1.8/102.3
+Update 355/488, T 729088, FPS 125, 50-training-episode: mean/median 23.8/-0.7, min/max -1.8/102.1
+Update 356/488, T 731136, FPS 125, 50-training-episode: mean/median 19.7/-0.7, min/max -1.7/102.1
+Update 357/488, T 733184, FPS 125, 50-training-episode: mean/median 21.8/-0.6, min/max -1.7/102.3
+Update 358/488, T 735232, FPS 125, 50-training-episode: mean/median 19.8/-0.6, min/max -1.6/102.3
+Update 359/488, T 737280, FPS 125, 50-training-episode: mean/median 24.0/-0.5, min/max -1.6/102.3
+Update 360/488, T 739328, FPS 125, 50-training-episode: mean/median 32.1/-0.3, min/max -1.6/102.2
+Update 361/488, T 741376, FPS 125, 50-training-episode: mean/median 38.2/-0.1, min/max -1.6/102.2
+Update 362/488, T 743424, FPS 125, 50-training-episode: mean/median 34.0/-0.5, min/max -1.8/102.3
+Update 363/488, T 745472, FPS 125, 50-training-episode: mean/median 36.2/-0.2, min/max -1.8/102.3
+Update 364/488, T 747520, FPS 125, 50-training-episode: mean/median 38.2/-0.3, min/max -1.8/102.2
+Update 365/488, T 749568, FPS 125, 50-training-episode: mean/median 38.2/-0.3, min/max -1.7/102.2
+Update 366/488, T 751616, FPS 125, 50-training-episode: mean/median 40.3/-0.1, min/max -1.7/102.2
+Update 367/488, T 753664, FPS 125, 50-training-episode: mean/median 32.2/-0.5, min/max -1.7/102.3
+Update 368/488, T 755712, FPS 125, 50-training-episode: mean/median 30.1/-0.5, min/max -1.4/102.3
+Update 369/488, T 757760, FPS 125, 50-training-episode: mean/median 34.1/-0.5, min/max -1.8/102.3
+Update 370/488, T 759808, FPS 125, 50-training-episode: mean/median 27.9/-0.6, min/max -1.8/102.3
+Update 371/488, T 761856, FPS 125, 50-training-episode: mean/median 21.8/-0.5, min/max -1.8/102.3
+Update 372/488, T 763904, FPS 125, 50-training-episode: mean/median 21.9/-0.5, min/max -1.8/102.2
+Update 373/488, T 765952, FPS 125, 50-training-episode: mean/median 32.0/-0.3, min/max -1.8/102.2
+Update 374/488, T 768000, FPS 125, 50-training-episode: mean/median 30.0/-0.3, min/max -1.6/102.3
+Update 375/488, T 770048, FPS 125, 50-training-episode: mean/median 30.1/-0.4, min/max -1.6/102.3
+Update 376/488, T 772096, FPS 125, 50-training-episode: mean/median 34.2/-0.3, min/max -1.7/102.2
+Update 377/488, T 774144, FPS 125, 50-training-episode: mean/median 21.8/-0.7, min/max -1.7/102.2
+Update 378/488, T 776192, FPS 125, 50-training-episode: mean/median 29.9/-0.7, min/max -1.7/102.4
+Update 379/488, T 778240, FPS 125, 50-training-episode: mean/median 34.1/-0.4, min/max -1.7/102.4
+Update 380/488, T 780288, FPS 125, 50-training-episode: mean/median 34.1/-0.3, min/max -1.6/102.3
+Update 381/488, T 782336, FPS 125, 50-training-episode: mean/median 29.9/-0.6, min/max -1.8/102.0
+Update 382/488, T 784384, FPS 125, 50-training-episode: mean/median 38.1/-0.5, min/max -1.8/102.3
+Update 383/488, T 786432, FPS 125, 50-training-episode: mean/median 40.2/-0.5, min/max -1.8/102.2
+Update 384/488, T 788480, FPS 125, 50-training-episode: mean/median 48.4/-0.0, min/max -1.8/102.2
+Update 385/488, T 790528, FPS 125, 50-training-episode: mean/median 54.6/101.4, min/max -1.8/102.3
+Update 386/488, T 792576, FPS 125, 50-training-episode: mean/median 40.1/-0.6, min/max -1.6/102.1
+Update 387/488, T 794624, FPS 125, 50-training-episode: mean/median 42.2/-0.4, min/max -1.6/102.3
+Update 388/488, T 796672, FPS 125, 50-training-episode: mean/median 42.3/-0.4, min/max -1.6/102.3
+Update 389/488, T 798720, FPS 125, 50-training-episode: mean/median 42.2/-0.6, min/max -1.7/102.4
+Update 390/488, T 800768, FPS 125, 50-training-episode: mean/median 46.3/-0.3, min/max -1.7/102.4
+Update 391/488, T 802816, FPS 125, 50-training-episode: mean/median 31.9/-0.7, min/max -1.8/102.3
+Update 392/488, T 804864, FPS 125, 50-training-episode: mean/median 38.1/-0.5, min/max -1.8/102.2
+Update 393/488, T 806912, FPS 125, 50-training-episode: mean/median 46.3/-0.1, min/max -1.7/102.4
+Update 394/488, T 808960, FPS 125, 50-training-episode: mean/median 40.2/-0.2, min/max -1.7/102.4
+Update 395/488, T 811008, FPS 125, 50-training-episode: mean/median 46.4/0.2, min/max -1.6/102.4
+Update 396/488, T 813056, FPS 125, 50-training-episode: mean/median 48.3/0.2, min/max -1.7/102.3
+Update 397/488, T 815104, FPS 125, 50-training-episode: mean/median 44.2/-0.4, min/max -1.7/102.3
+Update 398/488, T 817152, FPS 125, 50-training-episode: mean/median 44.3/-0.3, min/max -1.5/102.3
+Update 399/488, T 819200, FPS 125, 50-training-episode: mean/median 46.3/-0.2, min/max -1.8/102.3
+Saved ./trained_models/ExptWalking20250806/plume_walk-v15_20250806_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.52_t1000000100000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n1_walking_seed2360885.pt
+Update 400/488, T 821248, FPS 125, 50-training-episode: mean/median 40.1/-0.5, min/max -1.8/102.3
+Update 401/488, T 823296, FPS 125, 50-training-episode: mean/median 33.9/-0.6, min/max -1.7/102.1
+Update 402/488, T 825344, FPS 125, 50-training-episode: mean/median 34.1/-0.5, min/max -1.7/102.3
+Update 403/488, T 827392, FPS 125, 50-training-episode: mean/median 38.1/-0.6, min/max -1.7/102.3
+Update 404/488, T 829440, FPS 125, 50-training-episode: mean/median 40.3/-0.3, min/max -1.7/102.3
+Update 405/488, T 831488, FPS 125, 50-training-episode: mean/median 48.4/-0.1, min/max -1.4/102.3
+Update 406/488, T 833536, FPS 125, 50-training-episode: mean/median 54.6/101.4, min/max -1.8/102.4
+Update 407/488, T 835584, FPS 125, 50-training-episode: mean/median 28.0/-0.5, min/max -1.8/102.4
+Update 408/488, T 837632, FPS 125, 50-training-episode: mean/median 21.8/-0.7, min/max -1.7/102.3
+Update 409/488, T 839680, FPS 125, 50-training-episode: mean/median 32.0/-0.6, min/max -1.7/102.4
+Update 410/488, T 841728, FPS 125, 50-training-episode: mean/median 25.8/-0.7, min/max -1.7/102.3
+Update 411/488, T 843776, FPS 125, 50-training-episode: mean/median 27.9/-0.6, min/max -1.7/102.3
+Update 412/488, T 845824, FPS 125, 50-training-episode: mean/median 23.8/-0.6, min/max -1.7/102.1
+Update 413/488, T 847872, FPS 125, 50-training-episode: mean/median 32.0/-0.5, min/max -1.5/102.3
+Update 414/488, T 849920, FPS 125, 50-training-episode: mean/median 34.1/-0.3, min/max -1.6/102.3
+Update 415/488, T 851968, FPS 125, 50-training-episode: mean/median 21.9/-0.5, min/max -1.6/102.0
+Update 416/488, T 854016, FPS 125, 50-training-episode: mean/median 25.9/-0.6, min/max -1.6/102.3
+Update 417/488, T 856064, FPS 125, 50-training-episode: mean/median 28.0/-0.4, min/max -1.6/102.3
+Update 418/488, T 858112, FPS 125, 50-training-episode: mean/median 34.2/-0.3, min/max -1.6/102.4
+Update 419/488, T 860160, FPS 125, 50-training-episode: mean/median 40.4/-0.1, min/max -1.4/102.4
+Update 420/488, T 862208, FPS 125, 50-training-episode: mean/median 38.2/-0.4, min/max -1.5/102.3
+Update 421/488, T 864256, FPS 125, 50-training-episode: mean/median 40.2/-0.5, min/max -1.8/102.4
+Update 422/488, T 866304, FPS 125, 50-training-episode: mean/median 38.2/-0.3, min/max -1.8/102.4
+Update 423/488, T 868352, FPS 125, 50-training-episode: mean/median 28.0/-0.3, min/max -1.7/102.4
+Update 424/488, T 870400, FPS 125, 50-training-episode: mean/median 28.0/-0.4, min/max -1.7/102.3
+Update 425/488, T 872448, FPS 125, 50-training-episode: mean/median 34.1/-0.4, min/max -1.8/102.3
+Update 426/488, T 874496, FPS 125, 50-training-episode: mean/median 32.1/-0.4, min/max -1.8/102.3
+Update 427/488, T 876544, FPS 125, 50-training-episode: mean/median 21.8/-0.5, min/max -1.8/102.3
+Update 428/488, T 878592, FPS 125, 50-training-episode: mean/median 19.7/-0.7, min/max -1.6/102.3
+Update 429/488, T 880640, FPS 125, 50-training-episode: mean/median 23.8/-0.5, min/max -1.7/102.2
+Update 430/488, T 882688, FPS 125, 50-training-episode: mean/median 23.7/-0.5, min/max -1.7/102.4
+Update 431/488, T 884736, FPS 125, 50-training-episode: mean/median 27.9/-0.5, min/max -1.7/102.4
+Update 432/488, T 886784, FPS 125, 50-training-episode: mean/median 34.1/-0.3, min/max -1.6/102.2
+Update 433/488, T 888832, FPS 125, 50-training-episode: mean/median 23.8/-0.6, min/max -1.7/102.2
+Update 434/488, T 890880, FPS 125, 50-training-episode: mean/median 19.7/-0.7, min/max -1.7/102.3
+Update 435/488, T 892928, FPS 125, 50-training-episode: mean/median 29.9/-0.7, min/max -1.6/102.3
+Update 436/488, T 894976, FPS 125, 50-training-episode: mean/median 32.0/-0.6, min/max -1.6/102.3
+Update 437/488, T 897024, FPS 125, 50-training-episode: mean/median 23.8/-0.7, min/max -1.6/102.4
+Update 438/488, T 899072, FPS 125, 50-training-episode: mean/median 25.8/-0.8, min/max -1.6/102.4
+Update 439/488, T 901120, FPS 125, 50-training-episode: mean/median 21.8/-0.7, min/max -1.5/102.4
+Update 440/488, T 903168, FPS 125, 50-training-episode: mean/median 19.8/-0.7, min/max -1.5/102.3
+Update 441/488, T 905216, FPS 125, 50-training-episode: mean/median 21.8/-0.6, min/max -1.7/102.1
+Update 442/488, T 907264, FPS 125, 50-training-episode: mean/median 25.8/-0.6, min/max -1.7/102.3
+Update 443/488, T 909312, FPS 125, 50-training-episode: mean/median 23.8/-0.7, min/max -1.7/102.3
+Update 444/488, T 911360, FPS 125, 50-training-episode: mean/median 32.1/-0.6, min/max -1.7/102.4
+Update 445/488, T 913408, FPS 125, 50-training-episode: mean/median 32.1/-0.3, min/max -1.7/102.4
+Update 446/488, T 915456, FPS 125, 50-training-episode: mean/median 36.1/-0.3, min/max -1.7/102.4
+Update 447/488, T 917504, FPS 125, 50-training-episode: mean/median 21.8/-0.6, min/max -1.7/102.4
+Update 448/488, T 919552, FPS 125, 50-training-episode: mean/median 13.6/-0.7, min/max -1.5/102.4
+Update 449/488, T 921600, FPS 125, 50-training-episode: mean/median 17.7/-0.7, min/max -1.5/102.4
+Update 450/488, T 923648, FPS 125, 50-training-episode: mean/median 19.7/-0.7, min/max -1.7/102.3
+Update 451/488, T 925696, FPS 125, 50-training-episode: mean/median 19.6/-0.8, min/max -1.7/102.3
+Update 452/488, T 927744, FPS 125, 50-training-episode: mean/median 23.8/-0.7, min/max -1.6/102.4
+Update 453/488, T 929792, FPS 125, 50-training-episode: mean/median 23.9/-0.5, min/max -1.5/102.4
+Update 454/488, T 931840, FPS 125, 50-training-episode: mean/median 17.7/-0.7, min/max -1.7/102.1
+Update 455/488, T 933888, FPS 125, 50-training-episode: mean/median 23.8/-0.6, min/max -1.7/102.3
+Update 456/488, T 935936, FPS 125, 50-training-episode: mean/median 27.9/-0.6, min/max -1.6/102.3
+Update 457/488, T 937984, FPS 125, 50-training-episode: mean/median 28.0/-0.6, min/max -1.6/102.3
+Update 458/488, T 940032, FPS 125, 50-training-episode: mean/median 21.9/-0.6, min/max -1.7/102.3
+Update 459/488, T 942080, FPS 125, 50-training-episode: mean/median 30.1/-0.5, min/max -1.7/102.3
+Update 460/488, T 944128, FPS 125, 50-training-episode: mean/median 36.1/-0.5, min/max -1.6/102.2
+Update 461/488, T 946176, FPS 125, 50-training-episode: mean/median 38.2/-0.5, min/max -1.7/102.3
+Update 462/488, T 948224, FPS 125, 50-training-episode: mean/median 36.2/-0.3, min/max -1.7/102.4
+Update 463/488, T 950272, FPS 125, 50-training-episode: mean/median 32.1/-0.6, min/max -1.7/102.4
+Update 464/488, T 952320, FPS 125, 50-training-episode: mean/median 27.9/-0.7, min/max -1.7/102.4
+Update 465/488, T 954368, FPS 125, 50-training-episode: mean/median 25.8/-0.6, min/max -1.7/102.3
+Update 466/488, T 956416, FPS 125, 50-training-episode: mean/median 29.9/-0.6, min/max -1.6/102.3
+Update 467/488, T 958464, FPS 125, 50-training-episode: mean/median 32.0/-0.6, min/max -1.7/102.3
+Update 468/488, T 960512, FPS 125, 50-training-episode: mean/median 34.1/-0.5, min/max -1.7/102.3
+Update 469/488, T 962560, FPS 125, 50-training-episode: mean/median 17.7/-0.7, min/max -1.5/102.3
+Update 470/488, T 964608, FPS 125, 50-training-episode: mean/median 15.6/-0.7, min/max -1.4/102.2
+Update 471/488, T 966656, FPS 125, 50-training-episode: mean/median 21.7/-0.7, min/max -1.7/102.2
+Update 472/488, T 968704, FPS 125, 50-training-episode: mean/median 23.8/-0.6, min/max -1.8/102.4
+Update 473/488, T 970752, FPS 125, 50-training-episode: mean/median 21.7/-0.7, min/max -1.8/102.4
+Update 474/488, T 972800, FPS 125, 50-training-episode: mean/median 29.9/-0.7, min/max -1.7/102.4
+Update 475/488, T 974848, FPS 125, 50-training-episode: mean/median 40.2/-0.5, min/max -1.7/102.4
+Update 476/488, T 976896, FPS 125, 50-training-episode: mean/median 40.2/-0.5, min/max -1.7/102.4
+Update 477/488, T 978944, FPS 125, 50-training-episode: mean/median 32.0/-0.6, min/max -1.7/102.4
+Update 478/488, T 980992, FPS 125, 50-training-episode: mean/median 32.0/-0.6, min/max -1.7/102.4
+Update 479/488, T 983040, FPS 125, 50-training-episode: mean/median 36.1/-0.5, min/max -1.7/102.4
+Update 480/488, T 985088, FPS 125, 50-training-episode: mean/median 36.1/-0.5, min/max -1.5/102.4
+Update 481/488, T 987136, FPS 125, 50-training-episode: mean/median 27.9/-0.6, min/max -1.7/102.3
+Update 482/488, T 989184, FPS 125, 50-training-episode: mean/median 21.7/-0.7, min/max -1.6/102.4
+Update 483/488, T 991232, FPS 125, 50-training-episode: mean/median 23.8/-0.7, min/max -1.6/102.3
+Update 484/488, T 993280, FPS 125, 50-training-episode: mean/median 30.0/-0.5, min/max -1.5/102.3
+Update 485/488, T 995328, FPS 125, 50-training-episode: mean/median 34.1/-0.5, min/max -1.6/102.3
+Update 486/488, T 997376, FPS 125, 50-training-episode: mean/median 30.0/-0.5, min/max -1.6/102.3
+Saved ./trained_models/ExptWalking20250806/plume_walk-v15_20250806_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.52_t1000000100000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n1_walking_seed2360885.pt
+Update 487/488, T 999424, FPS 125, 50-training-episode: mean/median 27.9/-0.6, min/max -1.6/102.3
+Stage: 1/2 - noisy3x5b5 b2.0 q0.5 n100000
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16f961640>, 't_val_min': 10.0, 'sim_steps_max': 2200, 'reset_offset_tmax': 30, 'dataset': 'noisy3x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 2.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.5, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 23608, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+noisy3x5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic']
+Saved ./trained_models/ExptWalking20250806/plume_walk-v15_20250806_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.52_t1000000100000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n1_walking_seed2360885.pt
+Update 0/48, T 2048, FPS 88, 50-training-episode: mean/median 1.0/-1.0, min/max -1.8/101.2
+Update 1/48, T 4096, FPS 89, 50-training-episode: mean/median -1.0/-1.1, min/max -1.8/-0.1
+Update 2/48, T 6144, FPS 91, 50-training-episode: mean/median 1.1/-1.0, min/max -1.9/101.2
+Update 3/48, T 8192, FPS 90, 50-training-episode: mean/median -1.1/-1.1, min/max -1.9/-0.2
+Update 4/48, T 10240, FPS 87, 50-training-episode: mean/median -1.2/-1.3, min/max -1.8/-0.4
+Update 5/48, T 12288, FPS 87, 50-training-episode: mean/median -1.1/-1.1, min/max -2.2/-0.2
+Update 6/48, T 14336, FPS 86, 50-training-episode: mean/median -1.1/-1.0, min/max -1.7/-0.3
+Update 7/48, T 16384, FPS 87, 50-training-episode: mean/median -1.1/-1.0, min/max -1.8/-0.1
+Update 8/48, T 18432, FPS 87, 50-training-episode: mean/median 3.1/-0.9, min/max -1.9/101.4
+Update 9/48, T 20480, FPS 88, 50-training-episode: mean/median 1.0/-1.0, min/max -2.0/101.3
+Update 10/48, T 22528, FPS 88, 50-training-episode: mean/median -1.0/-0.9, min/max -1.8/0.0
+Update 11/48, T 24576, FPS 88, 50-training-episode: mean/median -1.2/-1.2, min/max -1.9/-0.4
+Update 12/48, T 26624, FPS 88, 50-training-episode: mean/median -1.0/-1.1, min/max -1.9/-0.1
+Update 13/48, T 28672, FPS 88, 50-training-episode: mean/median -1.1/-1.1, min/max -2.0/-0.2
+Update 14/48, T 30720, FPS 88, 50-training-episode: mean/median 3.0/-1.0, min/max -1.8/101.5
+Update 15/48, T 32768, FPS 87, 50-training-episode: mean/median -1.0/-1.0, min/max -1.9/-0.4
+Update 16/48, T 34816, FPS 87, 50-training-episode: mean/median -1.0/-1.1, min/max -1.8/0.0
+Update 17/48, T 36864, FPS 86, 50-training-episode: mean/median -1.1/-1.1, min/max -1.9/-0.6
+Update 18/48, T 38912, FPS 86, 50-training-episode: mean/median -1.2/-1.3, min/max -1.9/-0.2
+Update 19/48, T 40960, FPS 85, 50-training-episode: mean/median -1.1/-1.0, min/max -1.6/-0.2
+Update 20/48, T 43008, FPS 85, 50-training-episode: mean/median -1.1/-1.1, min/max -1.9/0.0
+Update 21/48, T 45056, FPS 85, 50-training-episode: mean/median 3.1/-1.0, min/max -1.8/101.6
+Update 22/48, T 47104, FPS 85, 50-training-episode: mean/median -1.0/-1.0, min/max -1.9/-0.1
+Update 23/48, T 49152, FPS 85, 50-training-episode: mean/median -1.1/-1.1, min/max -1.7/-0.4
+Update 24/48, T 51200, FPS 85, 50-training-episode: mean/median 1.0/-1.1, min/max -1.9/101.5
+Update 25/48, T 53248, FPS 85, 50-training-episode: mean/median 1.1/-0.9, min/max -1.8/101.3
+Update 26/48, T 55296, FPS 85, 50-training-episode: mean/median -1.0/-1.0, min/max -1.7/0.0
+Update 27/48, T 57344, FPS 86, 50-training-episode: mean/median 1.0/-1.1, min/max -1.8/101.5
+Update 28/48, T 59392, FPS 86, 50-training-episode: mean/median 1.0/-1.1, min/max -1.8/101.3
+Update 29/48, T 61440, FPS 86, 50-training-episode: mean/median -1.0/-1.0, min/max -1.8/-0.2
+Update 30/48, T 63488, FPS 85, 50-training-episode: mean/median -1.1/-1.1, min/max -1.8/0.0
+Update 31/48, T 65536, FPS 86, 50-training-episode: mean/median 0.9/-1.2, min/max -1.9/101.3
+Update 32/48, T 67584, FPS 86, 50-training-episode: mean/median -1.1/-1.1, min/max -1.8/-0.3
+Update 33/48, T 69632, FPS 86, 50-training-episode: mean/median -1.1/-1.1, min/max -1.8/0.2
+Update 34/48, T 71680, FPS 86, 50-training-episode: mean/median -1.0/-0.9, min/max -1.8/-0.1
+Update 35/48, T 73728, FPS 86, 50-training-episode: mean/median 1.1/-0.8, min/max -1.8/101.6
+Update 36/48, T 75776, FPS 86, 50-training-episode: mean/median -1.1/-1.1, min/max -1.9/-0.3
+Update 37/48, T 77824, FPS 86, 50-training-episode: mean/median -1.0/-1.0, min/max -1.8/-0.2
+Update 38/48, T 79872, FPS 86, 50-training-episode: mean/median 1.0/-1.1, min/max -1.7/101.4
+Update 39/48, T 81920, FPS 87, 50-training-episode: mean/median 3.0/-1.0, min/max -1.9/101.6
+Update 40/48, T 83968, FPS 87, 50-training-episode: mean/median 1.0/-1.0, min/max -1.8/101.2
+Update 41/48, T 86016, FPS 87, 50-training-episode: mean/median -1.1/-1.2, min/max -1.9/-0.3
+Update 42/48, T 88064, FPS 86, 50-training-episode: mean/median -1.1/-1.2, min/max -1.8/-0.0
+Update 43/48, T 90112, FPS 86, 50-training-episode: mean/median -1.0/-1.0, min/max -1.7/-0.2
+Update 44/48, T 92160, FPS 86, 50-training-episode: mean/median 2.9/-1.1, min/max -1.8/101.6
+Update 45/48, T 94208, FPS 86, 50-training-episode: mean/median 3.1/-1.0, min/max -1.9/101.3
+Update 46/48, T 96256, FPS 86, 50-training-episode: mean/median -1.0/-0.9, min/max -1.8/-0.2
+Saved ./trained_models/ExptWalking20250806/plume_walk-v15_20250806_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.52_t1000000100000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n1_walking_seed2360885.pt
+Update 47/48, T 98304, FPS 86, 50-training-episode: mean/median 0.9/-1.2, min/max -1.8/101.5
+Saved ./trained_models/ExptWalking20250806//plume_walk-v15_20250806_VRNN_constantx5b5noisy3x5b5_stepoobmetabolic_bx2.52_t1000000100000_q0.40.5_dmx0.80.8_dmn0.70.4_h64_wd0.00012_n1_walking_seed2360885.pt
+Starting evaluation
+Evaluating on dataset: switch15x5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x17fdca550>, 't_val_min': 10.0, 'sim_steps_max': 2200, 'reset_offset_tmax': 30, 'dataset': 'switch15x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 23608, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+switch15x5b5
+Exception: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch15x5b5.pickle'
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 271, in eval_loop
+    env = make_vec_envs(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 132, in make_vec_envs
+    envs = DummyVecEnv(envs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in __init__
+    self.envs = [fn() for fn in env_fns]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in <listcomp>
+    self.envs = [fn() for fn in env_fns]
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 34, in _thunk
+    env = plume_env.PlumeEnvironment(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 116, in __init__
+    self.set_dataset(dataset)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 206, in set_dataset
+    self.data_puffs_all, self.data_wind_all = sim_analysis.load_plume(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 173, in load_plume
+    data_puffs = pandas.read_pickle(puff_filename)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/pickle.py", line 185, in read_pickle
+    with get_handle(
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch15x5b5.pickle'
+Evaluating on dataset: switch30x5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x17fdca1c0>, 't_val_min': 10.0, 'sim_steps_max': 2200, 'reset_offset_tmax': 30, 'dataset': 'switch30x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 23608, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+switch30x5b5
+Exception: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch30x5b5.pickle'
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 271, in eval_loop
+    env = make_vec_envs(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 132, in make_vec_envs
+    envs = DummyVecEnv(envs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in __init__
+    self.envs = [fn() for fn in env_fns]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in <listcomp>
+    self.envs = [fn() for fn in env_fns]
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 34, in _thunk
+    env = plume_env.PlumeEnvironment(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 116, in __init__
+    self.set_dataset(dataset)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 206, in set_dataset
+    self.data_puffs_all, self.data_wind_all = sim_analysis.load_plume(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 173, in load_plume
+    data_puffs = pandas.read_pickle(puff_filename)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/pickle.py", line 185, in read_pickle
+    with get_handle(
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch30x5b5.pickle'
+Evaluating on dataset: switch45x5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16f974f70>, 't_val_min': 10.0, 'sim_steps_max': 2200, 'reset_offset_tmax': 30, 'dataset': 'switch45x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 23608, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+switch45x5b5
+Exception: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch45x5b5.pickle'
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 271, in eval_loop
+    env = make_vec_envs(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 132, in make_vec_envs
+    envs = DummyVecEnv(envs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in __init__
+    self.envs = [fn() for fn in env_fns]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in <listcomp>
+    self.envs = [fn() for fn in env_fns]
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 34, in _thunk
+    env = plume_env.PlumeEnvironment(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 116, in __init__
+    self.set_dataset(dataset)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 206, in set_dataset
+    self.data_puffs_all, self.data_wind_all = sim_analysis.load_plume(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 173, in load_plume
+    data_puffs = pandas.read_pickle(puff_filename)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/pickle.py", line 185, in read_pickle
+    with get_handle(
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch45x5b5.pickle'
+Evaluating on dataset: constantx5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16f974e50>, 't_val_min': 10.0, 'sim_steps_max': 2200, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 23608, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic']
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Exception: name 'nan' is not defined
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 231, in resolve
+    return self.resolvers[key]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 941, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 933, in __missing__
+    raise KeyError(key)
+KeyError: 'nan'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 242, in resolve
+    return self.temps[key]
+KeyError: 'nan'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 289, in eval_loop
+    episode_logs, episode_summaries = evaluate_agent(actor_critic, env, args)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 180, in evaluate_agent
+    obs = env.reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 208, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 284, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 74, in reset
+    obs = self.envs[env_idx].reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 449, in reset
+    observation = self.sense_environment()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 270, in sense_environment
+    odor_observation = sim_analysis.get_concentration_at_tidx(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 263, in get_concentration_at_tidx
+    d = data[data.tidx==tidx].query(q)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4828, in query
+    res = self.eval(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4954, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/eval.py", line 339, in eval
+    parsed_expr = Expr(expr, engine=engine, parser=parser, env=env)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 809, in __init__
+    self.terms = self.parse()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 828, in parse
+    return self._visitor.visit(self.expr)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 419, in visit_Module
+    return self.visit(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 422, in visit_Expr
+    return self.visit(node.value, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 746, in visit_BoolOp
+    return reduce(visitor, operands)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 740, in visitor
+    rhs = self._try_visit_binop(y)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 735, in _try_visit_binop
+    return self.visit(bop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 719, in visit_Compare
+    return self.visit(binop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 535, in visit_BinOp
+    op, op_class, left, right = self._maybe_transform_eq_ne(node)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 453, in _maybe_transform_eq_ne
+    left = self.visit(node.left, side="left")
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 545, in visit_Name
+    return self.term_type(node.id, self.env, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 91, in __init__
+    self._value = self._resolve_name()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 115, in _resolve_name
+    res = self.env.resolve(local_name, is_local=is_local)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 244, in resolve
+    raise UndefinedVariableError(key, is_local) from err
+pandas.errors.UndefinedVariableError: name 'nan' is not defined
+Sparse/birthx: 0.8
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x17fdce730>, 't_val_min': 10.0, 'sim_steps_max': 2200, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 0.8, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 23608, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+Sparsifying puffs to 0.8x
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic']
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Exception: name 'nan' is not defined
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 231, in resolve
+    return self.resolvers[key]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 941, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 933, in __missing__
+    raise KeyError(key)
+KeyError: 'nan'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 242, in resolve
+    return self.temps[key]
+KeyError: 'nan'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 363, in eval_loop
+    episode_logs, episode_summaries = evaluate_agent(actor_critic, env, args)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 180, in evaluate_agent
+    obs = env.reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 208, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 284, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 74, in reset
+    obs = self.envs[env_idx].reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 449, in reset
+    observation = self.sense_environment()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 270, in sense_environment
+    odor_observation = sim_analysis.get_concentration_at_tidx(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 263, in get_concentration_at_tidx
+    d = data[data.tidx==tidx].query(q)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4828, in query
+    res = self.eval(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4954, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/eval.py", line 339, in eval
+    parsed_expr = Expr(expr, engine=engine, parser=parser, env=env)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 809, in __init__
+    self.terms = self.parse()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 828, in parse
+    return self._visitor.visit(self.expr)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 419, in visit_Module
+    return self.visit(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 422, in visit_Expr
+    return self.visit(node.value, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 746, in visit_BoolOp
+    return reduce(visitor, operands)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 740, in visitor
+    rhs = self._try_visit_binop(y)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 735, in _try_visit_binop
+    return self.visit(bop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 719, in visit_Compare
+    return self.visit(binop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 535, in visit_BinOp
+    op, op_class, left, right = self._maybe_transform_eq_ne(node)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 453, in _maybe_transform_eq_ne
+    left = self.visit(node.left, side="left")
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 545, in visit_Name
+    return self.term_type(node.id, self.env, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 91, in __init__
+    self._value = self._resolve_name()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 115, in _resolve_name
+    res = self.env.resolve(local_name, is_local=is_local)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 244, in resolve
+    raise UndefinedVariableError(key, is_local) from err
+pandas.errors.UndefinedVariableError: name 'nan' is not defined
+Sparse/birthx: 0.6
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16f961820>, 't_val_min': 10.0, 'sim_steps_max': 2200, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 0.6, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 23608, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+Sparsifying puffs to 0.6x
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic']
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Episode: 0, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 1, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 2, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 3, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 4, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 5, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 6, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 7, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 8, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 9, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 10, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 11, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 12, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 13, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 14, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 15, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 16, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 17, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 18, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 19, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 20, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 21, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 22, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 23, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 24, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 25, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 26, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 27, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 28, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 29, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 30, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 31, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 32, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 33, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 34, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 35, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 36, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 37, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 38, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 39, reward_sum: -10.0, Steps: 1, Reason: OOB
+Exception: name 'nan' is not defined
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 231, in resolve
+    return self.resolvers[key]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 941, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 933, in __missing__
+    raise KeyError(key)
+KeyError: 'nan'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 242, in resolve
+    return self.temps[key]
+KeyError: 'nan'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 363, in eval_loop
+    episode_logs, episode_summaries = evaluate_agent(actor_critic, env, args)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 180, in evaluate_agent
+    obs = env.reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 208, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 284, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 74, in reset
+    obs = self.envs[env_idx].reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 449, in reset
+    observation = self.sense_environment()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 270, in sense_environment
+    odor_observation = sim_analysis.get_concentration_at_tidx(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 263, in get_concentration_at_tidx
+    d = data[data.tidx==tidx].query(q)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4828, in query
+    res = self.eval(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4954, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/eval.py", line 339, in eval
+    parsed_expr = Expr(expr, engine=engine, parser=parser, env=env)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 809, in __init__
+    self.terms = self.parse()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 828, in parse
+    return self._visitor.visit(self.expr)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 419, in visit_Module
+    return self.visit(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 422, in visit_Expr
+    return self.visit(node.value, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 746, in visit_BoolOp
+    return reduce(visitor, operands)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 740, in visitor
+    rhs = self._try_visit_binop(y)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 735, in _try_visit_binop
+    return self.visit(bop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 719, in visit_Compare
+    return self.visit(binop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 535, in visit_BinOp
+    op, op_class, left, right = self._maybe_transform_eq_ne(node)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 453, in _maybe_transform_eq_ne
+    left = self.visit(node.left, side="left")
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 545, in visit_Name
+    return self.term_type(node.id, self.env, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 91, in __init__
+    self._value = self._resolve_name()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 115, in _resolve_name
+    res = self.env.resolve(local_name, is_local=is_local)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 244, in resolve
+    raise UndefinedVariableError(key, is_local) from err
+pandas.errors.UndefinedVariableError: name 'nan' is not defined
+Sparse/birthx: 0.4
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16f96ab80>, 't_val_min': 10.0, 'sim_steps_max': 2200, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 0.4, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 23608, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+Sparsifying puffs to 0.4x
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic']
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Episode: 0, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 1, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 2, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 3, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 4, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 5, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 6, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 7, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 8, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 9, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 10, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 11, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 12, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 13, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 14, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 15, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 16, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 17, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 18, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 19, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 20, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 21, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 22, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 23, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 24, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 25, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 26, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 27, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 28, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 29, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 30, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 31, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 32, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 33, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 34, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 35, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 36, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 37, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 38, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 39, reward_sum: -10.0, Steps: 1, Reason: OOB
+Exception: name 'nan' is not defined
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 231, in resolve
+    return self.resolvers[key]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 941, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 933, in __missing__
+    raise KeyError(key)
+KeyError: 'nan'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 242, in resolve
+    return self.temps[key]
+KeyError: 'nan'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 363, in eval_loop
+    episode_logs, episode_summaries = evaluate_agent(actor_critic, env, args)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 180, in evaluate_agent
+    obs = env.reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 208, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 284, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 74, in reset
+    obs = self.envs[env_idx].reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 449, in reset
+    observation = self.sense_environment()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 270, in sense_environment
+    odor_observation = sim_analysis.get_concentration_at_tidx(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 263, in get_concentration_at_tidx
+    d = data[data.tidx==tidx].query(q)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4828, in query
+    res = self.eval(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4954, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/eval.py", line 339, in eval
+    parsed_expr = Expr(expr, engine=engine, parser=parser, env=env)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 809, in __init__
+    self.terms = self.parse()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 828, in parse
+    return self._visitor.visit(self.expr)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 419, in visit_Module
+    return self.visit(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 422, in visit_Expr
+    return self.visit(node.value, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 746, in visit_BoolOp
+    return reduce(visitor, operands)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 740, in visitor
+    rhs = self._try_visit_binop(y)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 735, in _try_visit_binop
+    return self.visit(bop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 719, in visit_Compare
+    return self.visit(binop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 535, in visit_BinOp
+    op, op_class, left, right = self._maybe_transform_eq_ne(node)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 453, in _maybe_transform_eq_ne
+    left = self.visit(node.left, side="left")
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 545, in visit_Name
+    return self.term_type(node.id, self.env, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 91, in __init__
+    self._value = self._resolve_name()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 115, in _resolve_name
+    res = self.env.resolve(local_name, is_local=is_local)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 244, in resolve
+    raise UndefinedVariableError(key, is_local) from err
+pandas.errors.UndefinedVariableError: name 'nan' is not defined
+Sparse/birthx: 0.2
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x17fdca2b0>, 't_val_min': 10.0, 'sim_steps_max': 2200, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 0.2, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 23608, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+Sparsifying puffs to 0.2x
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic']
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Episode: 0, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 1, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 2, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 3, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 4, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 5, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 6, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 7, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 8, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 9, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 10, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 11, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 12, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 13, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 14, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 15, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 16, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 17, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 18, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 19, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 20, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 21, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 22, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 23, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 24, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 25, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 26, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 27, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 28, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 29, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 30, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 31, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 32, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 33, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 34, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 35, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 36, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 37, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 38, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 39, reward_sum: -10.0, Steps: 1, Reason: OOB
+Exception: name 'nan' is not defined
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 231, in resolve
+    return self.resolvers[key]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 941, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 933, in __missing__
+    raise KeyError(key)
+KeyError: 'nan'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 242, in resolve
+    return self.temps[key]
+KeyError: 'nan'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 363, in eval_loop
+    episode_logs, episode_summaries = evaluate_agent(actor_critic, env, args)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 180, in evaluate_agent
+    obs = env.reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 208, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 284, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 74, in reset
+    obs = self.envs[env_idx].reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 449, in reset
+    observation = self.sense_environment()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 270, in sense_environment
+    odor_observation = sim_analysis.get_concentration_at_tidx(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 263, in get_concentration_at_tidx
+    d = data[data.tidx==tidx].query(q)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4828, in query
+    res = self.eval(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4954, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/eval.py", line 339, in eval
+    parsed_expr = Expr(expr, engine=engine, parser=parser, env=env)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 809, in __init__
+    self.terms = self.parse()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 828, in parse
+    return self._visitor.visit(self.expr)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 419, in visit_Module
+    return self.visit(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 422, in visit_Expr
+    return self.visit(node.value, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 746, in visit_BoolOp
+    return reduce(visitor, operands)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 740, in visitor
+    rhs = self._try_visit_binop(y)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 735, in _try_visit_binop
+    return self.visit(bop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 719, in visit_Compare
+    return self.visit(binop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 535, in visit_BinOp
+    op, op_class, left, right = self._maybe_transform_eq_ne(node)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 453, in _maybe_transform_eq_ne
+    left = self.visit(node.left, side="left")
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 545, in visit_Name
+    return self.term_type(node.id, self.env, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 91, in __init__
+    self._value = self._resolve_name()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 115, in _resolve_name
+    res = self.env.resolve(local_name, is_local=is_local)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 244, in resolve
+    raise UndefinedVariableError(key, is_local) from err
+pandas.errors.UndefinedVariableError: name 'nan' is not defined
+Evaluating on dataset: noisy3x5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x1727e7940>, 't_val_min': 10.0, 'sim_steps_max': 2200, 'reset_offset_tmax': 30, 'dataset': 'noisy3x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 0.2, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 23608, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+noisy3x5b5
+Sparsifying puffs to 0.2x
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic']
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Exception: name 'nan' is not defined
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 231, in resolve
+    return self.resolvers[key]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 941, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 933, in __missing__
+    raise KeyError(key)
+KeyError: 'nan'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 242, in resolve
+    return self.temps[key]
+KeyError: 'nan'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 289, in eval_loop
+    episode_logs, episode_summaries = evaluate_agent(actor_critic, env, args)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 180, in evaluate_agent
+    obs = env.reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 208, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 284, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 74, in reset
+    obs = self.envs[env_idx].reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 449, in reset
+    observation = self.sense_environment()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 270, in sense_environment
+    odor_observation = sim_analysis.get_concentration_at_tidx(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 263, in get_concentration_at_tidx
+    d = data[data.tidx==tidx].query(q)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4828, in query
+    res = self.eval(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4954, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/eval.py", line 339, in eval
+    parsed_expr = Expr(expr, engine=engine, parser=parser, env=env)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 809, in __init__
+    self.terms = self.parse()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 828, in parse
+    return self._visitor.visit(self.expr)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 419, in visit_Module
+    return self.visit(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 422, in visit_Expr
+    return self.visit(node.value, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 746, in visit_BoolOp
+    return reduce(visitor, operands)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 740, in visitor
+    rhs = self._try_visit_binop(y)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 735, in _try_visit_binop
+    return self.visit(bop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 719, in visit_Compare
+    return self.visit(binop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 535, in visit_BinOp
+    op, op_class, left, right = self._maybe_transform_eq_ne(node)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 453, in _maybe_transform_eq_ne
+    left = self.visit(node.left, side="left")
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 545, in visit_Name
+    return self.term_type(node.id, self.env, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 91, in __init__
+    self._value = self._resolve_name()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 115, in _resolve_name
+    res = self.env.resolve(local_name, is_local=is_local)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 244, in resolve
+    raise UndefinedVariableError(key, is_local) from err
+pandas.errors.UndefinedVariableError: name 'nan' is not defined
+Evaluating on dataset: noisy6x5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16f9904f0>, 't_val_min': 10.0, 'sim_steps_max': 2200, 'reset_offset_tmax': 30, 'dataset': 'noisy6x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 0.2, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 23608, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+noisy6x5b5
+Exception: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_noisy6x5b5.pickle'
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 271, in eval_loop
+    env = make_vec_envs(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 132, in make_vec_envs
+    envs = DummyVecEnv(envs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in __init__
+    self.envs = [fn() for fn in env_fns]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in <listcomp>
+    self.envs = [fn() for fn in env_fns]
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 34, in _thunk
+    env = plume_env.PlumeEnvironment(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 116, in __init__
+    self.set_dataset(dataset)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 206, in set_dataset
+    self.data_puffs_all, self.data_wind_all = sim_analysis.load_plume(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 173, in load_plume
+    data_puffs = pandas.read_pickle(puff_filename)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/pickle.py", line 185, in read_pickle
+    with get_handle(
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_noisy6x5b5.pickle'

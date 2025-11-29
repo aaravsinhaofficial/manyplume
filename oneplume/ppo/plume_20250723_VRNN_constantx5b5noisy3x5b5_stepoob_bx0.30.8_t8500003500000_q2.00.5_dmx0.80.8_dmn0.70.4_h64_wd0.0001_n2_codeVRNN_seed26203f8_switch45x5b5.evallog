@@ -1,0 +1,550 @@
+Namespace(seed=137, algo='ppo', dataset='switch45x5b5', model_fname='/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8.pt', test_episodes=100, viz_episodes=20, fixed_eval=True, test_sparsity=False, diffusionx=1.0)
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x13f4456d0>, 't_val_min': 60.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'switch45x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.8, 'r_shaping': ['step'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': False, 'walk_move': 0.05, 'walk_turn': 3.141592653589793, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': False, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 137, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+switch45x5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step']
+switch45x5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Episode: 0, reward_sum: -36.76189918629825, Steps: 299, Reason: OOT
+Episode: 1, reward_sum: -4.318736091256142, Steps: 131, Reason: OOB
+Episode: 2, reward_sum: -4.538410501554608, Steps: 130, Reason: OOB
+Episode: 3, reward_sum: 108.57397424802184, Steps: 62, Reason: HOME
+Episode: 4, reward_sum: -6.539183273445815, Steps: 221, Reason: OOB
+Episode: 5, reward_sum: 109.6857710070908, Steps: 33, Reason: HOME
+Episode: 6, reward_sum: -2.744198862463236, Steps: 94, Reason: OOB
+Episode: 7, reward_sum: -5.004181093070656, Steps: 172, Reason: OOB
+Episode: 8, reward_sum: 109.16422639042139, Steps: 40, Reason: HOME
+Episode: 9, reward_sum: 108.63681111205369, Steps: 59, Reason: HOME
+Episode: 10, reward_sum: 110.02978210267611, Steps: 17, Reason: HOME
+Episode: 11, reward_sum: -2.981537257321179, Steps: 111, Reason: OOB
+Episode: 12, reward_sum: 109.90209715301171, Steps: 19, Reason: HOME
+Episode: 13, reward_sum: 109.52933753654361, Steps: 21, Reason: HOME
+Episode: 14, reward_sum: 109.07834163820371, Steps: 28, Reason: HOME
+Episode: 15, reward_sum: -2.941781137138605, Steps: 126, Reason: OOB
+Episode: 16, reward_sum: 109.39073371980339, Steps: 16, Reason: HOME
+Episode: 17, reward_sum: 109.09137945342809, Steps: 17, Reason: HOME
+Episode: 18, reward_sum: 8.755909064318985, Steps: 17, Reason: HOME
+Episode: 19, reward_sum: 8.503814111463726, Steps: 17, Reason: HOME
+Episode: 20, reward_sum: -3.057459529489279, Steps: 146, Reason: OOB
+Episode: 21, reward_sum: 8.660250384826213, Steps: 19, Reason: HOME
+Episode: 22, reward_sum: 8.535898437723517, Steps: 15, Reason: HOME
+Episode: 23, reward_sum: 8.283605240285397, Steps: 18, Reason: HOME
+Episode: 24, reward_sum: 8.141196535900235, Steps: 15, Reason: HOME
+Episode: 25, reward_sum: -3.4722617026418447, Steps: 177, Reason: OOB
+Episode: 26, reward_sum: 8.26974497595802, Steps: 19, Reason: HOME
+Episode: 27, reward_sum: 8.124248487874866, Steps: 16, Reason: HOME
+Episode: 28, reward_sum: 7.973234787583351, Steps: 17, Reason: HOME
+Episode: 29, reward_sum: 7.852217396721244, Steps: 15, Reason: HOME
+Episode: 30, reward_sum: -3.279692782089114, Steps: 174, Reason: OOB
+Episode: 31, reward_sum: -3.4167931266129017, Steps: 174, Reason: OOB
+Episode: 32, reward_sum: -3.4023114965530112, Steps: 170, Reason: OOB
+Episode: 33, reward_sum: 8.415965240215883, Steps: 19, Reason: HOME
+Episode: 34, reward_sum: 8.25790362432599, Steps: 17, Reason: HOME
+Episode: 35, reward_sum: -3.30541717633605, Steps: 164, Reason: OOB
+Episode: 36, reward_sum: -3.450186563655734, Steps: 167, Reason: OOB
+Episode: 37, reward_sum: -3.3456009179353714, Steps: 159, Reason: OOB
+Episode: 38, reward_sum: -3.4237954108975828, Steps: 159, Reason: OOB
+Episode: 39, reward_sum: -2.965099392400589, Steps: 137, Reason: OOB
+Episode: 40, reward_sum: -2.8656782060861588, Steps: 129, Reason: OOB
+Episode: 41, reward_sum: -2.9170893505215645, Steps: 130, Reason: OOB
+Episode: 42, reward_sum: -3.083715869113803, Steps: 136, Reason: OOB
+Episode: 43, reward_sum: -3.307460941374302, Steps: 143, Reason: OOB
+Episode: 44, reward_sum: -3.3935689199715853, Steps: 145, Reason: OOB
+Episode: 45, reward_sum: 109.38889036606997, Steps: 24, Reason: HOME
+Episode: 46, reward_sum: 109.03402963886037, Steps: 37, Reason: HOME
+Episode: 47, reward_sum: -3.6846683544572443, Steps: 162, Reason: OOB
+Episode: 48, reward_sum: 109.1521010681754, Steps: 28, Reason: HOME
+Episode: 49, reward_sum: 109.01197684428189, Steps: 29, Reason: HOME
+Episode: 50, reward_sum: 109.31579656735994, Steps: 18, Reason: HOME
+Episode: 51, reward_sum: 109.11880082683638, Steps: 23, Reason: HOME
+Episode: 52, reward_sum: 108.98185196286067, Steps: 24, Reason: HOME
+Episode: 53, reward_sum: 108.90107387676835, Steps: 19, Reason: HOME
+Episode: 54, reward_sum: 8.763852888718247, Steps: 21, Reason: HOME
+Episode: 55, reward_sum: -2.8675784543156624, Steps: 130, Reason: OOB
+Episode: 56, reward_sum: 8.899668981786817, Steps: 19, Reason: HOME
+Episode: 57, reward_sum: 8.833426366501953, Steps: 19, Reason: HOME
+Episode: 58, reward_sum: 8.812754968181252, Steps: 15, Reason: HOME
+Episode: 59, reward_sum: 8.644848246127367, Steps: 16, Reason: HOME
+Episode: 60, reward_sum: -2.848059145733714, Steps: 132, Reason: OOB
+Episode: 61, reward_sum: 8.757480049040169, Steps: 16, Reason: HOME
+Episode: 62, reward_sum: 8.655612035654485, Steps: 16, Reason: HOME
+Episode: 63, reward_sum: 8.582945626229048, Steps: 16, Reason: HOME
+Episode: 64, reward_sum: 8.478488616645336, Steps: 16, Reason: HOME
+Episode: 65, reward_sum: -3.0250692833215, Steps: 141, Reason: OOB
+Episode: 66, reward_sum: 8.595530604245141, Steps: 17, Reason: HOME
+Episode: 67, reward_sum: 8.459992834366858, Steps: 16, Reason: HOME
+Episode: 68, reward_sum: 8.418772934004664, Steps: 15, Reason: HOME
+Episode: 69, reward_sum: 8.297707170248032, Steps: 18, Reason: HOME
+Episode: 70, reward_sum: -2.900065066292882, Steps: 139, Reason: OOB
+Episode: 71, reward_sum: -3.0017341896891594, Steps: 141, Reason: OOB
+Episode: 72, reward_sum: -3.030200032691937, Steps: 141, Reason: OOB
+Episode: 73, reward_sum: 8.533819851931185, Steps: 18, Reason: HOME
+Episode: 74, reward_sum: 8.50745250377804, Steps: 18, Reason: HOME
+Episode: 75, reward_sum: -2.8873044811189175, Steps: 137, Reason: OOB
+Episode: 76, reward_sum: -2.9601946491748095, Steps: 138, Reason: OOB
+Episode: 77, reward_sum: -3.110914030112326, Steps: 142, Reason: OOB
+Episode: 78, reward_sum: -3.0166409098310396, Steps: 139, Reason: OOB
+Episode: 79, reward_sum: 8.648159892647527, Steps: 22, Reason: HOME
+Episode: 80, reward_sum: -4.263582359999418, Steps: 202, Reason: OOB
+Episode: 81, reward_sum: -4.203442083671689, Steps: 196, Reason: OOB
+Episode: 82, reward_sum: -4.319100035354495, Steps: 196, Reason: OOB
+Episode: 83, reward_sum: -4.130984299816191, Steps: 189, Reason: OOB
+Episode: 84, reward_sum: -4.421978326980025, Steps: 212, Reason: OOB
+Episode: 85, reward_sum: 109.22646633908153, Steps: 39, Reason: HOME
+Episode: 86, reward_sum: 109.04454799555242, Steps: 48, Reason: HOME
+Episode: 87, reward_sum: -3.850653997156769, Steps: 183, Reason: OOB
+Episode: 88, reward_sum: 108.9474922772497, Steps: 44, Reason: HOME
+Episode: 89, reward_sum: -3.6366429291665554, Steps: 172, Reason: OOB
+Episode: 90, reward_sum: 109.31514767277986, Steps: 34, Reason: HOME
+Episode: 91, reward_sum: 9.264472842682153, Steps: 37, Reason: HOME
+Episode: 92, reward_sum: 9.031312828417867, Steps: 35, Reason: HOME
+Episode: 93, reward_sum: 9.073960257228464, Steps: 34, Reason: HOME
+Episode: 94, reward_sum: 8.863115219399333, Steps: 35, Reason: HOME
+Episode: 95, reward_sum: 7.52333845384419, Steps: 85, Reason: HOME
+Episode: 96, reward_sum: 9.035112163983285, Steps: 33, Reason: HOME
+Episode: 97, reward_sum: 8.98238044604659, Steps: 33, Reason: HOME
+Episode: 98, reward_sum: 8.976877564564347, Steps: 35, Reason: HOME
+Episode: 99, reward_sum: 8.836797377094626, Steps: 34, Reason: HOME
+Episode: 100, reward_sum: 7.3477691654115915, Steps: 85, Reason: HOME
+Episode: 101, reward_sum: 8.828410125337541, Steps: 33, Reason: HOME
+Episode: 102, reward_sum: 8.853487253189087, Steps: 32, Reason: HOME
+Episode: 103, reward_sum: 8.67764645256102, Steps: 35, Reason: HOME
+Episode: 104, reward_sum: 8.690797766670585, Steps: 32, Reason: HOME
+Episode: 105, reward_sum: 7.43458443810232, Steps: 82, Reason: HOME
+Episode: 106, reward_sum: 8.651712642982602, Steps: 33, Reason: HOME
+Episode: 107, reward_sum: 8.648861557245255, Steps: 33, Reason: HOME
+Episode: 108, reward_sum: 8.616380020976067, Steps: 33, Reason: HOME
+Episode: 109, reward_sum: 8.54077522084117, Steps: 35, Reason: HOME
+Episode: 110, reward_sum: -3.8867185299750417, Steps: 203, Reason: OOB
+Episode: 111, reward_sum: -3.7422951222979464, Steps: 197, Reason: OOB
+Episode: 112, reward_sum: -3.6917484261794016, Steps: 196, Reason: OOB
+Episode: 113, reward_sum: 8.67505541886203, Steps: 34, Reason: HOME
+Episode: 114, reward_sum: 8.658063121140003, Steps: 35, Reason: HOME
+Episode: 115, reward_sum: -4.133153565693647, Steps: 207, Reason: OOB
+Episode: 116, reward_sum: -4.091665282845497, Steps: 206, Reason: OOB
+Episode: 117, reward_sum: -3.631842737318948, Steps: 186, Reason: OOB
+Episode: 118, reward_sum: 7.826430661953054, Steps: 74, Reason: HOME
+Episode: 119, reward_sum: 8.75496678845957, Steps: 37, Reason: HOME
+Episode: 120, reward_sum: -4.1205740831792355, Steps: 195, Reason: OOB
+Episode: 121, reward_sum: -4.013737078756094, Steps: 184, Reason: OOB
+Episode: 122, reward_sum: 7.067476757336408, Steps: 89, Reason: HOME
+Episode: 123, reward_sum: 7.201897520571947, Steps: 86, Reason: HOME
+Episode: 124, reward_sum: -2.630695302708773, Steps: 164, Reason: OOB
+Episode: 125, reward_sum: 8.845807576086372, Steps: 37, Reason: HOME
+Episode: 126, reward_sum: 8.562680996954441, Steps: 43, Reason: HOME
+Episode: 127, reward_sum: 8.53208889439702, Steps: 47, Reason: HOME
+Episode: 128, reward_sum: 8.392986599821597, Steps: 46, Reason: HOME
+Episode: 129, reward_sum: -3.0208069439977407, Steps: 155, Reason: OOB
+Episode: 130, reward_sum: 8.683737644692883, Steps: 35, Reason: HOME
+Episode: 131, reward_sum: 8.744976167567074, Steps: 35, Reason: HOME
+Episode: 132, reward_sum: 8.61018901038915, Steps: 35, Reason: HOME
+Episode: 133, reward_sum: 8.518477130681276, Steps: 36, Reason: HOME
+Episode: 134, reward_sum: -3.028992122039199, Steps: 155, Reason: OOB
+Episode: 135, reward_sum: 7.398056181147695, Steps: 75, Reason: HOME
+Episode: 136, reward_sum: 8.635447992943227, Steps: 33, Reason: HOME
+Episode: 137, reward_sum: 8.669524868018925, Steps: 33, Reason: HOME
+Episode: 138, reward_sum: 8.482827414758503, Steps: 34, Reason: HOME
+Episode: 139, reward_sum: 8.374897252768278, Steps: 35, Reason: HOME
+Episode: 140, reward_sum: -3.6196569775929675, Steps: 187, Reason: OOB
+Episode: 141, reward_sum: 8.553246151655912, Steps: 34, Reason: HOME
+Episode: 142, reward_sum: 8.588152771815658, Steps: 32, Reason: HOME
+Episode: 143, reward_sum: 8.561934554949403, Steps: 32, Reason: HOME
+Episode: 144, reward_sum: 8.432620483450592, Steps: 33, Reason: HOME
+Episode: 145, reward_sum: -3.635624811053276, Steps: 188, Reason: OOB
+Episode: 146, reward_sum: 8.527016513049603, Steps: 35, Reason: HOME
+Episode: 147, reward_sum: 8.528691528365016, Steps: 33, Reason: HOME
+Episode: 148, reward_sum: 8.507114630192518, Steps: 32, Reason: HOME
+Episode: 149, reward_sum: 8.38791773095727, Steps: 34, Reason: HOME
+Episode: 150, reward_sum: 7.910522305872291, Steps: 60, Reason: HOME
+Episode: 151, reward_sum: 7.173056249273941, Steps: 75, Reason: HOME
+Episode: 152, reward_sum: 8.346758257597685, Steps: 36, Reason: HOME
+Episode: 153, reward_sum: 8.42791452538222, Steps: 35, Reason: HOME
+Episode: 154, reward_sum: 8.343532260973006, Steps: 34, Reason: HOME
+Episode: 155, reward_sum: 6.844181494787335, Steps: 85, Reason: HOME
+Episode: 156, reward_sum: 6.916131041012704, Steps: 82, Reason: HOME
+Episode: 157, reward_sum: 7.555763432290405, Steps: 69, Reason: HOME
+Episode: 158, reward_sum: 8.272598252166063, Steps: 39, Reason: HOME
+Episode: 159, reward_sum: 8.227855805307627, Steps: 39, Reason: HOME
+Episode: 160, reward_sum: 7.66748016839847, Steps: 100, Reason: HOME
+Episode: 161, reward_sum: 7.7225471346173435, Steps: 100, Reason: HOME
+Episode: 162, reward_sum: 8.006512953492347, Steps: 90, Reason: HOME
+Episode: 163, reward_sum: 8.233080177102238, Steps: 86, Reason: HOME
+Episode: 164, reward_sum: 6.866116510791471, Steps: 130, Reason: HOME
+Episode: 165, reward_sum: 8.723119200440124, Steps: 57, Reason: HOME
+Episode: 166, reward_sum: 8.584279305767268, Steps: 56, Reason: HOME
+Episode: 167, reward_sum: 8.569399098341819, Steps: 61, Reason: HOME
+Episode: 168, reward_sum: 8.28524420876056, Steps: 61, Reason: HOME
+Episode: 169, reward_sum: -3.6288670022040606, Steps: 211, Reason: OOB
+Episode: 170, reward_sum: 8.505708168027923, Steps: 52, Reason: HOME
+Episode: 171, reward_sum: 8.65879063680768, Steps: 51, Reason: HOME
+Episode: 172, reward_sum: 8.674501720350236, Steps: 51, Reason: HOME
+Episode: 173, reward_sum: 8.548092455137521, Steps: 52, Reason: HOME
+Episode: 174, reward_sum: -3.3778924548532814, Steps: 205, Reason: OOB
+Episode: 175, reward_sum: 8.070446007186547, Steps: 85, Reason: HOME
+Episode: 176, reward_sum: 8.538122415542603, Steps: 51, Reason: HOME
+Episode: 177, reward_sum: 8.575421989895403, Steps: 50, Reason: HOME
+Episode: 178, reward_sum: 8.556876700371504, Steps: 50, Reason: HOME
+Episode: 179, reward_sum: 8.505498310551047, Steps: 51, Reason: HOME
+Episode: 180, reward_sum: 7.962077279575169, Steps: 83, Reason: HOME
+Episode: 181, reward_sum: -3.4589204357471317, Steps: 232, Reason: OOB
+Episode: 182, reward_sum: 8.590657237917185, Steps: 50, Reason: HOME
+Episode: 183, reward_sum: 8.458507584407926, Steps: 49, Reason: HOME
+Episode: 184, reward_sum: 8.440702916122973, Steps: 52, Reason: HOME
+Episode: 185, reward_sum: 7.886685595614836, Steps: 76, Reason: HOME
+Episode: 186, reward_sum: 7.90593161364086, Steps: 86, Reason: HOME
+Episode: 187, reward_sum: 8.466625227592885, Steps: 51, Reason: HOME
+Episode: 188, reward_sum: 8.55495716445148, Steps: 50, Reason: HOME
+Episode: 189, reward_sum: 8.37674071546644, Steps: 52, Reason: HOME
+Episode: 190, reward_sum: 7.707087835951825, Steps: 85, Reason: HOME
+Episode: 191, reward_sum: 7.95821874239482, Steps: 76, Reason: HOME
+Episode: 192, reward_sum: 8.011845520552015, Steps: 83, Reason: HOME
+Episode: 193, reward_sum: 8.471549606649205, Steps: 52, Reason: HOME
+Episode: 194, reward_sum: 8.413664119318128, Steps: 52, Reason: HOME
+Episode: 195, reward_sum: 7.512659792904742, Steps: 95, Reason: HOME
+Episode: 196, reward_sum: 7.708669703453779, Steps: 89, Reason: HOME
+Episode: 197, reward_sum: 7.810742702742573, Steps: 82, Reason: HOME
+Episode: 198, reward_sum: 7.953784118391923, Steps: 83, Reason: HOME
+Episode: 199, reward_sum: 8.463306628225837, Steps: 55, Reason: HOME
+Episode: 200, reward_sum: 5.278092717635445, Steps: 167, Reason: HOME
+Episode: 201, reward_sum: 5.674773496459238, Steps: 156, Reason: HOME
+Episode: 202, reward_sum: 6.493144024163485, Steps: 127, Reason: HOME
+Episode: 203, reward_sum: 7.974888109136373, Steps: 84, Reason: HOME
+Episode: 204, reward_sum: 7.82649186468916, Steps: 90, Reason: HOME
+Episode: 205, reward_sum: 8.662851005792618, Steps: 60, Reason: HOME
+Episode: 206, reward_sum: 8.516791613888927, Steps: 63, Reason: HOME
+Episode: 207, reward_sum: 8.406588946003467, Steps: 68, Reason: HOME
+Episode: 208, reward_sum: 8.304655267158523, Steps: 62, Reason: HOME
+Episode: 209, reward_sum: -3.7923127729445696, Steps: 225, Reason: OOB
+Episode: 210, reward_sum: 8.549639491946436, Steps: 52, Reason: HOME
+Episode: 211, reward_sum: 8.540242458228022, Steps: 56, Reason: HOME
+Episode: 212, reward_sum: 8.480535527924076, Steps: 57, Reason: HOME
+Episode: 213, reward_sum: -2.8266947662923485, Steps: 205, Reason: OOB
+Episode: 214, reward_sum: -3.3894990396220237, Steps: 212, Reason: OOB
+Episode: 215, reward_sum: 7.362673576921225, Steps: 92, Reason: HOME
+Episode: 216, reward_sum: -2.5558837428689003, Steps: 190, Reason: OOB
+Episode: 217, reward_sum: 8.48923262488097, Steps: 57, Reason: HOME
+Episode: 218, reward_sum: 8.475369944993872, Steps: 56, Reason: HOME
+Episode: 219, reward_sum: 8.530820975080132, Steps: 54, Reason: HOME
+Episode: 220, reward_sum: 6.970227309328038, Steps: 111, Reason: HOME
+Episode: 221, reward_sum: 8.638944882899523, Steps: 50, Reason: HOME
+Episode: 222, reward_sum: 8.552072683349252, Steps: 52, Reason: HOME
+Episode: 223, reward_sum: 8.416676739230752, Steps: 50, Reason: HOME
+Episode: 224, reward_sum: 8.403327086940408, Steps: 50, Reason: HOME
+Episode: 225, reward_sum: 8.04166666715173, Steps: 76, Reason: HOME
+Episode: 226, reward_sum: -2.4685996072366834, Steps: 190, Reason: OOB
+Episode: 227, reward_sum: 8.514491319656372, Steps: 51, Reason: HOME
+Episode: 228, reward_sum: 8.595285203307867, Steps: 51, Reason: HOME
+Episode: 229, reward_sum: 8.480735458433628, Steps: 52, Reason: HOME
+Episode: 230, reward_sum: 7.912119406864804, Steps: 78, Reason: HOME
+Episode: 231, reward_sum: 7.986948891397333, Steps: 77, Reason: HOME
+Episode: 232, reward_sum: 8.352071832749061, Steps: 60, Reason: HOME
+Episode: 233, reward_sum: 8.44244092470035, Steps: 53, Reason: HOME
+Episode: 234, reward_sum: 8.435764092719182, Steps: 53, Reason: HOME
+Episode: 235, reward_sum: 5.6945522943278775, Steps: 159, Reason: HOME
+Episode: 236, reward_sum: 7.784867460024543, Steps: 83, Reason: HOME
+Episode: 237, reward_sum: 7.680414210248273, Steps: 87, Reason: HOME
+Episode: 238, reward_sum: 8.05437124746095, Steps: 77, Reason: HOME
+Episode: 239, reward_sum: 8.475272540119477, Steps: 61, Reason: HOME
+Saving /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5.pkl
+Saving /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_summary.csv
+switch45x5b5
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_000.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_001.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_002.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_003.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_004.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_005.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_006.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_007.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_008.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_009.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_010.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_011.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_012.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_013.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_014.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_015.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_016.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_017.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_018.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_019.png
+Namespace(seed=137, algo='ppo', dataset='switch45x5b5', model_fname='/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8.pt', test_episodes=100, viz_episodes=20, fixed_eval=True, test_sparsity=False, diffusionx=1.0)
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x1583fc4c0>, 't_val_min': 60.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'switch45x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.8, 'r_shaping': ['step'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': False, 'walk_move': 0.05, 'walk_turn': 3.141592653589793, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': False, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 137, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+switch45x5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step']
+switch45x5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Episode: 0, reward_sum: -36.76189918629825, Steps: 299, Reason: OOT
+Episode: 1, reward_sum: -4.318736091256142, Steps: 131, Reason: OOB
+Episode: 2, reward_sum: -4.538410501554608, Steps: 130, Reason: OOB
+Episode: 3, reward_sum: 108.57397424802184, Steps: 62, Reason: HOME
+Episode: 4, reward_sum: -6.539183273445815, Steps: 221, Reason: OOB
+Episode: 5, reward_sum: 109.6857710070908, Steps: 33, Reason: HOME
+Episode: 6, reward_sum: -2.744198862463236, Steps: 94, Reason: OOB
+Episode: 7, reward_sum: -5.004181093070656, Steps: 172, Reason: OOB
+Episode: 8, reward_sum: 109.16422639042139, Steps: 40, Reason: HOME
+Episode: 9, reward_sum: 108.63681111205369, Steps: 59, Reason: HOME
+Episode: 10, reward_sum: 110.02978210267611, Steps: 17, Reason: HOME
+Episode: 11, reward_sum: -2.981537257321179, Steps: 111, Reason: OOB
+Episode: 12, reward_sum: 109.90209715301171, Steps: 19, Reason: HOME
+Episode: 13, reward_sum: 109.52933753654361, Steps: 21, Reason: HOME
+Episode: 14, reward_sum: 109.07834163820371, Steps: 28, Reason: HOME
+Episode: 15, reward_sum: -2.941781137138605, Steps: 126, Reason: OOB
+Episode: 16, reward_sum: 109.39073371980339, Steps: 16, Reason: HOME
+Episode: 17, reward_sum: 109.09137945342809, Steps: 17, Reason: HOME
+Episode: 18, reward_sum: 8.755909064318985, Steps: 17, Reason: HOME
+Episode: 19, reward_sum: 8.503814111463726, Steps: 17, Reason: HOME
+Episode: 20, reward_sum: -3.057459529489279, Steps: 146, Reason: OOB
+Episode: 21, reward_sum: 8.660250384826213, Steps: 19, Reason: HOME
+Episode: 22, reward_sum: 8.535898437723517, Steps: 15, Reason: HOME
+Episode: 23, reward_sum: 8.283605240285397, Steps: 18, Reason: HOME
+Episode: 24, reward_sum: 8.141196535900235, Steps: 15, Reason: HOME
+Episode: 25, reward_sum: -3.4722617026418447, Steps: 177, Reason: OOB
+Episode: 26, reward_sum: 8.26974497595802, Steps: 19, Reason: HOME
+Episode: 27, reward_sum: 8.124248487874866, Steps: 16, Reason: HOME
+Episode: 28, reward_sum: 7.973234787583351, Steps: 17, Reason: HOME
+Episode: 29, reward_sum: 7.852217396721244, Steps: 15, Reason: HOME
+Episode: 30, reward_sum: -3.279692782089114, Steps: 174, Reason: OOB
+Episode: 31, reward_sum: -3.4167931266129017, Steps: 174, Reason: OOB
+Episode: 32, reward_sum: -3.4023114965530112, Steps: 170, Reason: OOB
+Episode: 33, reward_sum: 8.415965240215883, Steps: 19, Reason: HOME
+Episode: 34, reward_sum: 8.25790362432599, Steps: 17, Reason: HOME
+Episode: 35, reward_sum: -3.30541717633605, Steps: 164, Reason: OOB
+Episode: 36, reward_sum: -3.450186563655734, Steps: 167, Reason: OOB
+Episode: 37, reward_sum: -3.3456009179353714, Steps: 159, Reason: OOB
+Episode: 38, reward_sum: -3.4237954108975828, Steps: 159, Reason: OOB
+Episode: 39, reward_sum: -2.965099392400589, Steps: 137, Reason: OOB
+Episode: 40, reward_sum: -2.8656782060861588, Steps: 129, Reason: OOB
+Episode: 41, reward_sum: -2.9170893505215645, Steps: 130, Reason: OOB
+Episode: 42, reward_sum: -3.083715869113803, Steps: 136, Reason: OOB
+Episode: 43, reward_sum: -3.307460941374302, Steps: 143, Reason: OOB
+Episode: 44, reward_sum: -3.3935689199715853, Steps: 145, Reason: OOB
+Episode: 45, reward_sum: 109.38889036606997, Steps: 24, Reason: HOME
+Episode: 46, reward_sum: 109.03402963886037, Steps: 37, Reason: HOME
+Episode: 47, reward_sum: -3.6846683544572443, Steps: 162, Reason: OOB
+Episode: 48, reward_sum: 109.1521010681754, Steps: 28, Reason: HOME
+Episode: 49, reward_sum: 109.01197684428189, Steps: 29, Reason: HOME
+Episode: 50, reward_sum: 109.31579656735994, Steps: 18, Reason: HOME
+Episode: 51, reward_sum: 109.11880082683638, Steps: 23, Reason: HOME
+Episode: 52, reward_sum: 108.98185196286067, Steps: 24, Reason: HOME
+Episode: 53, reward_sum: 108.90107387676835, Steps: 19, Reason: HOME
+Episode: 54, reward_sum: 8.763852888718247, Steps: 21, Reason: HOME
+Episode: 55, reward_sum: -2.8675784543156624, Steps: 130, Reason: OOB
+Episode: 56, reward_sum: 8.899668981786817, Steps: 19, Reason: HOME
+Episode: 57, reward_sum: 8.833426366501953, Steps: 19, Reason: HOME
+Episode: 58, reward_sum: 8.812754968181252, Steps: 15, Reason: HOME
+Episode: 59, reward_sum: 8.644848246127367, Steps: 16, Reason: HOME
+Episode: 60, reward_sum: -2.848059145733714, Steps: 132, Reason: OOB
+Episode: 61, reward_sum: 8.757480049040169, Steps: 16, Reason: HOME
+Episode: 62, reward_sum: 8.655612035654485, Steps: 16, Reason: HOME
+Episode: 63, reward_sum: 8.582945626229048, Steps: 16, Reason: HOME
+Episode: 64, reward_sum: 8.478488616645336, Steps: 16, Reason: HOME
+Episode: 65, reward_sum: -3.0250692833215, Steps: 141, Reason: OOB
+Episode: 66, reward_sum: 8.595530604245141, Steps: 17, Reason: HOME
+Episode: 67, reward_sum: 8.459992834366858, Steps: 16, Reason: HOME
+Episode: 68, reward_sum: 8.418772934004664, Steps: 15, Reason: HOME
+Episode: 69, reward_sum: 8.297707170248032, Steps: 18, Reason: HOME
+Episode: 70, reward_sum: -2.900065066292882, Steps: 139, Reason: OOB
+Episode: 71, reward_sum: -3.0017341896891594, Steps: 141, Reason: OOB
+Episode: 72, reward_sum: -3.030200032691937, Steps: 141, Reason: OOB
+Episode: 73, reward_sum: 8.533819851931185, Steps: 18, Reason: HOME
+Episode: 74, reward_sum: 8.50745250377804, Steps: 18, Reason: HOME
+Episode: 75, reward_sum: -2.8873044811189175, Steps: 137, Reason: OOB
+Episode: 76, reward_sum: -2.9601946491748095, Steps: 138, Reason: OOB
+Episode: 77, reward_sum: -3.110914030112326, Steps: 142, Reason: OOB
+Episode: 78, reward_sum: -3.0166409098310396, Steps: 139, Reason: OOB
+Episode: 79, reward_sum: 8.648159892647527, Steps: 22, Reason: HOME
+Episode: 80, reward_sum: -4.263582359999418, Steps: 202, Reason: OOB
+Episode: 81, reward_sum: -4.203442083671689, Steps: 196, Reason: OOB
+Episode: 82, reward_sum: -4.319100035354495, Steps: 196, Reason: OOB
+Episode: 83, reward_sum: -4.130984299816191, Steps: 189, Reason: OOB
+Episode: 84, reward_sum: -4.421978326980025, Steps: 212, Reason: OOB
+Episode: 85, reward_sum: 109.22646633908153, Steps: 39, Reason: HOME
+Episode: 86, reward_sum: 109.04454799555242, Steps: 48, Reason: HOME
+Episode: 87, reward_sum: -3.850653997156769, Steps: 183, Reason: OOB
+Episode: 88, reward_sum: 108.9474922772497, Steps: 44, Reason: HOME
+Episode: 89, reward_sum: -3.6366429291665554, Steps: 172, Reason: OOB
+Episode: 90, reward_sum: 109.31514767277986, Steps: 34, Reason: HOME
+Episode: 91, reward_sum: 9.264472842682153, Steps: 37, Reason: HOME
+Episode: 92, reward_sum: 9.031312828417867, Steps: 35, Reason: HOME
+Episode: 93, reward_sum: 9.073960257228464, Steps: 34, Reason: HOME
+Episode: 94, reward_sum: 8.863115219399333, Steps: 35, Reason: HOME
+Episode: 95, reward_sum: 7.52333845384419, Steps: 85, Reason: HOME
+Episode: 96, reward_sum: 9.035112163983285, Steps: 33, Reason: HOME
+Episode: 97, reward_sum: 8.98238044604659, Steps: 33, Reason: HOME
+Episode: 98, reward_sum: 8.976877564564347, Steps: 35, Reason: HOME
+Episode: 99, reward_sum: 8.836797377094626, Steps: 34, Reason: HOME
+Episode: 100, reward_sum: 7.3477691654115915, Steps: 85, Reason: HOME
+Episode: 101, reward_sum: 8.828410125337541, Steps: 33, Reason: HOME
+Episode: 102, reward_sum: 8.853487253189087, Steps: 32, Reason: HOME
+Episode: 103, reward_sum: 8.67764645256102, Steps: 35, Reason: HOME
+Episode: 104, reward_sum: 8.690797766670585, Steps: 32, Reason: HOME
+Episode: 105, reward_sum: 7.43458443810232, Steps: 82, Reason: HOME
+Episode: 106, reward_sum: 8.651712642982602, Steps: 33, Reason: HOME
+Episode: 107, reward_sum: 8.648861557245255, Steps: 33, Reason: HOME
+Episode: 108, reward_sum: 8.616380020976067, Steps: 33, Reason: HOME
+Episode: 109, reward_sum: 8.54077522084117, Steps: 35, Reason: HOME
+Episode: 110, reward_sum: -3.8867185299750417, Steps: 203, Reason: OOB
+Episode: 111, reward_sum: -3.7422951222979464, Steps: 197, Reason: OOB
+Episode: 112, reward_sum: -3.6917484261794016, Steps: 196, Reason: OOB
+Episode: 113, reward_sum: 8.67505541886203, Steps: 34, Reason: HOME
+Episode: 114, reward_sum: 8.658063121140003, Steps: 35, Reason: HOME
+Episode: 115, reward_sum: -4.133153565693647, Steps: 207, Reason: OOB
+Episode: 116, reward_sum: -4.091665282845497, Steps: 206, Reason: OOB
+Episode: 117, reward_sum: -3.631842737318948, Steps: 186, Reason: OOB
+Episode: 118, reward_sum: 7.826430661953054, Steps: 74, Reason: HOME
+Episode: 119, reward_sum: 8.75496678845957, Steps: 37, Reason: HOME
+Episode: 120, reward_sum: -4.1205740831792355, Steps: 195, Reason: OOB
+Episode: 121, reward_sum: -4.013737078756094, Steps: 184, Reason: OOB
+Episode: 122, reward_sum: 7.067476757336408, Steps: 89, Reason: HOME
+Episode: 123, reward_sum: 7.201897520571947, Steps: 86, Reason: HOME
+Episode: 124, reward_sum: -2.630695302708773, Steps: 164, Reason: OOB
+Episode: 125, reward_sum: 8.845807576086372, Steps: 37, Reason: HOME
+Episode: 126, reward_sum: 8.562680996954441, Steps: 43, Reason: HOME
+Episode: 127, reward_sum: 8.53208889439702, Steps: 47, Reason: HOME
+Episode: 128, reward_sum: 8.392986599821597, Steps: 46, Reason: HOME
+Episode: 129, reward_sum: -3.0208069439977407, Steps: 155, Reason: OOB
+Episode: 130, reward_sum: 8.683737644692883, Steps: 35, Reason: HOME
+Episode: 131, reward_sum: 8.744976167567074, Steps: 35, Reason: HOME
+Episode: 132, reward_sum: 8.61018901038915, Steps: 35, Reason: HOME
+Episode: 133, reward_sum: 8.518477130681276, Steps: 36, Reason: HOME
+Episode: 134, reward_sum: -3.028992122039199, Steps: 155, Reason: OOB
+Episode: 135, reward_sum: 7.398056181147695, Steps: 75, Reason: HOME
+Episode: 136, reward_sum: 8.635447992943227, Steps: 33, Reason: HOME
+Episode: 137, reward_sum: 8.669524868018925, Steps: 33, Reason: HOME
+Episode: 138, reward_sum: 8.482827414758503, Steps: 34, Reason: HOME
+Episode: 139, reward_sum: 8.374897252768278, Steps: 35, Reason: HOME
+Episode: 140, reward_sum: -3.6196569775929675, Steps: 187, Reason: OOB
+Episode: 141, reward_sum: 8.553246151655912, Steps: 34, Reason: HOME
+Episode: 142, reward_sum: 8.588152771815658, Steps: 32, Reason: HOME
+Episode: 143, reward_sum: 8.561934554949403, Steps: 32, Reason: HOME
+Episode: 144, reward_sum: 8.432620483450592, Steps: 33, Reason: HOME
+Episode: 145, reward_sum: -3.635624811053276, Steps: 188, Reason: OOB
+Episode: 146, reward_sum: 8.527016513049603, Steps: 35, Reason: HOME
+Episode: 147, reward_sum: 8.528691528365016, Steps: 33, Reason: HOME
+Episode: 148, reward_sum: 8.507114630192518, Steps: 32, Reason: HOME
+Episode: 149, reward_sum: 8.38791773095727, Steps: 34, Reason: HOME
+Episode: 150, reward_sum: 7.910522305872291, Steps: 60, Reason: HOME
+Episode: 151, reward_sum: 7.173056249273941, Steps: 75, Reason: HOME
+Episode: 152, reward_sum: 8.346758257597685, Steps: 36, Reason: HOME
+Episode: 153, reward_sum: 8.42791452538222, Steps: 35, Reason: HOME
+Episode: 154, reward_sum: 8.343532260973006, Steps: 34, Reason: HOME
+Episode: 155, reward_sum: 6.844181494787335, Steps: 85, Reason: HOME
+Episode: 156, reward_sum: 6.916131041012704, Steps: 82, Reason: HOME
+Episode: 157, reward_sum: 7.555763432290405, Steps: 69, Reason: HOME
+Episode: 158, reward_sum: 8.272598252166063, Steps: 39, Reason: HOME
+Episode: 159, reward_sum: 8.227855805307627, Steps: 39, Reason: HOME
+Episode: 160, reward_sum: 7.66748016839847, Steps: 100, Reason: HOME
+Episode: 161, reward_sum: 7.7225471346173435, Steps: 100, Reason: HOME
+Episode: 162, reward_sum: 8.006512953492347, Steps: 90, Reason: HOME
+Episode: 163, reward_sum: 8.233080177102238, Steps: 86, Reason: HOME
+Episode: 164, reward_sum: 6.866116510791471, Steps: 130, Reason: HOME
+Episode: 165, reward_sum: 8.723119200440124, Steps: 57, Reason: HOME
+Episode: 166, reward_sum: 8.584279305767268, Steps: 56, Reason: HOME
+Episode: 167, reward_sum: 8.569399098341819, Steps: 61, Reason: HOME
+Episode: 168, reward_sum: 8.28524420876056, Steps: 61, Reason: HOME
+Episode: 169, reward_sum: -3.6288670022040606, Steps: 211, Reason: OOB
+Episode: 170, reward_sum: 8.505708168027923, Steps: 52, Reason: HOME
+Episode: 171, reward_sum: 8.65879063680768, Steps: 51, Reason: HOME
+Episode: 172, reward_sum: 8.674501720350236, Steps: 51, Reason: HOME
+Episode: 173, reward_sum: 8.548092455137521, Steps: 52, Reason: HOME
+Episode: 174, reward_sum: -3.3778924548532814, Steps: 205, Reason: OOB
+Episode: 175, reward_sum: 8.070446007186547, Steps: 85, Reason: HOME
+Episode: 176, reward_sum: 8.538122415542603, Steps: 51, Reason: HOME
+Episode: 177, reward_sum: 8.575421989895403, Steps: 50, Reason: HOME
+Episode: 178, reward_sum: 8.556876700371504, Steps: 50, Reason: HOME
+Episode: 179, reward_sum: 8.505498310551047, Steps: 51, Reason: HOME
+Episode: 180, reward_sum: 7.962077279575169, Steps: 83, Reason: HOME
+Episode: 181, reward_sum: -3.4589204357471317, Steps: 232, Reason: OOB
+Episode: 182, reward_sum: 8.590657237917185, Steps: 50, Reason: HOME
+Episode: 183, reward_sum: 8.458507584407926, Steps: 49, Reason: HOME
+Episode: 184, reward_sum: 8.440702916122973, Steps: 52, Reason: HOME
+Episode: 185, reward_sum: 7.886685595614836, Steps: 76, Reason: HOME
+Episode: 186, reward_sum: 7.90593161364086, Steps: 86, Reason: HOME
+Episode: 187, reward_sum: 8.466625227592885, Steps: 51, Reason: HOME
+Episode: 188, reward_sum: 8.55495716445148, Steps: 50, Reason: HOME
+Episode: 189, reward_sum: 8.37674071546644, Steps: 52, Reason: HOME
+Episode: 190, reward_sum: 7.707087835951825, Steps: 85, Reason: HOME
+Episode: 191, reward_sum: 7.95821874239482, Steps: 76, Reason: HOME
+Episode: 192, reward_sum: 8.011845520552015, Steps: 83, Reason: HOME
+Episode: 193, reward_sum: 8.471549606649205, Steps: 52, Reason: HOME
+Episode: 194, reward_sum: 8.413664119318128, Steps: 52, Reason: HOME
+Episode: 195, reward_sum: 7.512659792904742, Steps: 95, Reason: HOME
+Episode: 196, reward_sum: 7.708669703453779, Steps: 89, Reason: HOME
+Episode: 197, reward_sum: 7.810742702742573, Steps: 82, Reason: HOME
+Episode: 198, reward_sum: 7.953784118391923, Steps: 83, Reason: HOME
+Episode: 199, reward_sum: 8.463306628225837, Steps: 55, Reason: HOME
+Episode: 200, reward_sum: 5.278092717635445, Steps: 167, Reason: HOME
+Episode: 201, reward_sum: 5.674773496459238, Steps: 156, Reason: HOME
+Episode: 202, reward_sum: 6.493144024163485, Steps: 127, Reason: HOME
+Episode: 203, reward_sum: 7.974888109136373, Steps: 84, Reason: HOME
+Episode: 204, reward_sum: 7.82649186468916, Steps: 90, Reason: HOME
+Episode: 205, reward_sum: 8.662851005792618, Steps: 60, Reason: HOME
+Episode: 206, reward_sum: 8.516791613888927, Steps: 63, Reason: HOME
+Episode: 207, reward_sum: 8.406588946003467, Steps: 68, Reason: HOME
+Episode: 208, reward_sum: 8.304655267158523, Steps: 62, Reason: HOME
+Episode: 209, reward_sum: -3.7923127729445696, Steps: 225, Reason: OOB
+Episode: 210, reward_sum: 8.549639491946436, Steps: 52, Reason: HOME
+Episode: 211, reward_sum: 8.540242458228022, Steps: 56, Reason: HOME
+Episode: 212, reward_sum: 8.480535527924076, Steps: 57, Reason: HOME
+Episode: 213, reward_sum: -2.8266947662923485, Steps: 205, Reason: OOB
+Episode: 214, reward_sum: -3.3894990396220237, Steps: 212, Reason: OOB
+Episode: 215, reward_sum: 7.362673576921225, Steps: 92, Reason: HOME
+Episode: 216, reward_sum: -2.5558837428689003, Steps: 190, Reason: OOB
+Episode: 217, reward_sum: 8.48923262488097, Steps: 57, Reason: HOME
+Episode: 218, reward_sum: 8.475369944993872, Steps: 56, Reason: HOME
+Episode: 219, reward_sum: 8.530820975080132, Steps: 54, Reason: HOME
+Episode: 220, reward_sum: 6.970227309328038, Steps: 111, Reason: HOME
+Episode: 221, reward_sum: 8.638944882899523, Steps: 50, Reason: HOME
+Episode: 222, reward_sum: 8.552072683349252, Steps: 52, Reason: HOME
+Episode: 223, reward_sum: 8.416676739230752, Steps: 50, Reason: HOME
+Episode: 224, reward_sum: 8.403327086940408, Steps: 50, Reason: HOME
+Episode: 225, reward_sum: 8.04166666715173, Steps: 76, Reason: HOME
+Episode: 226, reward_sum: -2.4685996072366834, Steps: 190, Reason: OOB
+Episode: 227, reward_sum: 8.514491319656372, Steps: 51, Reason: HOME
+Episode: 228, reward_sum: 8.595285203307867, Steps: 51, Reason: HOME
+Episode: 229, reward_sum: 8.480735458433628, Steps: 52, Reason: HOME
+Episode: 230, reward_sum: 7.912119406864804, Steps: 78, Reason: HOME
+Episode: 231, reward_sum: 7.986948891397333, Steps: 77, Reason: HOME
+Episode: 232, reward_sum: 8.352071832749061, Steps: 60, Reason: HOME
+Episode: 233, reward_sum: 8.44244092470035, Steps: 53, Reason: HOME
+Episode: 234, reward_sum: 8.435764092719182, Steps: 53, Reason: HOME
+Episode: 235, reward_sum: 5.6945522943278775, Steps: 159, Reason: HOME
+Episode: 236, reward_sum: 7.784867460024543, Steps: 83, Reason: HOME
+Episode: 237, reward_sum: 7.680414210248273, Steps: 87, Reason: HOME
+Episode: 238, reward_sum: 8.05437124746095, Steps: 77, Reason: HOME
+Episode: 239, reward_sum: 8.475272540119477, Steps: 61, Reason: HOME
+Saving /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5.pkl
+Saving /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_summary.csv
+switch45x5b5
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_000.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_001.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_002.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_003.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_004.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_005.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_006.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_007.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_008.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_009.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_010.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_011.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_012.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_013.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_014.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_015.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_016.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_017.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_018.png
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed26203f8//switch45x5b5_019.png

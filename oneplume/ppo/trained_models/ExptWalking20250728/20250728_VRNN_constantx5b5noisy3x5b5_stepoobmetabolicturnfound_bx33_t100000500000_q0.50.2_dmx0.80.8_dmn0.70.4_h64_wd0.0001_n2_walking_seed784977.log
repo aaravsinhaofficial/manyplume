@@ -1,0 +1,1070 @@
+CUDA: False
+Namespace(algo='ppo', lr=0.0003, eps=1e-05, alpha=0.99, gamma=0.99, use_gae=True, gae_lambda=0.95, entropy_coef=0.005, value_loss_coef=0.5, max_grad_norm=0.5, seed=7849, cuda_deterministic=False, num_processes=2, num_steps=2048, ppo_epoch=10, num_mini_batch=2, clip_param=0.2, log_interval=1, save_interval=100, no_cuda=False, use_proper_time_limits=False, recurrent_policy=True, use_linear_lr_decay=True, env_name='plume', log_dir='/tmp/gym/', save_dir='./trained_models/ExptWalking20250728/', dynamic=False, eval_type='fixed', eval_episodes=20, eval_interval=None, weight_decay=0.0001, rnn_type='VRNN', hidden_size=64, betadist=False, stacking=0, masking=None, stride=1, dataset=['constantx5b5', 'noisy3x5b5'], num_env_steps=[100000, 500000], qvar=[0.5, 0.2], birthx=[3.0, 3.0], diff_max=[0.8, 0.8], diff_min=[0.7, 0.4], birthx_max=1.0, dryrun=False, curriculum=False, turnx=1.0, movex=1.0, auto_movex=False, auto_reward=False, loc_algo='uniform', time_algo='uniform', env_dt=0.04, outsuffix='20250728_VRNN_constantx5b5noisy3x5b5_stepoobmetabolicturnfound_bx33_t100000500000_q0.50.2_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_walking_seed784977', walking=True, radiusx=1.0, diffusion_min=1.0, diffusion_max=1.0, r_shaping=['step', 'oob', 'metabolic', 'turn', 'found'], wind_rel=True, action_feedback=False, squash_action=True, flipping=True, odor_scaling=True, stray_max=2.0, test_episodes=50, viz_episodes=10, model_fname='', obs_noise=0.0, act_noise=0.0, cuda=False)
+PPO Args ---> Namespace(algo='ppo', lr=0.0003, eps=1e-05, alpha=0.99, gamma=0.99, use_gae=True, gae_lambda=0.95, entropy_coef=0.005, value_loss_coef=0.5, max_grad_norm=0.5, seed=7849, cuda_deterministic=False, num_processes=2, num_steps=2048, ppo_epoch=10, num_mini_batch=2, clip_param=0.2, log_interval=1, save_interval=100, no_cuda=False, use_proper_time_limits=False, recurrent_policy=True, use_linear_lr_decay=True, env_name='plume', log_dir='/tmp/gym/', save_dir='./trained_models/ExptWalking20250728/', dynamic=False, eval_type='fixed', eval_episodes=20, eval_interval=None, weight_decay=0.0001, rnn_type='VRNN', hidden_size=64, betadist=False, stacking=0, masking=None, stride=1, dataset=['constantx5b5', 'noisy3x5b5'], num_env_steps=[100000, 500000], qvar=[0.5, 0.2], birthx=[3.0, 3.0], diff_max=[0.8, 0.8], diff_min=[0.7, 0.4], birthx_max=1.0, dryrun=False, curriculum=False, turnx=1.0, movex=1.0, auto_movex=False, auto_reward=False, loc_algo='uniform', time_algo='uniform', env_dt=0.04, outsuffix='20250728_VRNN_constantx5b5noisy3x5b5_stepoobmetabolicturnfound_bx33_t100000500000_q0.50.2_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_walking_seed784977', walking=True, radiusx=1.0, diffusion_min=1.0, diffusion_max=1.0, r_shaping=['step', 'oob', 'metabolic', 'turn', 'found'], wind_rel=True, action_feedback=False, squash_action=True, flipping=True, odor_scaling=True, stray_max=2.0, test_episodes=50, viz_episodes=10, model_fname='', obs_noise=0.0, act_noise=0.0, cuda=False)
+Using Precomputed Plume...
+Using Precomputed Plume...
+2025-07-28 18:54:35.594 python[39977:48774548] +[NSXPCSharedListener endpointForReply:withListenerName:replyErrorCode:]: an error occurred while attempting to obtain endpoint for listener 'ClientCallsAuxiliary': Connection invalid
+2025-07-28 18:54:35.594 python[39978:48774549] +[NSXPCSharedListener endpointForReply:withListenerName:replyErrorCode:]: an error occurred while attempting to obtain endpoint for listener 'ClientCallsAuxiliary': Connection invalid
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16b0d5e20>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 3.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.5, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.7, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+wind: t_val_diff 0.0400000000000027 env_dt 0.04
+puffs: t_val_diff 0.0400000000000027 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic', 'turn', 'found']
+Using MLPBase
+hidden_size 64
+Using VanillaRNN
+Saved ./trained_models/ExptWalking20250728//plume_20250728_VRNN_constantx5b5noisy3x5b5_stepoobmetabolicturnfound_bx33_t100000500000_q0.50.2_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_walking_seed784977.pt.start
+Stage: 0/2 - constantx5b5 b3.0 q0.5 n100000
+Saved ./trained_models/ExptWalking20250728/plume_20250728_VRNN_constantx5b5noisy3x5b5_stepoobmetabolicturnfound_bx33_t100000500000_q0.50.2_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_walking_seed784977.pt
+Update 0/24, T 4096, FPS 417, 30-training-episode: mean/median -15.4/-12.3, min/max -46.8/-5.3
+Update 1/24, T 8192, FPS 424, 50-training-episode: mean/median -13.8/-13.0, min/max -33.6/87.4
+Update 2/24, T 12288, FPS 419, 50-training-episode: mean/median -7.8/-11.9, min/max -30.0/90.6
+Update 3/24, T 16384, FPS 421, 50-training-episode: mean/median -12.9/-11.3, min/max -34.3/-2.8
+Update 4/24, T 20480, FPS 419, 50-training-episode: mean/median -9.4/-9.7, min/max -27.8/87.2
+Update 5/24, T 24576, FPS 421, 50-training-episode: mean/median -5.0/-11.8, min/max -32.9/94.5
+Update 6/24, T 28672, FPS 423, 50-training-episode: mean/median -8.3/-12.0, min/max -32.9/85.6
+Update 7/24, T 32768, FPS 423, 50-training-episode: mean/median -4.5/-8.7, min/max -31.7/88.5
+Update 8/24, T 36864, FPS 423, 50-training-episode: mean/median -2.1/-9.3, min/max -32.7/88.8
+Update 9/24, T 40960, FPS 423, 50-training-episode: mean/median -5.5/-10.2, min/max -32.7/85.6
+Update 10/24, T 45056, FPS 423, 50-training-episode: mean/median 5.3/-12.5, min/max -31.2/92.7
+Update 11/24, T 49152, FPS 418, 50-training-episode: mean/median 2.1/-15.8, min/max -27.4/92.7
+Update 12/24, T 53248, FPS 416, 50-training-episode: mean/median -2.1/-15.4, min/max -30.1/93.2
+Update 13/24, T 57344, FPS 414, 50-training-episode: mean/median -3.0/-12.9, min/max -31.0/93.2
+Update 14/24, T 61440, FPS 412, 50-training-episode: mean/median -5.2/-12.6, min/max -32.1/95.1
+Update 15/24, T 65536, FPS 411, 50-training-episode: mean/median 0.9/-11.3, min/max -26.7/93.7
+Update 16/24, T 69632, FPS 411, 50-training-episode: mean/median 4.5/-10.1, min/max -27.2/95.3
+Update 17/24, T 73728, FPS 412, 50-training-episode: mean/median -3.9/-12.9, min/max -26.6/88.9
+Update 18/24, T 77824, FPS 413, 50-training-episode: mean/median 0.3/-12.3, min/max -26.6/93.6
+Update 19/24, T 81920, FPS 414, 50-training-episode: mean/median 10.1/-10.2, min/max -29.9/94.0
+Update 20/24, T 86016, FPS 415, 50-training-episode: mean/median 1.8/-11.1, min/max -29.9/94.0
+Update 21/24, T 90112, FPS 415, 50-training-episode: mean/median 10.3/-9.6, min/max -28.2/94.6
+Update 22/24, T 94208, FPS 415, 50-training-episode: mean/median 3.1/-12.3, min/max -25.6/94.6
+Saved ./trained_models/ExptWalking20250728/plume_20250728_VRNN_constantx5b5noisy3x5b5_stepoobmetabolicturnfound_bx33_t100000500000_q0.50.2_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_walking_seed784977.pt
+Update 23/24, T 98304, FPS 416, 50-training-episode: mean/median 11.4/-9.4, min/max -28.9/94.8
+Stage: 1/2 - noisy3x5b5 b3.0 q0.2 n500000
+Using Precomputed Plume...
+Using Precomputed Plume...
+2025-07-28 18:59:18.579 python[40299:48781013] +[NSXPCSharedListener endpointForReply:withListenerName:replyErrorCode:]: an error occurred while attempting to obtain endpoint for listener 'ClientCallsAuxiliary': Connection invalid
+2025-07-28 18:59:18.579 python[40300:48781014] +[NSXPCSharedListener endpointForReply:withListenerName:replyErrorCode:]: an error occurred while attempting to obtain endpoint for listener 'ClientCallsAuxiliary': Connection invalid
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x1033c3220>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 3.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.5, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.7, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+wind: t_val_diff 0.0400000000000027 env_dt 0.04
+puffs: t_val_diff 0.0400000000000027 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic', 'turn', 'found']
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x1033c3220>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 3.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.5, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.7, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+wind: t_val_diff 0.0400000000000027 env_dt 0.04
+puffs: t_val_diff 0.0400000000000027 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic', 'turn', 'found']
+Saved ./trained_models/ExptWalking20250728/plume_20250728_VRNN_constantx5b5noisy3x5b5_stepoobmetabolicturnfound_bx33_t100000500000_q0.50.2_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_walking_seed784977.pt
+Update 0/122, T 4096, FPS 343, 50-training-episode: mean/median 2.0/-1.7, min/max -17.8/85.2
+Update 1/122, T 8192, FPS 353, 50-training-episode: mean/median -0.4/-1.8, min/max -15.8/92.6
+Update 2/122, T 12288, FPS 351, 50-training-episode: mean/median 2.4/-1.8, min/max -17.9/94.3
+Update 3/122, T 16384, FPS 357, 50-training-episode: mean/median -0.6/-1.7, min/max -25.1/94.0
+Update 4/122, T 20480, FPS 357, 50-training-episode: mean/median -0.9/-2.2, min/max -18.1/95.4
+Update 5/122, T 24576, FPS 357, 50-training-episode: mean/median 2.1/-1.8, min/max -13.5/96.1
+Update 6/122, T 28672, FPS 359, 50-training-episode: mean/median -0.5/-2.6, min/max -21.7/96.1
+Update 7/122, T 32768, FPS 360, 50-training-episode: mean/median 5.8/-2.3, min/max -19.3/104.2
+Update 8/122, T 36864, FPS 362, 50-training-episode: mean/median 1.6/-2.3, min/max -20.9/91.3
+Update 9/122, T 40960, FPS 362, 50-training-episode: mean/median 3.3/-2.0, min/max -13.9/93.0
+Update 10/122, T 45056, FPS 362, 50-training-episode: mean/median 2.0/-1.9, min/max -12.1/96.1
+Update 11/122, T 49152, FPS 363, 50-training-episode: mean/median 5.8/-1.8, min/max -20.5/96.2
+Update 12/122, T 53248, FPS 363, 50-training-episode: mean/median 5.1/-1.8, min/max -21.1/98.1
+Update 13/122, T 57344, FPS 364, 50-training-episode: mean/median -0.2/-1.9, min/max -22.0/101.3
+Update 14/122, T 61440, FPS 365, 50-training-episode: mean/median 1.5/-3.0, min/max -12.9/95.1
+Update 15/122, T 65536, FPS 366, 50-training-episode: mean/median 1.3/-2.2, min/max -13.4/93.0
+Update 16/122, T 69632, FPS 367, 50-training-episode: mean/median 5.1/-2.0, min/max -22.4/101.5
+Update 17/122, T 73728, FPS 365, 50-training-episode: mean/median 0.7/-1.6, min/max -21.1/92.6
+Update 18/122, T 77824, FPS 365, 50-training-episode: mean/median 7.4/-1.7, min/max -21.9/97.6
+Update 19/122, T 81920, FPS 365, 50-training-episode: mean/median 5.9/-1.6, min/max -12.3/96.0
+Update 20/122, T 86016, FPS 366, 50-training-episode: mean/median 1.8/-2.1, min/max -13.6/95.0
+Update 21/122, T 90112, FPS 366, 50-training-episode: mean/median 4.9/-2.1, min/max -18.6/94.5
+Update 22/122, T 94208, FPS 366, 50-training-episode: mean/median 0.6/-3.3, min/max -18.3/92.1
+Update 23/122, T 98304, FPS 366, 50-training-episode: mean/median 2.1/-1.5, min/max -12.0/98.3
+Update 24/122, T 102400, FPS 367, 50-training-episode: mean/median -1.8/-2.7, min/max -28.2/95.4
+Update 25/122, T 106496, FPS 367, 50-training-episode: mean/median 1.5/-1.9, min/max -33.7/96.3
+Update 26/122, T 110592, FPS 367, 50-training-episode: mean/median 5.0/-1.7, min/max -22.9/95.6
+Update 27/122, T 114688, FPS 367, 50-training-episode: mean/median 1.9/-1.8, min/max -16.0/101.5
+Update 28/122, T 118784, FPS 368, 50-training-episode: mean/median -2.1/-2.2, min/max -23.2/78.4
+Update 29/122, T 122880, FPS 368, 50-training-episode: mean/median -0.6/-2.2, min/max -21.0/89.5
+Update 30/122, T 126976, FPS 369, 50-training-episode: mean/median 4.5/-2.6, min/max -24.8/101.5
+Update 31/122, T 131072, FPS 368, 50-training-episode: mean/median 9.2/-1.6, min/max -25.8/95.5
+Update 32/122, T 135168, FPS 368, 50-training-episode: mean/median 2.0/-1.8, min/max -20.2/95.0
+Update 33/122, T 139264, FPS 368, 50-training-episode: mean/median 4.1/-1.8, min/max -23.3/103.2
+Update 34/122, T 143360, FPS 368, 50-training-episode: mean/median 0.9/-2.5, min/max -28.7/102.2
+Update 35/122, T 147456, FPS 368, 50-training-episode: mean/median 1.9/-1.7, min/max -14.4/96.5
+Update 36/122, T 151552, FPS 368, 50-training-episode: mean/median -4.6/-2.1, min/max -24.6/8.3
+Update 37/122, T 155648, FPS 368, 50-training-episode: mean/median -1.9/-2.3, min/max -18.0/94.0
+Update 38/122, T 159744, FPS 368, 50-training-episode: mean/median 3.6/-1.6, min/max -21.1/91.3
+Update 39/122, T 163840, FPS 368, 50-training-episode: mean/median -0.1/-1.8, min/max -17.4/102.7
+Update 40/122, T 167936, FPS 368, 50-training-episode: mean/median 4.6/-2.6, min/max -17.8/102.0
+Update 41/122, T 172032, FPS 368, 50-training-episode: mean/median 1.7/-1.6, min/max -13.6/89.6
+Update 42/122, T 176128, FPS 369, 50-training-episode: mean/median 5.6/-1.6, min/max -30.9/101.8
+Update 43/122, T 180224, FPS 369, 50-training-episode: mean/median 0.5/-1.8, min/max -21.3/94.8
+Update 44/122, T 184320, FPS 369, 50-training-episode: mean/median 2.4/-1.9, min/max -17.5/102.7
+Update 45/122, T 188416, FPS 369, 50-training-episode: mean/median 3.9/-1.6, min/max -16.1/105.0
+Update 46/122, T 192512, FPS 369, 50-training-episode: mean/median 3.8/-1.7, min/max -22.5/99.8
+Update 47/122, T 196608, FPS 369, 50-training-episode: mean/median 2.3/-2.5, min/max -24.4/95.0
+Update 48/122, T 200704, FPS 368, 50-training-episode: mean/median 3.4/-1.8, min/max -21.3/101.4
+Update 49/122, T 204800, FPS 368, 50-training-episode: mean/median 14.2/-1.7, min/max -27.0/95.7
+Update 50/122, T 208896, FPS 368, 50-training-episode: mean/median -1.6/-3.0, min/max -28.6/98.3
+Update 51/122, T 212992, FPS 368, 50-training-episode: mean/median 6.4/-1.7, min/max -10.9/95.9
+Update 52/122, T 217088, FPS 368, 50-training-episode: mean/median -0.6/-1.8, min/max -19.0/95.3
+Update 53/122, T 221184, FPS 368, 50-training-episode: mean/median -0.1/-2.1, min/max -16.5/101.5
+Update 54/122, T 225280, FPS 368, 50-training-episode: mean/median 0.9/-1.8, min/max -28.6/94.8
+Update 55/122, T 229376, FPS 368, 50-training-episode: mean/median -0.1/-2.7, min/max -12.4/100.7
+Update 56/122, T 233472, FPS 368, 50-training-episode: mean/median -0.7/-2.3, min/max -21.3/92.1
+Update 57/122, T 237568, FPS 368, 50-training-episode: mean/median 3.5/-1.8, min/max -22.0/95.8
+Update 58/122, T 241664, FPS 368, 50-training-episode: mean/median 2.2/-2.0, min/max -12.6/94.2
+Update 59/122, T 245760, FPS 367, 50-training-episode: mean/median 0.7/-2.2, min/max -27.6/94.4
+Update 60/122, T 249856, FPS 367, 50-training-episode: mean/median -0.0/-2.3, min/max -22.9/92.1
+Update 61/122, T 253952, FPS 367, 50-training-episode: mean/median 2.5/-1.8, min/max -13.0/97.8
+Update 62/122, T 258048, FPS 367, 50-training-episode: mean/median -1.8/-1.8, min/max -24.7/94.1
+Update 63/122, T 262144, FPS 367, 50-training-episode: mean/median -1.4/-2.7, min/max -16.5/90.0
+Update 64/122, T 266240, FPS 367, 50-training-episode: mean/median 4.3/-2.4, min/max -19.6/101.6
+Update 65/122, T 270336, FPS 367, 50-training-episode: mean/median 1.7/-2.2, min/max -17.3/100.1
+Update 66/122, T 274432, FPS 367, 50-training-episode: mean/median -4.5/-3.1, min/max -19.1/4.7
+Update 67/122, T 278528, FPS 367, 50-training-episode: mean/median 10.4/-1.6, min/max -13.6/103.1
+Update 68/122, T 282624, FPS 367, 50-training-episode: mean/median 2.3/-1.7, min/max -15.0/95.5
+Update 69/122, T 286720, FPS 367, 50-training-episode: mean/median 4.1/-1.7, min/max -12.1/103.3
+Update 70/122, T 290816, FPS 367, 50-training-episode: mean/median 1.1/-2.8, min/max -22.0/93.1
+Update 71/122, T 294912, FPS 367, 50-training-episode: mean/median -0.0/-1.7, min/max -17.1/95.4
+Update 72/122, T 299008, FPS 367, 50-training-episode: mean/median -3.1/-2.0, min/max -22.6/87.9
+Update 73/122, T 303104, FPS 367, 50-training-episode: mean/median 5.4/-1.9, min/max -20.4/99.2
+Update 74/122, T 307200, FPS 367, 50-training-episode: mean/median 2.2/-2.0, min/max -25.8/104.2
+Update 75/122, T 311296, FPS 367, 50-training-episode: mean/median 1.7/-1.8, min/max -15.7/94.0
+Update 76/122, T 315392, FPS 367, 50-training-episode: mean/median 1.5/-1.9, min/max -21.2/95.4
+Update 77/122, T 319488, FPS 367, 50-training-episode: mean/median 10.1/-1.8, min/max -20.6/94.4
+Update 78/122, T 323584, FPS 367, 50-training-episode: mean/median -1.7/-2.2, min/max -26.6/88.6
+Update 79/122, T 327680, FPS 367, 50-training-episode: mean/median 4.3/-2.3, min/max -23.8/94.1
+Update 80/122, T 331776, FPS 367, 50-training-episode: mean/median -1.8/-1.8, min/max -21.6/92.0
+Update 81/122, T 335872, FPS 366, 50-training-episode: mean/median -0.6/-1.8, min/max -18.1/93.9
+Update 82/122, T 339968, FPS 366, 50-training-episode: mean/median 4.7/-1.8, min/max -22.2/87.7
+Update 83/122, T 344064, FPS 366, 50-training-episode: mean/median -2.8/-2.4, min/max -25.0/82.8
+Update 84/122, T 348160, FPS 367, 50-training-episode: mean/median -0.7/-2.0, min/max -18.0/92.1
+Update 85/122, T 352256, FPS 366, 50-training-episode: mean/median -1.8/-1.8, min/max -16.0/92.7
+Update 86/122, T 356352, FPS 367, 50-training-episode: mean/median 7.9/-1.8, min/max -15.7/104.0
+Update 87/122, T 360448, FPS 367, 50-training-episode: mean/median 0.4/-1.6, min/max -12.8/90.6
+Update 88/122, T 364544, FPS 366, 50-training-episode: mean/median 1.7/-1.6, min/max -23.8/95.4
+Update 89/122, T 368640, FPS 366, 50-training-episode: mean/median -0.1/-2.4, min/max -16.2/94.7
+Update 90/122, T 372736, FPS 366, 50-training-episode: mean/median 2.6/-1.8, min/max -15.1/92.4
+Update 91/122, T 376832, FPS 366, 50-training-episode: mean/median -0.5/-2.2, min/max -17.4/92.7
+Update 92/122, T 380928, FPS 366, 50-training-episode: mean/median 1.7/-2.9, min/max -13.6/100.8
+Update 93/122, T 385024, FPS 366, 50-training-episode: mean/median 5.5/-1.7, min/max -20.7/101.7
+Update 94/122, T 389120, FPS 366, 50-training-episode: mean/median 5.8/-2.4, min/max -17.4/100.6
+Update 95/122, T 393216, FPS 366, 50-training-episode: mean/median -0.1/-1.8, min/max -18.7/95.2
+Update 96/122, T 397312, FPS 366, 50-training-episode: mean/median 2.7/-1.6, min/max -15.2/103.0
+Update 97/122, T 401408, FPS 366, 50-training-episode: mean/median 6.2/-1.6, min/max -16.6/94.3
+Update 98/122, T 405504, FPS 366, 50-training-episode: mean/median 3.1/-2.0, min/max -24.2/95.4
+Update 99/122, T 409600, FPS 366, 50-training-episode: mean/median -1.0/-3.1, min/max -19.3/94.3
+Saved ./trained_models/ExptWalking20250728/plume_20250728_VRNN_constantx5b5noisy3x5b5_stepoobmetabolicturnfound_bx33_t100000500000_q0.50.2_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_walking_seed784977.pt
+Update 100/122, T 413696, FPS 366, 50-training-episode: mean/median 3.2/-1.8, min/max -16.8/94.4
+Update 101/122, T 417792, FPS 366, 50-training-episode: mean/median 2.5/-1.6, min/max -19.3/105.0
+Update 102/122, T 421888, FPS 366, 50-training-episode: mean/median -0.1/-1.8, min/max -20.5/90.8
+Update 103/122, T 425984, FPS 366, 50-training-episode: mean/median 6.0/-1.8, min/max -15.0/95.7
+Update 104/122, T 430080, FPS 366, 50-training-episode: mean/median 5.5/-1.8, min/max -19.6/100.0
+Update 105/122, T 434176, FPS 366, 50-training-episode: mean/median -0.6/-1.8, min/max -28.5/87.9
+Update 106/122, T 438272, FPS 366, 50-training-episode: mean/median 3.7/-1.7, min/max -21.0/96.1
+Update 107/122, T 442368, FPS 366, 50-training-episode: mean/median 2.4/-3.1, min/max -22.8/92.4
+Update 108/122, T 446464, FPS 366, 50-training-episode: mean/median 0.2/-1.8, min/max -14.2/94.4
+Update 109/122, T 450560, FPS 366, 50-training-episode: mean/median 1.3/-2.1, min/max -20.3/94.8
+Update 110/122, T 454656, FPS 366, 50-training-episode: mean/median 1.9/-2.1, min/max -25.3/94.8
+Update 111/122, T 458752, FPS 366, 50-training-episode: mean/median 6.0/-2.9, min/max -12.7/100.8
+Update 112/122, T 462848, FPS 366, 50-training-episode: mean/median 3.7/-2.2, min/max -17.7/100.1
+Update 113/122, T 466944, FPS 365, 50-training-episode: mean/median 10.6/-1.6, min/max -13.1/101.9
+Update 114/122, T 471040, FPS 366, 50-training-episode: mean/median 0.0/-2.5, min/max -24.2/95.6
+Update 115/122, T 475136, FPS 365, 50-training-episode: mean/median -1.7/-1.9, min/max -11.7/90.3
+Update 116/122, T 479232, FPS 365, 50-training-episode: mean/median -2.6/-3.8, min/max -26.1/85.3
+Update 117/122, T 483328, FPS 365, 50-training-episode: mean/median 1.9/-2.0, min/max -12.5/94.9
+Update 118/122, T 487424, FPS 365, 50-training-episode: mean/median 9.5/-1.7, min/max -17.1/95.5
+Update 119/122, T 491520, FPS 365, 50-training-episode: mean/median 7.8/-1.6, min/max -28.8/104.2
+Update 120/122, T 495616, FPS 365, 50-training-episode: mean/median 7.7/-1.7, min/max -13.7/94.3
+Saved ./trained_models/ExptWalking20250728/plume_20250728_VRNN_constantx5b5noisy3x5b5_stepoobmetabolicturnfound_bx33_t100000500000_q0.50.2_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_walking_seed784977.pt
+Update 121/122, T 499712, FPS 365, 50-training-episode: mean/median 3.8/-1.6, min/max -18.4/94.8
+Saved ./trained_models/ExptWalking20250728//plume_20250728_VRNN_constantx5b5noisy3x5b5_stepoobmetabolicturnfound_bx33_t100000500000_q0.50.2_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_walking_seed784977.pt
+Starting evaluation
+Evaluating on dataset: switch15x5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16b0eaca0>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'switch15x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+switch15x5b5
+Exception: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch15x5b5.pickle'
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 271, in eval_loop
+    env = make_vec_envs(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 132, in make_vec_envs
+    envs = DummyVecEnv(envs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in __init__
+    self.envs = [fn() for fn in env_fns]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in <listcomp>
+    self.envs = [fn() for fn in env_fns]
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 34, in _thunk
+    env = plume_env.PlumeEnvironment(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 116, in __init__
+    self.set_dataset(dataset)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 205, in set_dataset
+    self.data_puffs_all, self.data_wind_all = sim_analysis.load_plume(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 173, in load_plume
+    data_puffs = pandas.read_pickle(puff_filename)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/pickle.py", line 185, in read_pickle
+    with get_handle(
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch15x5b5.pickle'
+Evaluating on dataset: switch30x5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16b0eadc0>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'switch30x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+switch30x5b5
+Exception: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch30x5b5.pickle'
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 271, in eval_loop
+    env = make_vec_envs(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 132, in make_vec_envs
+    envs = DummyVecEnv(envs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in __init__
+    self.envs = [fn() for fn in env_fns]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in <listcomp>
+    self.envs = [fn() for fn in env_fns]
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 34, in _thunk
+    env = plume_env.PlumeEnvironment(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 116, in __init__
+    self.set_dataset(dataset)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 205, in set_dataset
+    self.data_puffs_all, self.data_wind_all = sim_analysis.load_plume(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 173, in load_plume
+    data_puffs = pandas.read_pickle(puff_filename)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/pickle.py", line 185, in read_pickle
+    with get_handle(
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch30x5b5.pickle'
+Evaluating on dataset: switch45x5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16b0ea7f0>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'switch45x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+switch45x5b5
+Exception: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch45x5b5.pickle'
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 271, in eval_loop
+    env = make_vec_envs(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 132, in make_vec_envs
+    envs = DummyVecEnv(envs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in __init__
+    self.envs = [fn() for fn in env_fns]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in <listcomp>
+    self.envs = [fn() for fn in env_fns]
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 34, in _thunk
+    env = plume_env.PlumeEnvironment(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 116, in __init__
+    self.set_dataset(dataset)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 205, in set_dataset
+    self.data_puffs_all, self.data_wind_all = sim_analysis.load_plume(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 173, in load_plume
+    data_puffs = pandas.read_pickle(puff_filename)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/pickle.py", line 185, in read_pickle
+    with get_handle(
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch45x5b5.pickle'
+Evaluating on dataset: constantx5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16b0ea190>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+wind: t_val_diff 0.0400000000000027 env_dt 0.04
+puffs: t_val_diff 0.0400000000000027 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic', 'turn', 'found']
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Exception: name 'nan' is not defined
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 231, in resolve
+    return self.resolvers[key]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 941, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 933, in __missing__
+    raise KeyError(key)
+KeyError: 'nan'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 242, in resolve
+    return self.temps[key]
+KeyError: 'nan'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 289, in eval_loop
+    episode_logs, episode_summaries = evaluate_agent(actor_critic, env, args)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 180, in evaluate_agent
+    obs = env.reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 208, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 284, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 74, in reset
+    obs = self.envs[env_idx].reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 448, in reset
+    observation = self.sense_environment()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 269, in sense_environment
+    odor_observation = sim_analysis.get_concentration_at_tidx(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 263, in get_concentration_at_tidx
+    d = data[data.tidx==tidx].query(q)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4828, in query
+    res = self.eval(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4954, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/eval.py", line 339, in eval
+    parsed_expr = Expr(expr, engine=engine, parser=parser, env=env)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 809, in __init__
+    self.terms = self.parse()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 828, in parse
+    return self._visitor.visit(self.expr)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 419, in visit_Module
+    return self.visit(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 422, in visit_Expr
+    return self.visit(node.value, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 746, in visit_BoolOp
+    return reduce(visitor, operands)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 740, in visitor
+    rhs = self._try_visit_binop(y)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 735, in _try_visit_binop
+    return self.visit(bop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 719, in visit_Compare
+    return self.visit(binop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 535, in visit_BinOp
+    op, op_class, left, right = self._maybe_transform_eq_ne(node)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 453, in _maybe_transform_eq_ne
+    left = self.visit(node.left, side="left")
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 545, in visit_Name
+    return self.term_type(node.id, self.env, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 91, in __init__
+    self._value = self._resolve_name()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 115, in _resolve_name
+    res = self.env.resolve(local_name, is_local=is_local)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 244, in resolve
+    raise UndefinedVariableError(key, is_local) from err
+pandas.errors.UndefinedVariableError: name 'nan' is not defined
+Sparse/birthx: 0.8
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16b0dcaf0>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 0.8, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+Sparsifying puffs to 0.8x
+wind: t_val_diff 0.0400000000000027 env_dt 0.04
+puffs: t_val_diff 0.0400000000000027 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic', 'turn', 'found']
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Episode: 0, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 1, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 2, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 3, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 4, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 5, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 6, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 7, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 8, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 9, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 10, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 11, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 12, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 13, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 14, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 15, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 16, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 17, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 18, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 19, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 20, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 21, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 22, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 23, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 24, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 25, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 26, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 27, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 28, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 29, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 30, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 31, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 32, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 33, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 34, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 35, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 36, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 37, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 38, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 39, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 40, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 41, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 42, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 43, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 44, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 45, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 46, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 47, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 48, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 49, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 50, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 51, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 52, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 53, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 54, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 55, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 56, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 57, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 58, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 59, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 60, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 61, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 62, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 63, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 64, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 65, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 66, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 67, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 68, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 69, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 70, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 71, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 72, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 73, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 74, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 75, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 76, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 77, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 78, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 79, reward_sum: -10.0, Steps: 1, Reason: OOB
+Exception: name 'nan' is not defined
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 231, in resolve
+    return self.resolvers[key]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 941, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 933, in __missing__
+    raise KeyError(key)
+KeyError: 'nan'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 242, in resolve
+    return self.temps[key]
+KeyError: 'nan'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 363, in eval_loop
+    episode_logs, episode_summaries = evaluate_agent(actor_critic, env, args)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 180, in evaluate_agent
+    obs = env.reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 208, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 284, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 74, in reset
+    obs = self.envs[env_idx].reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 448, in reset
+    observation = self.sense_environment()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 269, in sense_environment
+    odor_observation = sim_analysis.get_concentration_at_tidx(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 263, in get_concentration_at_tidx
+    d = data[data.tidx==tidx].query(q)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4828, in query
+    res = self.eval(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4954, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/eval.py", line 339, in eval
+    parsed_expr = Expr(expr, engine=engine, parser=parser, env=env)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 809, in __init__
+    self.terms = self.parse()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 828, in parse
+    return self._visitor.visit(self.expr)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 419, in visit_Module
+    return self.visit(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 422, in visit_Expr
+    return self.visit(node.value, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 746, in visit_BoolOp
+    return reduce(visitor, operands)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 740, in visitor
+    rhs = self._try_visit_binop(y)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 735, in _try_visit_binop
+    return self.visit(bop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 719, in visit_Compare
+    return self.visit(binop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 535, in visit_BinOp
+    op, op_class, left, right = self._maybe_transform_eq_ne(node)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 453, in _maybe_transform_eq_ne
+    left = self.visit(node.left, side="left")
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 545, in visit_Name
+    return self.term_type(node.id, self.env, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 91, in __init__
+    self._value = self._resolve_name()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 115, in _resolve_name
+    res = self.env.resolve(local_name, is_local=is_local)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 244, in resolve
+    raise UndefinedVariableError(key, is_local) from err
+pandas.errors.UndefinedVariableError: name 'nan' is not defined
+Sparse/birthx: 0.6
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16c5cf6d0>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 0.6, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+Sparsifying puffs to 0.6x
+wind: t_val_diff 0.0400000000000027 env_dt 0.04
+puffs: t_val_diff 0.0400000000000027 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic', 'turn', 'found']
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Episode: 0, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 1, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 2, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 3, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 4, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 5, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 6, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 7, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 8, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 9, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 10, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 11, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 12, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 13, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 14, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 15, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 16, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 17, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 18, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 19, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 20, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 21, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 22, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 23, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 24, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 25, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 26, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 27, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 28, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 29, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 30, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 31, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 32, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 33, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 34, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 35, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 36, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 37, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 38, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 39, reward_sum: -10.0, Steps: 1, Reason: OOB
+Exception: name 'nan' is not defined
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 231, in resolve
+    return self.resolvers[key]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 941, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 933, in __missing__
+    raise KeyError(key)
+KeyError: 'nan'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 242, in resolve
+    return self.temps[key]
+KeyError: 'nan'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 363, in eval_loop
+    episode_logs, episode_summaries = evaluate_agent(actor_critic, env, args)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 180, in evaluate_agent
+    obs = env.reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 208, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 284, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 74, in reset
+    obs = self.envs[env_idx].reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 448, in reset
+    observation = self.sense_environment()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 269, in sense_environment
+    odor_observation = sim_analysis.get_concentration_at_tidx(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 263, in get_concentration_at_tidx
+    d = data[data.tidx==tidx].query(q)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4828, in query
+    res = self.eval(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4954, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/eval.py", line 339, in eval
+    parsed_expr = Expr(expr, engine=engine, parser=parser, env=env)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 809, in __init__
+    self.terms = self.parse()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 828, in parse
+    return self._visitor.visit(self.expr)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 419, in visit_Module
+    return self.visit(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 422, in visit_Expr
+    return self.visit(node.value, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 746, in visit_BoolOp
+    return reduce(visitor, operands)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 740, in visitor
+    rhs = self._try_visit_binop(y)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 735, in _try_visit_binop
+    return self.visit(bop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 719, in visit_Compare
+    return self.visit(binop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 535, in visit_BinOp
+    op, op_class, left, right = self._maybe_transform_eq_ne(node)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 453, in _maybe_transform_eq_ne
+    left = self.visit(node.left, side="left")
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 545, in visit_Name
+    return self.term_type(node.id, self.env, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 91, in __init__
+    self._value = self._resolve_name()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 115, in _resolve_name
+    res = self.env.resolve(local_name, is_local=is_local)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 244, in resolve
+    raise UndefinedVariableError(key, is_local) from err
+pandas.errors.UndefinedVariableError: name 'nan' is not defined
+Sparse/birthx: 0.4
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16b0dc5b0>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 0.4, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+Sparsifying puffs to 0.4x
+wind: t_val_diff 0.0400000000000027 env_dt 0.04
+puffs: t_val_diff 0.0400000000000027 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic', 'turn', 'found']
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Episode: 0, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 1, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 2, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 3, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 4, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 5, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 6, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 7, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 8, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 9, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 10, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 11, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 12, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 13, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 14, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 15, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 16, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 17, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 18, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 19, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 20, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 21, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 22, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 23, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 24, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 25, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 26, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 27, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 28, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 29, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 30, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 31, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 32, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 33, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 34, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 35, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 36, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 37, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 38, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 39, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 40, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 41, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 42, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 43, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 44, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 45, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 46, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 47, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 48, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 49, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 50, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 51, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 52, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 53, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 54, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 55, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 56, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 57, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 58, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 59, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 60, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 61, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 62, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 63, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 64, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 65, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 66, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 67, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 68, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 69, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 70, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 71, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 72, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 73, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 74, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 75, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 76, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 77, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 78, reward_sum: -10.0, Steps: 1, Reason: OOB
+Episode: 79, reward_sum: -10.0, Steps: 1, Reason: OOB
+Exception: name 'nan' is not defined
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 231, in resolve
+    return self.resolvers[key]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 941, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 933, in __missing__
+    raise KeyError(key)
+KeyError: 'nan'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 242, in resolve
+    return self.temps[key]
+KeyError: 'nan'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 363, in eval_loop
+    episode_logs, episode_summaries = evaluate_agent(actor_critic, env, args)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 180, in evaluate_agent
+    obs = env.reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 208, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 284, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 74, in reset
+    obs = self.envs[env_idx].reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 448, in reset
+    observation = self.sense_environment()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 269, in sense_environment
+    odor_observation = sim_analysis.get_concentration_at_tidx(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 263, in get_concentration_at_tidx
+    d = data[data.tidx==tidx].query(q)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4828, in query
+    res = self.eval(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4954, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/eval.py", line 339, in eval
+    parsed_expr = Expr(expr, engine=engine, parser=parser, env=env)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 809, in __init__
+    self.terms = self.parse()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 828, in parse
+    return self._visitor.visit(self.expr)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 419, in visit_Module
+    return self.visit(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 422, in visit_Expr
+    return self.visit(node.value, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 746, in visit_BoolOp
+    return reduce(visitor, operands)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 740, in visitor
+    rhs = self._try_visit_binop(y)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 735, in _try_visit_binop
+    return self.visit(bop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 719, in visit_Compare
+    return self.visit(binop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 535, in visit_BinOp
+    op, op_class, left, right = self._maybe_transform_eq_ne(node)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 453, in _maybe_transform_eq_ne
+    left = self.visit(node.left, side="left")
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 545, in visit_Name
+    return self.term_type(node.id, self.env, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 91, in __init__
+    self._value = self._resolve_name()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 115, in _resolve_name
+    res = self.env.resolve(local_name, is_local=is_local)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 244, in resolve
+    raise UndefinedVariableError(key, is_local) from err
+pandas.errors.UndefinedVariableError: name 'nan' is not defined
+Sparse/birthx: 0.2
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x166b941c0>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 0.2, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+Sparsifying puffs to 0.2x
+wind: t_val_diff 0.0400000000000027 env_dt 0.04
+puffs: t_val_diff 0.0400000000000027 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic', 'turn', 'found']
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Exception: name 'nan' is not defined
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 231, in resolve
+    return self.resolvers[key]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 941, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 933, in __missing__
+    raise KeyError(key)
+KeyError: 'nan'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 242, in resolve
+    return self.temps[key]
+KeyError: 'nan'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 363, in eval_loop
+    episode_logs, episode_summaries = evaluate_agent(actor_critic, env, args)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 180, in evaluate_agent
+    obs = env.reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 208, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 284, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 74, in reset
+    obs = self.envs[env_idx].reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 448, in reset
+    observation = self.sense_environment()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 269, in sense_environment
+    odor_observation = sim_analysis.get_concentration_at_tidx(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 263, in get_concentration_at_tidx
+    d = data[data.tidx==tidx].query(q)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4828, in query
+    res = self.eval(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4954, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/eval.py", line 339, in eval
+    parsed_expr = Expr(expr, engine=engine, parser=parser, env=env)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 809, in __init__
+    self.terms = self.parse()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 828, in parse
+    return self._visitor.visit(self.expr)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 419, in visit_Module
+    return self.visit(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 422, in visit_Expr
+    return self.visit(node.value, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 746, in visit_BoolOp
+    return reduce(visitor, operands)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 740, in visitor
+    rhs = self._try_visit_binop(y)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 735, in _try_visit_binop
+    return self.visit(bop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 719, in visit_Compare
+    return self.visit(binop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 535, in visit_BinOp
+    op, op_class, left, right = self._maybe_transform_eq_ne(node)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 453, in _maybe_transform_eq_ne
+    left = self.visit(node.left, side="left")
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 545, in visit_Name
+    return self.term_type(node.id, self.env, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 91, in __init__
+    self._value = self._resolve_name()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 115, in _resolve_name
+    res = self.env.resolve(local_name, is_local=is_local)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 244, in resolve
+    raise UndefinedVariableError(key, is_local) from err
+pandas.errors.UndefinedVariableError: name 'nan' is not defined
+Evaluating on dataset: noisy3x5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x10290e340>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'noisy3x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 0.2, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+noisy3x5b5
+Sparsifying puffs to 0.2x
+wind: t_val_diff 0.0400000000000027 env_dt 0.04
+puffs: t_val_diff 0.0400000000000027 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic', 'turn', 'found']
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Exception: name 'nan' is not defined
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 231, in resolve
+    return self.resolvers[key]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 941, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py", line 933, in __missing__
+    raise KeyError(key)
+KeyError: 'nan'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 242, in resolve
+    return self.temps[key]
+KeyError: 'nan'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 289, in eval_loop
+    episode_logs, episode_summaries = evaluate_agent(actor_critic, env, args)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 180, in evaluate_agent
+    obs = env.reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 208, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 284, in reset
+    obs = self.venv.reset()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 74, in reset
+    obs = self.envs[env_idx].reset()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 448, in reset
+    observation = self.sense_environment()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 269, in sense_environment
+    odor_observation = sim_analysis.get_concentration_at_tidx(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 263, in get_concentration_at_tidx
+    d = data[data.tidx==tidx].query(q)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4828, in query
+    res = self.eval(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/frame.py", line 4954, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/eval.py", line 339, in eval
+    parsed_expr = Expr(expr, engine=engine, parser=parser, env=env)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 809, in __init__
+    self.terms = self.parse()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 828, in parse
+    return self._visitor.visit(self.expr)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 419, in visit_Module
+    return self.visit(expr, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 422, in visit_Expr
+    return self.visit(node.value, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 746, in visit_BoolOp
+    return reduce(visitor, operands)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 740, in visitor
+    rhs = self._try_visit_binop(y)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 735, in _try_visit_binop
+    return self.visit(bop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 719, in visit_Compare
+    return self.visit(binop)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 535, in visit_BinOp
+    op, op_class, left, right = self._maybe_transform_eq_ne(node)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 453, in _maybe_transform_eq_ne
+    left = self.visit(node.left, side="left")
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 413, in visit
+    return visitor(node, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/expr.py", line 545, in visit_Name
+    return self.term_type(node.id, self.env, **kwargs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 91, in __init__
+    self._value = self._resolve_name()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/ops.py", line 115, in _resolve_name
+    res = self.env.resolve(local_name, is_local=is_local)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/core/computation/scope.py", line 244, in resolve
+    raise UndefinedVariableError(key, is_local) from err
+pandas.errors.UndefinedVariableError: name 'nan' is not defined
+Evaluating on dataset: noisy6x5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x16df8f550>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'noisy6x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 0.2, 'env_dt': 0.04, 'loc_algo': 'quantile', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+noisy6x5b5
+Exception: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_noisy6x5b5.pickle'
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 271, in eval_loop
+    env = make_vec_envs(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 132, in make_vec_envs
+    envs = DummyVecEnv(envs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in __init__
+    self.envs = [fn() for fn in env_fns]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in <listcomp>
+    self.envs = [fn() for fn in env_fns]
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 34, in _thunk
+    env = plume_env.PlumeEnvironment(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 116, in __init__
+    self.set_dataset(dataset)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 205, in set_dataset
+    self.data_puffs_all, self.data_wind_all = sim_analysis.load_plume(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 173, in load_plume
+    data_puffs = pandas.read_pickle(puff_filename)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/pickle.py", line 185, in read_pickle
+    with get_handle(
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_noisy6x5b5.pickle'
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x1033c3220>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'noisy3x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 3.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.2, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+noisy3x5b5
+wind: t_val_diff 0.0400000000000027 env_dt 0.04
+puffs: t_val_diff 0.0400000000000027 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic', 'turn', 'found']
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x1033c3220>, 't_val_min': 30.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'noisy3x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 3.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.2, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob', 'metabolic', 'turn', 'found'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': True, 'walk_move': 0.05, 'walk_turn': 3.14159, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 7849, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+noisy3x5b5
+wind: t_val_diff 0.0400000000000027 env_dt 0.04
+puffs: t_val_diff 0.0400000000000027 env_dt 0.04
+Reward Shaping ['step', 'oob', 'metabolic', 'turn', 'found']

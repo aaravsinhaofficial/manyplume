@@ -1,0 +1,382 @@
+Batch/CLI mode
+Namespace(model_fname='/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937.pt')
+model_dir /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937/
+model_seed ----> 3031937
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace/
+(248, 5)
+Saving: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720//plume_20250720_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t10000004000000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n1_codeVRNN_seed3031937//report_common_subspace//comsub_by_centroid_3031937.png
+['constantx5b5', 'switch45x5b5', 'noisy3x5b5']
+[]
+299 134 165 43
+299 298 1 60
+399: exit_lenght 1
+299 131 168 40
+401: steps_on_plume 1 < 2
+402: steps_on_plume 1 < 2
+299 298 1 54
+403: exit_lenght 1
+299 35 264 2
+299 299 0 37
+405: exit_lenght 0
+299 68 231 25
+407: steps_on_plume 1 < 2
+299 299 0 64
+408: exit_lenght 0
+299 119 180 21
+299 54 245 6
+299 225 74 26
+412: steps_on_plume 1 < 2
+413: steps_on_plume 1 < 2
+299 279 20 41
+414: exit_lenght 20
+299 299 0 37
+415: exit_lenght 0
+299 299 0 57
+416: exit_lenght 0
+417: steps_on_plume 1 < 2
+299 299 0 130
+418: exit_lenght 0
+419: steps_on_plume 1 < 2
+299 58 241 9
+299 182 117 57
+299 232 67 5
+423: steps_on_plume 1 < 2
+424: steps_on_plume 1 < 2
+425: steps_on_plume 1 < 2
+426: steps_on_plume 1 < 2
+427: steps_on_plume 1 < 2
+299 294 5 51
+428: exit_lenght 5
+299 69 230 27
+299 299 0 34
+430: exit_lenght 0
+299 88 211 6
+432: steps_on_plume 1 < 2
+299 298 1 153
+433: exit_lenght 1
+299 299 0 63
+434: exit_lenght 0
+299 139 160 4
+436: steps_on_plume 1 < 2
+437: steps_on_plume 1 < 2
+438: steps_on_plume 1 < 2
+299 87 212 7
+299 297 2 21
+440: exit_lenght 2
+299 279 20 60
+441: exit_lenght 20
+299 207 92 42
+299 298 1 25
+443: exit_lenght 1
+299 242 57 23
+445: steps_on_plume 1 < 2
+446: steps_on_plume 1 < 2
+299 115 184 41
+299 299 0 27
+448: exit_lenght 0
+449: steps_on_plume 1 < 2
+299 293 6 28
+450: exit_lenght 6
+299 298 1 20
+451: exit_lenght 1
+452: steps_on_plume 1 < 2
+453: steps_on_plume 1 < 2
+454: steps_on_plume 1 < 2
+299 295 4 14
+455: exit_lenght 4
+299 234 65 6
+299 204 95 63
+299 251 48 50
+459: steps_on_plume 1 < 2
+299 295 4 27
+460: exit_lenght 4
+299 251 48 121
+299 299 0 43
+462: exit_lenght 0
+463: steps_on_plume 1 < 2
+299 171 128 69
+299 113 186 5
+466: steps_on_plume 1 < 2
+299 296 3 12
+467: exit_lenght 3
+299 76 223 30
+299 274 25 117
+299 225 74 64
+471: steps_on_plume 1 < 2
+299 297 2 16
+472: exit_lenght 2
+473: steps_on_plume 1 < 2
+474: steps_on_plume 1 < 2
+475: steps_on_plume 1 < 2
+476: steps_on_plume 1 < 2
+299 115 184 4
+299 298 1 23
+478: exit_lenght 1
+299 79 220 23
+480: steps_on_plume 1 < 2
+481: steps_on_plume 1 < 2
+299 299 0 52
+482: exit_lenght 0
+299 239 60 96
+299 32 267 9
+485: steps_on_plume 1 < 2
+486: steps_on_plume 1 < 2
+299 299 0 22
+487: exit_lenght 0
+488: steps_on_plume 1 < 2
+489: steps_on_plume 1 < 2
+490: steps_on_plume 1 < 2
+491: steps_on_plume 1 < 2
+492: steps_on_plume 1 < 2
+493: steps_on_plume 1 < 2
+299 56 243 2
+299 39 260 6
+299 116 183 25
+299 103 196 43
+498: steps_on_plume 1 < 2
+299 71 228 23
+500: steps_on_plume 1 < 2
+501: steps_on_plume 1 < 2
+299 37 262 2
+299 69 230 18
+504: steps_on_plume 1 < 2
+299 198 101 64
+299 53 246 6
+299 98 201 5
+299 54 245 13
+509: steps_on_plume 1 < 2
+299 195 104 67
+511: steps_on_plume 1 < 2
+512: steps_on_plume 1 < 2
+513: steps_on_plume 1 < 2
+299 297 2 26
+514: exit_lenght 2
+515: steps_on_plume 1 < 2
+516: steps_on_plume 1 < 2
+517: steps_on_plume 1 < 2
+299 292 7 105
+518: exit_lenght 7
+519: steps_on_plume 1 < 2
+299 55 244 2
+299 68 231 11
+522: steps_on_plume 1 < 2
+299 60 239 13
+299 155 144 52
+299 54 245 6
+299 299 0 4
+526: exit_lenght 0
+527: steps_on_plume 1 < 2
+528: steps_on_plume 1 < 2
+299 111 188 50
+530: steps_on_plume 1 < 2
+531: steps_on_plume 1 < 2
+299 190 109 78
+533: steps_on_plume 1 < 2
+299 76 223 9
+535: steps_on_plume 1 < 2
+536: steps_on_plume 1 < 2
+299 97 202 20
+299 147 152 51
+539: steps_on_plume 1 < 2
+299 124 175 45
+541: steps_on_plume 1 < 2
+542: steps_on_plume 1 < 2
+299 79 220 12
+544: steps_on_plume 1 < 2
+299 121 178 34
+299 39 260 6
+299 299 0 37
+547: exit_lenght 0
+299 299 0 35
+548: exit_lenght 0
+549: steps_on_plume 1 < 2
+299 186 113 51
+551: steps_on_plume 1 < 2
+552: steps_on_plume 1 < 2
+299 164 135 34
+554: steps_on_plume 1 < 2
+555: steps_on_plume 1 < 2
+556: steps_on_plume 1 < 2
+299 140 159 2
+299 107 192 50
+299 155 144 42
+560: steps_on_plume 1 < 2
+299 298 1 2
+561: exit_lenght 1
+299 299 0 7
+562: exit_lenght 0
+299 115 184 50
+564: steps_on_plume 1 < 2
+565: steps_on_plume 1 < 2
+566: steps_on_plume 1 < 2
+299 151 148 60
+299 248 51 53
+569: steps_on_plume 1 < 2
+297 229 68 8
+293 139 154 6
+291 291 0 33
+572: exit_lenght 0
+290 290 0 36
+573: exit_lenght 0
+574: steps_on_plume 1 < 2
+280 211 69 10
+576: steps_on_plume 1 < 2
+277 110 167 22
+274 84 190 5
+579: steps_on_plume 1 < 2
+272 123 149 5
+272 203 69 9
+271 94 177 6
+583: steps_on_plume 1 < 2
+584: steps_on_plume 1 < 2
+270 65 205 4
+267 107 160 4
+587: steps_on_plume 1 < 2
+266 102 164 7
+266 117 149 4
+264 264 0 9
+590: exit_lenght 0
+591: steps_on_plume 1 < 2
+260 79 181 3
+257 99 158 11
+257 125 132 12
+256 91 165 17
+596: steps_on_plume 1 < 2
+255 104 151 5
+598: steps_on_plume 1 < 2
+253 61 192 7
+253 61 192 7
+252 183 69 9
+251 96 155 4
+603: steps_on_plume 1 < 2
+604: steps_on_plume 1 < 2
+250 95 155 6
+247 96 151 8
+245 89 156 8
+244 99 145 9
+243 100 143 11
+243 90 153 9
+242 64 178 15
+612: steps_on_plume 1 < 2
+239 81 158 4
+238 33 205 2
+238 238 0 10
+615: exit_lenght 0
+238 56 182 2
+237 62 175 2
+237 237 0 25
+618: exit_lenght 0
+619: steps_on_plume 1 < 2
+232 55 177 5
+231 174 57 10
+229 59 170 19
+228 63 165 4
+228 66 162 9
+228 80 148 14
+228 56 172 3
+228 64 164 6
+227 64 163 3
+227 64 163 5
+630: steps_on_plume 1 < 2
+226 63 163 2
+632: steps_on_plume 1 < 2
+226 64 162 8
+225 63 162 2
+635: steps_on_plume 1 < 2
+225 55 170 2
+225 108 117 22
+224 60 164 6
+639: steps_on_plume 1 < 2
+640: steps_on_plume 1 < 2
+223 64 159 8
+223 66 157 8
+643: steps_on_plume 1 < 2
+644: steps_on_plume 1 < 2
+219 42 177 4
+219 70 149 9
+647: steps_on_plume 1 < 2
+217 71 146 21
+216 216 0 3
+649: exit_lenght 0
+216 65 151 7
+651: steps_on_plume 1 < 2
+215 66 149 9
+215 66 149 9
+654: steps_on_plume 1 < 2
+655: steps_on_plume 1 < 2
+213 76 137 10
+657: steps_on_plume 1 < 2
+658: steps_on_plume 1 < 2
+211 35 176 2
+211 211 0 14
+660: exit_lenght 0
+661: steps_on_plume 1 < 2
+208 120 88 35
+663: steps_on_plume 1 < 2
+664: steps_on_plume 1 < 2
+205 46 159 3
+666: steps_on_plume 1 < 2
+205 93 112 8
+203 37 166 2
+669: steps_on_plume 1 < 2
+203 81 122 14
+203 34 169 2
+672: steps_on_plume 1 < 2
+200 37 163 5
+200 41 159 9
+200 31 169 4
+676: steps_on_plume 1 < 2
+677: steps_on_plume 1 < 2
+678: steps_on_plume 1 < 2
+197 95 102 13
+196 38 158 8
+681: steps_on_plume 1 < 2
+191 37 154 2
+191 39 152 2
+190 28 162 2
+685: steps_on_plume 1 < 2
+686: steps_on_plume 1 < 2
+687: steps_on_plume 1 < 2
+688: steps_on_plume 1 < 2
+689: steps_on_plume 1 < 2
+690: steps_on_plume 1 < 2
+691: steps_on_plume 1 < 2
+692: steps_on_plume 1 < 2
+185 41 144 7
+176 50 126 9
+695: steps_on_plume 1 < 2
+174 35 139 2
+697: steps_on_plume 1 < 2
+167 167 0 35
+698: exit_lenght 0
+699: steps_on_plume 1 < 2
+157 103 54 5
+153 89 64 14
+152 152 0 11
+702: exit_lenght 0
+151 92 59 10
+149 149 0 16
+704: exit_lenght 0
+147 99 48 3
+146 146 0 14
+706: exit_lenght 0
+144 57 87 3
+141 91 50 13
+138 138 0 19
+709: exit_lenght 0
+128 76 52 8
+126 57 69 4
+125 58 67 5
+113 80 33 21
+113 71 42 27
+110 61 49 29
+108 72 36 10
+717: steps_on_plume 1 < 2
+96 59 37 18
+719: steps_on_plume 1 < 2
+(120, 17)
+(107, 17)
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/report_ttcs.py", line 1202, in <module>
+    get_ipython().run_line_magic('config', "InlineBackend.figure_format = 'retina'")
+NameError: name 'get_ipython' is not defined

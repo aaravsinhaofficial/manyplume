@@ -1,0 +1,11 @@
+Batch/CLI mode
+Namespace(model_dir='/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720')
+/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720/report_arch/
+model_dir: /Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720
+model_seed: 
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/report_correlations.py", line 189, in <module>
+    homed_df = log_analysis.get_selected_df(model_dir,
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../log_analysis.py", line 98, in get_selected_df
+    with open(log_fname, 'rb') as f_handle:
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250720/constantx5b5.pkl'

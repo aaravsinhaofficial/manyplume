@@ -1,0 +1,27 @@
+Namespace(model_dir='/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250717', viz_episodes=10, walking=False, birthxs=None, diffusionx=1.0)Namespace(model_dir='/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250717', viz_episodes=10, walking=False, birthxs=['0.4'], diffusionx=1.0)
+
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/postEvalCli.py", line 286, in <module>
+    post_eval(args.model_dir,
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/postEvalCli.py", line 96, in post_eval
+    selected_df = log_analysis.get_selected_df(model_dir,
+  File "/Users/aaravsinha/manyplume/oneplume/log_analysis.py", line 98, in get_selected_df
+    with open(log_fname, 'rb') as f_handle:
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250717/constantx5b5.pkl'
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/postEvalCli.py", line 286, in <module>
+    post_eval(args.model_dir,
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/postEvalCli.py", line 96, in post_eval
+    selected_df = log_analysis.get_selected_df(model_dir,
+  File "/Users/aaravsinha/manyplume/oneplume/log_analysis.py", line 98, in get_selected_df
+    with open(log_fname, 'rb') as f_handle:
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250717/constantx5b5.pkl'
+Namespace(model_dir='/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250717/plume_20250717_VRNN_constantx5b5_stepoob_bx0.3_t4000000_q2.0_dmx0.8_dmn0.7_h64_wd0.0001_n9_codeVRNN_seed1c9.pt.best', viz_episodes=10, walking=False, birthxs=None, diffusionx=1.0)
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/postEvalCli.py", line 286, in <module>
+    post_eval(args.model_dir,
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/postEvalCli.py", line 96, in post_eval
+    selected_df = log_analysis.get_selected_df(model_dir,
+  File "/Users/aaravsinha/manyplume/oneplume/log_analysis.py", line 98, in get_selected_df
+    with open(log_fname, 'rb') as f_handle:
+NotADirectoryError: [Errno 20] Not a directory: '/Users/aaravsinha/manyplume/oneplume/ppo/trained_models/ExptMemory20250717/plume_20250717_VRNN_constantx5b5_stepoob_bx0.3_t4000000_q2.0_dmx0.8_dmn0.7_h64_wd0.0001_n9_codeVRNN_seed1c9.pt.best/constantx5b5.pkl'

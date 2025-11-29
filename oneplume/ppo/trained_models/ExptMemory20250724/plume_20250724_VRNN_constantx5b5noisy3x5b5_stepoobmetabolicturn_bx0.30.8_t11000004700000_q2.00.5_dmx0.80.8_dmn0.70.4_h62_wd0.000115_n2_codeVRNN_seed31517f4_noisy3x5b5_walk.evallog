@@ -1,0 +1,5 @@
+usage: evalCli.py [-h] [--seed SEED] [--algo ALGO] [--dataset DATASET]
+                  [--model_fname MODEL_FNAME] [--test_episodes TEST_EPISODES]
+                  [--viz_episodes VIZ_EPISODES] [--fixed_eval]
+                  [--test_sparsity] [--diffusionx DIFFUSIONX]
+evalCli.py: error: unrecognized arguments: --walking True

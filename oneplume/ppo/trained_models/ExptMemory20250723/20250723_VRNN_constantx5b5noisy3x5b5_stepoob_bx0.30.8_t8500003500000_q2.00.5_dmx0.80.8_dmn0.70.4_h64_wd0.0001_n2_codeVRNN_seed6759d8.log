@@ -1,0 +1,50 @@
+CUDA: False
+Namespace(algo='ppo', lr=0.0003, eps=1e-05, alpha=0.99, gamma=0.99, use_gae=True, gae_lambda=0.95, entropy_coef=0.0075, value_loss_coef=0.5, max_grad_norm=0.5, seed=6759, cuda_deterministic=False, num_processes=2, num_steps=2048, ppo_epoch=10, num_mini_batch=2, clip_param=0.2, log_interval=1, save_interval=100, no_cuda=False, use_proper_time_limits=False, recurrent_policy=True, use_linear_lr_decay=True, env_name='plume', log_dir='/tmp/gym/', save_dir='./trained_models/ExptMemory20250723/', dynamic=False, eval_type='fixed', eval_episodes=20, eval_interval=None, weight_decay=0.0001, rnn_type='VRNN', hidden_size=64, betadist=False, stacking=0, masking=None, stride=1, dataset=['constantx5b5', 'noisy3x5b5'], num_env_steps=[850000, 3500000], qvar=[2.0, 0.5], birthx=[0.3, 0.8], diff_max=[0.8, 0.8], diff_min=[0.7, 0.4], birthx_max=1.0, dryrun=False, curriculum=False, turnx=1.0, movex=1.0, auto_movex=False, auto_reward=False, loc_algo='uniform', time_algo='uniform', env_dt=0.04, outsuffix='20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed6759d8', walking=False, radiusx=1.0, diffusion_min=1.0, diffusion_max=1.0, r_shaping=['step', 'oob'], wind_rel=True, action_feedback=False, squash_action=True, flipping=True, odor_scaling=True, stray_max=2.0, test_episodes=50, viz_episodes=10, model_fname='', obs_noise=0.0, act_noise=0.0, cuda=False)
+PPO Args ---> Namespace(algo='ppo', lr=0.0003, eps=1e-05, alpha=0.99, gamma=0.99, use_gae=True, gae_lambda=0.95, entropy_coef=0.0075, value_loss_coef=0.5, max_grad_norm=0.5, seed=6759, cuda_deterministic=False, num_processes=2, num_steps=2048, ppo_epoch=10, num_mini_batch=2, clip_param=0.2, log_interval=1, save_interval=100, no_cuda=False, use_proper_time_limits=False, recurrent_policy=True, use_linear_lr_decay=True, env_name='plume', log_dir='/tmp/gym/', save_dir='./trained_models/ExptMemory20250723/', dynamic=False, eval_type='fixed', eval_episodes=20, eval_interval=None, weight_decay=0.0001, rnn_type='VRNN', hidden_size=64, betadist=False, stacking=0, masking=None, stride=1, dataset=['constantx5b5', 'noisy3x5b5'], num_env_steps=[850000, 3500000], qvar=[2.0, 0.5], birthx=[0.3, 0.8], diff_max=[0.8, 0.8], diff_min=[0.7, 0.4], birthx_max=1.0, dryrun=False, curriculum=False, turnx=1.0, movex=1.0, auto_movex=False, auto_reward=False, loc_algo='uniform', time_algo='uniform', env_dt=0.04, outsuffix='20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed6759d8', walking=False, radiusx=1.0, diffusion_min=1.0, diffusion_max=1.0, r_shaping=['step', 'oob'], wind_rel=True, action_feedback=False, squash_action=True, flipping=True, odor_scaling=True, stray_max=2.0, test_episodes=50, viz_episodes=10, model_fname='', obs_noise=0.0, act_noise=0.0, cuda=False)
+Using Precomputed Plume...
+Using Precomputed Plume...
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x17d792d30>, 't_val_min': 60.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 0.3, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 2.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.7, 'r_shaping': ['step', 'oob'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': False, 'walk_move': 0.05, 'walk_turn': 3.141592653589793, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 6759, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob']
+Using MLPBase
+hidden_size 64
+Using VanillaRNN
+Saved ./trained_models/ExptMemory20250723//plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed6759d8.pt.start
+Stage: 0/2 - constantx5b5 b0.3 q2.0 n850000
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed6759d8.pt
+Update 0/207, T 4096, FPS 381, 25-training-episode: mean/median -67.8/-63.3, min/max -143.7/-33.5
+Update 1/207, T 8192, FPS 394, 47-training-episode: mean/median -67.1/-68.5, min/max -143.7/-33.5
+Update 2/207, T 12288, FPS 400, 50-training-episode: mean/median -66.9/-70.5, min/max -143.7/64.6
+Update 3/207, T 16384, FPS 408, 50-training-episode: mean/median -66.9/-71.5, min/max -112.8/64.6
+Update 4/207, T 20480, FPS 410, 50-training-episode: mean/median -66.3/-71.4, min/max -108.9/65.3
+Update 5/207, T 24576, FPS 409, 50-training-episode: mean/median -53.3/-67.3, min/max -100.5/85.0
+Update 6/207, T 28672, FPS 411, 50-training-episode: mean/median -49.2/-69.2, min/max -99.6/85.0
+Update 7/207, T 32768, FPS 408, 50-training-episode: mean/median -28.5/-64.5, min/max -99.3/90.1
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/main.py", line 617, in <module>
+    main()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/main.py", line 569, in main
+    training_log, eval_log = training_loop(agent, envs, args, device, actor_critic,
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/main.py", line 343, in training_loop
+    obs, reward, done, infos = envs.step(action)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/base_vec_env.py", line 163, in step
+    return self.step_wait()
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 220, in step_wait
+    obs, reward, done, info = self.venv.step_wait()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/vec_normalize.py", line 175, in step_wait
+    obs, rewards, dones, infos = self.venv.step_wait()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/subproc_vec_env.py", line 121, in step_wait
+    results = [remote.recv() for remote in self.remotes]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/subproc_vec_env.py", line 121, in <listcomp>
+    results = [remote.recv() for remote in self.remotes]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "/opt/anaconda3/envs/py39/lib/python3.9/multiprocessing/connection.py", line 414, in _recv_bytes
+    buf = self._recv(4)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/multiprocessing/connection.py", line 383, in _recv
+    raise EOFError
+EOFError

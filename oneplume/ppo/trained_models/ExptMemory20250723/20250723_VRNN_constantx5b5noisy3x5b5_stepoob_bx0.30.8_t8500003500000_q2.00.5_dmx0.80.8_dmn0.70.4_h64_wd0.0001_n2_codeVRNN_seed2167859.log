@@ -1,0 +1,1345 @@
+CUDA: False
+Namespace(algo='ppo', lr=0.0003, eps=1e-05, alpha=0.99, gamma=0.99, use_gae=True, gae_lambda=0.95, entropy_coef=0.0075, value_loss_coef=0.5, max_grad_norm=0.5, seed=21678, cuda_deterministic=False, num_processes=2, num_steps=2048, ppo_epoch=10, num_mini_batch=2, clip_param=0.2, log_interval=1, save_interval=100, no_cuda=False, use_proper_time_limits=False, recurrent_policy=True, use_linear_lr_decay=True, env_name='plume', log_dir='/tmp/gym/', save_dir='./trained_models/ExptMemory20250723/', dynamic=False, eval_type='fixed', eval_episodes=20, eval_interval=None, weight_decay=0.0001, rnn_type='VRNN', hidden_size=64, betadist=False, stacking=0, masking=None, stride=1, dataset=['constantx5b5', 'noisy3x5b5'], num_env_steps=[850000, 3500000], qvar=[2.0, 0.5], birthx=[0.3, 0.8], diff_max=[0.8, 0.8], diff_min=[0.7, 0.4], birthx_max=1.0, dryrun=False, curriculum=False, turnx=1.0, movex=1.0, auto_movex=False, auto_reward=False, loc_algo='uniform', time_algo='uniform', env_dt=0.04, outsuffix='20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859', walking=False, radiusx=1.0, diffusion_min=1.0, diffusion_max=1.0, r_shaping=['step', 'oob'], wind_rel=True, action_feedback=False, squash_action=True, flipping=True, odor_scaling=True, stray_max=2.0, test_episodes=50, viz_episodes=10, model_fname='', obs_noise=0.0, act_noise=0.0, cuda=False)
+PPO Args ---> Namespace(algo='ppo', lr=0.0003, eps=1e-05, alpha=0.99, gamma=0.99, use_gae=True, gae_lambda=0.95, entropy_coef=0.0075, value_loss_coef=0.5, max_grad_norm=0.5, seed=21678, cuda_deterministic=False, num_processes=2, num_steps=2048, ppo_epoch=10, num_mini_batch=2, clip_param=0.2, log_interval=1, save_interval=100, no_cuda=False, use_proper_time_limits=False, recurrent_policy=True, use_linear_lr_decay=True, env_name='plume', log_dir='/tmp/gym/', save_dir='./trained_models/ExptMemory20250723/', dynamic=False, eval_type='fixed', eval_episodes=20, eval_interval=None, weight_decay=0.0001, rnn_type='VRNN', hidden_size=64, betadist=False, stacking=0, masking=None, stride=1, dataset=['constantx5b5', 'noisy3x5b5'], num_env_steps=[850000, 3500000], qvar=[2.0, 0.5], birthx=[0.3, 0.8], diff_max=[0.8, 0.8], diff_min=[0.7, 0.4], birthx_max=1.0, dryrun=False, curriculum=False, turnx=1.0, movex=1.0, auto_movex=False, auto_reward=False, loc_algo='uniform', time_algo='uniform', env_dt=0.04, outsuffix='20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859', walking=False, radiusx=1.0, diffusion_min=1.0, diffusion_max=1.0, r_shaping=['step', 'oob'], wind_rel=True, action_feedback=False, squash_action=True, flipping=True, odor_scaling=True, stray_max=2.0, test_episodes=50, viz_episodes=10, model_fname='', obs_noise=0.0, act_noise=0.0, cuda=False)
+Using Precomputed Plume...
+Using Precomputed Plume...
+2025-07-23 19:35:52.414 python[22308:38915605] +[NSXPCSharedListener endpointForReply:withListenerName:replyErrorCode:]: an error occurred while attempting to obtain endpoint for listener 'ClientCallsAuxiliary': Connection invalid
+2025-07-23 19:35:52.414 python[22309:38915606] +[NSXPCSharedListener endpointForReply:withListenerName:replyErrorCode:]: an error occurred while attempting to obtain endpoint for listener 'ClientCallsAuxiliary': Connection invalid
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x179af2d30>, 't_val_min': 60.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 0.3, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 2.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.7, 'r_shaping': ['step', 'oob'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': False, 'walk_move': 0.05, 'walk_turn': 3.141592653589793, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 21678, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob']
+Using MLPBase
+hidden_size 64
+Using VanillaRNN
+Saved ./trained_models/ExptMemory20250723//plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt.start
+Stage: 0/2 - constantx5b5 b0.3 q2.0 n850000
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Update 0/207, T 4096, FPS 417, 36-training-episode: mean/median -79.2/-75.3, min/max -138.9/-44.7
+Update 1/207, T 8192, FPS 414, 50-training-episode: mean/median -86.2/-84.6, min/max -138.9/-46.0
+Update 2/207, T 12288, FPS 413, 50-training-episode: mean/median -86.5/-86.2, min/max -137.6/-46.0
+Update 3/207, T 16384, FPS 413, 50-training-episode: mean/median -91.8/-91.6, min/max -132.6/-46.2
+Update 4/207, T 20480, FPS 414, 50-training-episode: mean/median -94.9/-95.1, min/max -145.7/-37.1
+Update 5/207, T 24576, FPS 415, 50-training-episode: mean/median -95.7/-94.4, min/max -150.0/-40.4
+Update 6/207, T 28672, FPS 415, 50-training-episode: mean/median -88.3/-86.1, min/max -147.9/-41.7
+Update 7/207, T 32768, FPS 415, 50-training-episode: mean/median -81.8/-76.0, min/max -137.0/-41.7
+Update 8/207, T 36864, FPS 416, 50-training-episode: mean/median -80.1/-69.0, min/max -165.3/-35.5
+Update 9/207, T 40960, FPS 417, 50-training-episode: mean/median -68.8/-64.3, min/max -165.3/-33.6
+Update 10/207, T 45056, FPS 417, 50-training-episode: mean/median -52.8/-49.6, min/max -112.7/78.7
+Update 11/207, T 49152, FPS 417, 50-training-episode: mean/median -46.2/-48.4, min/max -73.7/78.7
+Update 12/207, T 53248, FPS 417, 50-training-episode: mean/median -42.5/-40.8, min/max -76.2/88.5
+Update 13/207, T 57344, FPS 416, 50-training-episode: mean/median -39.0/-40.4, min/max -94.6/93.0
+Update 14/207, T 61440, FPS 417, 50-training-episode: mean/median -27.6/-41.1, min/max -94.6/93.0
+Update 15/207, T 65536, FPS 417, 50-training-episode: mean/median -26.1/-43.5, min/max -88.4/88.1
+Update 16/207, T 69632, FPS 418, 50-training-episode: mean/median -13.8/-38.8, min/max -78.1/90.5
+Update 17/207, T 73728, FPS 416, 50-training-episode: mean/median 0.5/-35.1, min/max -76.2/93.1
+Update 18/207, T 77824, FPS 415, 50-training-episode: mean/median 2.2/-35.2, min/max -78.5/95.7
+Update 19/207, T 81920, FPS 414, 50-training-episode: mean/median 3.4/-39.8, min/max -81.6/93.1
+Update 20/207, T 86016, FPS 413, 50-training-episode: mean/median -9.0/-43.0, min/max -81.6/95.2
+Update 21/207, T 90112, FPS 413, 50-training-episode: mean/median 0.9/-35.2, min/max -71.3/96.9
+Update 22/207, T 94208, FPS 412, 50-training-episode: mean/median 8.1/-33.1, min/max -66.4/99.1
+Update 23/207, T 98304, FPS 412, 50-training-episode: mean/median 17.2/-32.0, min/max -69.7/100.2
+Update 24/207, T 102400, FPS 410, 50-training-episode: mean/median 41.5/89.8, min/max -60.3/98.7
+Update 25/207, T 106496, FPS 410, 50-training-episode: mean/median 9.6/-35.1, min/max -57.6/102.8
+Update 26/207, T 110592, FPS 409, 50-training-episode: mean/median 23.0/27.1, min/max -62.8/105.6
+Update 27/207, T 114688, FPS 408, 50-training-episode: mean/median -1.2/-51.1, min/max -68.1/101.4
+Update 28/207, T 118784, FPS 408, 50-training-episode: mean/median 6.6/-50.9, min/max -68.1/101.2
+Update 29/207, T 122880, FPS 408, 50-training-episode: mean/median 13.3/-47.4, min/max -66.7/101.2
+Update 30/207, T 126976, FPS 408, 50-training-episode: mean/median 10.1/-50.0, min/max -67.4/102.7
+Update 31/207, T 131072, FPS 407, 50-training-episode: mean/median 15.9/-49.8, min/max -66.3/102.0
+Update 32/207, T 135168, FPS 407, 50-training-episode: mean/median 18.5/16.7, min/max -68.2/103.1
+Update 33/207, T 139264, FPS 407, 50-training-episode: mean/median -2.2/-53.1, min/max -69.7/103.0
+Update 34/207, T 143360, FPS 407, 50-training-episode: mean/median 27.5/86.2, min/max -69.7/104.5
+Update 35/207, T 147456, FPS 406, 50-training-episode: mean/median 28.2/87.5, min/max -59.9/100.4
+Update 36/207, T 151552, FPS 406, 50-training-episode: mean/median 16.8/-49.1, min/max -59.1/101.3
+Update 37/207, T 155648, FPS 406, 50-training-episode: mean/median 15.4/-48.8, min/max -61.1/105.6
+Update 38/207, T 159744, FPS 405, 50-training-episode: mean/median 25.6/86.7, min/max -64.0/104.2
+Update 39/207, T 163840, FPS 405, 50-training-episode: mean/median 21.4/19.8, min/max -61.4/103.1
+Update 40/207, T 167936, FPS 405, 50-training-episode: mean/median 5.4/-50.5, min/max -61.4/102.2
+Update 41/207, T 172032, FPS 404, 50-training-episode: mean/median 25.0/84.1, min/max -64.7/106.4
+Update 42/207, T 176128, FPS 404, 50-training-episode: mean/median 19.9/20.4, min/max -71.5/103.3
+Update 43/207, T 180224, FPS 404, 50-training-episode: mean/median 23.2/87.5, min/max -64.8/105.3
+Update 44/207, T 184320, FPS 403, 50-training-episode: mean/median 38.2/92.2, min/max -61.2/105.0
+Update 45/207, T 188416, FPS 403, 50-training-episode: mean/median 20.1/15.8, min/max -64.9/106.5
+Update 46/207, T 192512, FPS 402, 50-training-episode: mean/median 35.5/89.2, min/max -61.9/106.5
+Update 47/207, T 196608, FPS 402, 50-training-episode: mean/median 16.9/-49.4, min/max -62.3/104.8
+Update 48/207, T 200704, FPS 402, 50-training-episode: mean/median 15.7/-49.5, min/max -59.4/107.5
+Update 49/207, T 204800, FPS 401, 50-training-episode: mean/median 20.6/19.2, min/max -61.1/105.7
+Update 50/207, T 208896, FPS 401, 50-training-episode: mean/median 5.5/-49.9, min/max -65.8/99.4
+Update 51/207, T 212992, FPS 400, 50-training-episode: mean/median 18.3/-46.0, min/max -62.3/104.9
+Update 52/207, T 217088, FPS 400, 50-training-episode: mean/median 19.3/-46.9, min/max -56.9/107.5
+Update 53/207, T 221184, FPS 400, 50-training-episode: mean/median 9.9/-48.7, min/max -62.7/104.2
+Update 54/207, T 225280, FPS 400, 50-training-episode: mean/median 27.8/88.4, min/max -56.4/103.2
+Update 55/207, T 229376, FPS 399, 50-training-episode: mean/median 3.1/-49.7, min/max -63.0/104.2
+Update 56/207, T 233472, FPS 399, 50-training-episode: mean/median 12.7/-49.3, min/max -66.6/102.8
+Update 57/207, T 237568, FPS 399, 50-training-episode: mean/median 2.8/-52.2, min/max -63.4/102.8
+Update 58/207, T 241664, FPS 399, 50-training-episode: mean/median 6.3/-49.5, min/max -61.6/106.9
+Update 59/207, T 245760, FPS 398, 50-training-episode: mean/median 24.7/85.7, min/max -64.0/102.7
+Update 60/207, T 249856, FPS 398, 50-training-episode: mean/median 6.0/-49.8, min/max -69.2/101.2
+Update 61/207, T 253952, FPS 398, 50-training-episode: mean/median 16.2/-45.0, min/max -63.6/103.1
+Update 62/207, T 258048, FPS 398, 50-training-episode: mean/median 14.8/-48.0, min/max -65.6/102.1
+Update 63/207, T 262144, FPS 398, 50-training-episode: mean/median 13.0/-49.5, min/max -59.7/104.1
+Update 64/207, T 266240, FPS 398, 50-training-episode: mean/median 20.7/19.8, min/max -65.8/103.4
+Update 65/207, T 270336, FPS 398, 50-training-episode: mean/median 6.7/-50.4, min/max -62.8/107.3
+Update 66/207, T 274432, FPS 397, 50-training-episode: mean/median 16.2/-46.7, min/max -60.4/102.9
+Update 67/207, T 278528, FPS 397, 50-training-episode: mean/median 28.2/89.9, min/max -59.8/104.4
+Update 68/207, T 282624, FPS 397, 50-training-episode: mean/median 13.6/-48.3, min/max -58.3/107.2
+Update 69/207, T 286720, FPS 397, 50-training-episode: mean/median 19.7/-43.0, min/max -64.0/105.1
+Update 70/207, T 290816, FPS 397, 50-training-episode: mean/median 20.8/20.6, min/max -59.5/104.6
+Update 71/207, T 294912, FPS 396, 50-training-episode: mean/median 30.9/90.3, min/max -62.5/105.2
+Update 72/207, T 299008, FPS 396, 50-training-episode: mean/median 37.5/92.3, min/max -57.3/103.2
+Update 73/207, T 303104, FPS 396, 50-training-episode: mean/median 13.3/-48.5, min/max -55.7/102.7
+Update 74/207, T 307200, FPS 396, 50-training-episode: mean/median 21.1/19.8, min/max -63.9/106.5
+Update 75/207, T 311296, FPS 395, 50-training-episode: mean/median 35.8/90.0, min/max -60.3/104.8
+Update 76/207, T 315392, FPS 395, 50-training-episode: mean/median 19.3/-47.5, min/max -56.2/105.3
+Update 77/207, T 319488, FPS 395, 50-training-episode: mean/median 42.3/90.7, min/max -57.0/106.9
+Update 78/207, T 323584, FPS 395, 50-training-episode: mean/median 33.5/90.0, min/max -55.8/101.7
+Update 79/207, T 327680, FPS 395, 50-training-episode: mean/median 25.6/89.8, min/max -56.8/107.6
+Update 80/207, T 331776, FPS 394, 50-training-episode: mean/median 46.0/94.1, min/max -57.7/106.6
+Update 81/207, T 335872, FPS 394, 50-training-episode: mean/median 24.4/84.8, min/max -61.0/105.1
+Update 82/207, T 339968, FPS 394, 50-training-episode: mean/median 33.3/91.7, min/max -59.8/107.9
+Update 83/207, T 344064, FPS 394, 50-training-episode: mean/median 24.2/88.6, min/max -61.8/102.5
+Update 84/207, T 348160, FPS 394, 50-training-episode: mean/median 16.0/-47.5, min/max -61.1/104.3
+Update 85/207, T 352256, FPS 394, 50-training-episode: mean/median 28.1/91.4, min/max -61.1/105.2
+Update 86/207, T 356352, FPS 393, 50-training-episode: mean/median 36.4/92.9, min/max -70.2/106.5
+Update 87/207, T 360448, FPS 393, 50-training-episode: mean/median 10.0/-50.3, min/max -59.6/109.3
+Update 88/207, T 364544, FPS 393, 50-training-episode: mean/median 12.5/-50.7, min/max -58.7/104.6
+Update 89/207, T 368640, FPS 393, 50-training-episode: mean/median -2.8/-50.9, min/max -61.8/106.9
+Update 90/207, T 372736, FPS 393, 50-training-episode: mean/median 45.8/93.6, min/max -59.4/107.3
+Update 91/207, T 376832, FPS 393, 50-training-episode: mean/median 22.3/22.2, min/max -66.4/107.3
+Update 92/207, T 380928, FPS 393, 50-training-episode: mean/median 24.7/90.8, min/max -57.7/103.2
+Update 93/207, T 385024, FPS 393, 50-training-episode: mean/median 34.9/93.7, min/max -60.6/108.6
+Update 94/207, T 389120, FPS 393, 50-training-episode: mean/median 26.9/89.6, min/max -67.2/105.3
+Update 95/207, T 393216, FPS 393, 50-training-episode: mean/median 24.0/90.4, min/max -65.0/107.6
+Update 96/207, T 397312, FPS 393, 50-training-episode: mean/median 11.8/-51.0, min/max -62.2/103.8
+Update 97/207, T 401408, FPS 393, 50-training-episode: mean/median 32.5/92.6, min/max -69.9/104.7
+Update 98/207, T 405504, FPS 393, 50-training-episode: mean/median 36.4/92.4, min/max -67.9/106.9
+Update 99/207, T 409600, FPS 393, 50-training-episode: mean/median 16.3/-48.9, min/max -61.9/105.6
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Update 100/207, T 413696, FPS 393, 50-training-episode: mean/median 17.2/-48.7, min/max -63.0/103.1
+Update 101/207, T 417792, FPS 393, 50-training-episode: mean/median 17.0/-46.0, min/max -65.1/103.4
+Update 102/207, T 421888, FPS 392, 50-training-episode: mean/median 4.9/-50.4, min/max -65.1/106.0
+Update 103/207, T 425984, FPS 392, 50-training-episode: mean/median 13.5/-50.0, min/max -67.3/103.7
+Update 104/207, T 430080, FPS 392, 50-training-episode: mean/median 10.7/-51.8, min/max -66.8/104.8
+Update 105/207, T 434176, FPS 392, 50-training-episode: mean/median 23.8/90.4, min/max -64.6/106.1
+Update 106/207, T 438272, FPS 392, 50-training-episode: mean/median 24.3/83.2, min/max -65.4/108.2
+Update 107/207, T 442368, FPS 392, 50-training-episode: mean/median 16.8/-48.2, min/max -66.3/106.4
+Update 108/207, T 446464, FPS 392, 50-training-episode: mean/median 6.4/-53.7, min/max -69.8/103.1
+Update 109/207, T 450560, FPS 392, 50-training-episode: mean/median 29.1/91.7, min/max -68.8/105.0
+Update 110/207, T 454656, FPS 392, 50-training-episode: mean/median -2.6/-51.5, min/max -73.9/107.3
+Update 111/207, T 458752, FPS 392, 50-training-episode: mean/median 2.6/-50.8, min/max -75.5/107.3
+Update 112/207, T 462848, FPS 392, 50-training-episode: mean/median 34.6/95.9, min/max -82.3/105.2
+Update 113/207, T 466944, FPS 392, 50-training-episode: mean/median 29.1/91.4, min/max -96.8/105.9
+Update 114/207, T 471040, FPS 392, 50-training-episode: mean/median 31.5/95.3, min/max -75.2/104.7
+Update 115/207, T 475136, FPS 393, 50-training-episode: mean/median 18.5/72.1, min/max -93.2/106.1
+Update 116/207, T 479232, FPS 393, 50-training-episode: mean/median 9.4/-56.2, min/max -86.0/106.1
+Update 117/207, T 483328, FPS 393, 50-training-episode: mean/median 8.5/-47.2, min/max -86.7/106.4
+Update 118/207, T 487424, FPS 393, 50-training-episode: mean/median 22.5/77.8, min/max -87.8/105.6
+Update 119/207, T 491520, FPS 393, 50-training-episode: mean/median 21.0/81.7, min/max -87.8/105.9
+Update 120/207, T 495616, FPS 393, 50-training-episode: mean/median 55.4/94.8, min/max -78.0/106.2
+Update 121/207, T 499712, FPS 393, 50-training-episode: mean/median 37.0/91.6, min/max -84.8/106.7
+Update 122/207, T 503808, FPS 393, 50-training-episode: mean/median 28.1/90.4, min/max -89.7/104.6
+Update 123/207, T 507904, FPS 393, 50-training-episode: mean/median 26.5/78.9, min/max -91.8/102.7
+Update 124/207, T 512000, FPS 392, 50-training-episode: mean/median 51.0/84.0, min/max -94.5/106.0
+Update 125/207, T 516096, FPS 392, 50-training-episode: mean/median 35.9/86.6, min/max -88.8/106.8
+Update 126/207, T 520192, FPS 392, 50-training-episode: mean/median 44.3/93.6, min/max -79.6/107.7
+Update 127/207, T 524288, FPS 392, 50-training-episode: mean/median 30.5/85.0, min/max -80.8/103.7
+Update 128/207, T 528384, FPS 391, 50-training-episode: mean/median 46.9/90.3, min/max -82.1/103.8
+Update 129/207, T 532480, FPS 391, 50-training-episode: mean/median 32.5/89.7, min/max -82.1/106.0
+Update 130/207, T 536576, FPS 390, 50-training-episode: mean/median 64.5/94.6, min/max -74.5/106.4
+Update 131/207, T 540672, FPS 390, 50-training-episode: mean/median 31.4/91.8, min/max -73.0/104.8
+Update 132/207, T 544768, FPS 389, 50-training-episode: mean/median 47.8/92.9, min/max -67.6/106.1
+Update 133/207, T 548864, FPS 389, 50-training-episode: mean/median 52.2/95.5, min/max -69.3/104.5
+Update 134/207, T 552960, FPS 389, 50-training-episode: mean/median 35.4/91.7, min/max -73.8/106.5
+Update 135/207, T 557056, FPS 388, 50-training-episode: mean/median 58.2/94.7, min/max -59.8/107.7
+Update 136/207, T 561152, FPS 388, 50-training-episode: mean/median 46.6/91.9, min/max -74.9/105.4
+Update 137/207, T 565248, FPS 387, 50-training-episode: mean/median 40.7/90.0, min/max -72.9/106.8
+Update 138/207, T 569344, FPS 387, 50-training-episode: mean/median 20.1/19.5, min/max -68.5/104.8
+Update 139/207, T 573440, FPS 387, 50-training-episode: mean/median 23.4/91.8, min/max -91.4/103.8
+Update 140/207, T 577536, FPS 386, 50-training-episode: mean/median 29.6/93.6, min/max -92.8/106.9
+Update 141/207, T 581632, FPS 386, 50-training-episode: mean/median 45.9/89.6, min/max -89.5/105.9
+Update 142/207, T 585728, FPS 386, 50-training-episode: mean/median 56.8/95.3, min/max -86.9/106.6
+Update 143/207, T 589824, FPS 386, 50-training-episode: mean/median 45.1/92.5, min/max -85.8/103.7
+Update 144/207, T 593920, FPS 385, 50-training-episode: mean/median 55.2/93.5, min/max -84.1/106.9
+Update 145/207, T 598016, FPS 385, 50-training-episode: mean/median 48.1/93.0, min/max -76.5/106.9
+Update 146/207, T 602112, FPS 385, 50-training-episode: mean/median 43.1/92.7, min/max -89.0/105.8
+Update 147/207, T 606208, FPS 385, 50-training-episode: mean/median 22.7/89.7, min/max -90.4/105.8
+Update 148/207, T 610304, FPS 385, 50-training-episode: mean/median 24.5/90.6, min/max -90.4/105.2
+Update 149/207, T 614400, FPS 384, 50-training-episode: mean/median 37.9/93.1, min/max -79.7/105.5
+Update 150/207, T 618496, FPS 384, 50-training-episode: mean/median 32.3/91.6, min/max -76.3/105.5
+Update 151/207, T 622592, FPS 384, 50-training-episode: mean/median 27.9/90.9, min/max -78.4/108.9
+Update 152/207, T 626688, FPS 384, 50-training-episode: mean/median 50.7/93.8, min/max -78.4/104.5
+Update 153/207, T 630784, FPS 384, 50-training-episode: mean/median 34.1/92.8, min/max -89.3/104.8
+Update 154/207, T 634880, FPS 384, 50-training-episode: mean/median 27.9/93.3, min/max -78.5/104.8
+Update 155/207, T 638976, FPS 384, 50-training-episode: mean/median 23.0/90.3, min/max -99.3/103.7
+Update 156/207, T 643072, FPS 383, 50-training-episode: mean/median 32.7/92.1, min/max -99.3/102.5
+Update 157/207, T 647168, FPS 383, 50-training-episode: mean/median 23.4/92.1, min/max -97.1/102.8
+Update 158/207, T 651264, FPS 383, 50-training-episode: mean/median 26.4/93.6, min/max -97.1/102.8
+Update 159/207, T 655360, FPS 383, 50-training-episode: mean/median 12.2/81.8, min/max -82.4/102.2
+Update 160/207, T 659456, FPS 383, 50-training-episode: mean/median 11.8/73.5, min/max -82.4/105.4
+Update 161/207, T 663552, FPS 383, 50-training-episode: mean/median 23.9/82.1, min/max -111.2/105.4
+Update 162/207, T 667648, FPS 383, 50-training-episode: mean/median 23.2/81.7, min/max -111.2/102.1
+Update 163/207, T 671744, FPS 383, 50-training-episode: mean/median 26.2/88.8, min/max -88.0/108.1
+Update 164/207, T 675840, FPS 383, 50-training-episode: mean/median 20.7/91.0, min/max -107.8/108.1
+Update 165/207, T 679936, FPS 383, 50-training-episode: mean/median 12.7/79.8, min/max -107.8/107.3
+Update 166/207, T 684032, FPS 382, 50-training-episode: mean/median 22.5/92.2, min/max -102.0/105.5
+Update 167/207, T 688128, FPS 382, 50-training-episode: mean/median 20.8/89.7, min/max -101.1/105.7
+Update 168/207, T 692224, FPS 382, 50-training-episode: mean/median 24.8/86.1, min/max -105.5/105.7
+Update 169/207, T 696320, FPS 382, 50-training-episode: mean/median 9.3/15.9, min/max -123.6/105.7
+Update 170/207, T 700416, FPS 382, 50-training-episode: mean/median -8.2/-66.0, min/max -123.6/105.2
+Update 171/207, T 704512, FPS 382, 50-training-episode: mean/median -7.5/-69.1, min/max -121.9/104.9
+Update 172/207, T 708608, FPS 382, 50-training-episode: mean/median 1.8/-53.7, min/max -121.9/106.7
+Update 173/207, T 712704, FPS 381, 50-training-episode: mean/median 9.3/20.7, min/max -101.7/108.7
+Update 174/207, T 716800, FPS 381, 50-training-episode: mean/median 7.7/18.4, min/max -101.8/108.7
+Update 175/207, T 720896, FPS 381, 50-training-episode: mean/median 11.2/18.4, min/max -101.8/105.8
+Update 176/207, T 724992, FPS 381, 50-training-episode: mean/median 17.0/75.5, min/max -88.4/105.4
+Update 177/207, T 729088, FPS 381, 50-training-episode: mean/median 13.7/74.1, min/max -112.2/106.1
+Update 178/207, T 733184, FPS 381, 50-training-episode: mean/median -1.8/-59.1, min/max -112.2/106.1
+Update 179/207, T 737280, FPS 381, 50-training-episode: mean/median -5.0/-57.0, min/max -108.2/106.9
+Update 180/207, T 741376, FPS 380, 50-training-episode: mean/median -13.2/-65.8, min/max -108.2/106.9
+Update 181/207, T 745472, FPS 380, 50-training-episode: mean/median 19.2/91.5, min/max -102.2/105.4
+Update 182/207, T 749568, FPS 380, 50-training-episode: mean/median 22.4/95.2, min/max -113.8/105.4
+Update 183/207, T 753664, FPS 379, 50-training-episode: mean/median 28.3/92.1, min/max -117.9/104.8
+Update 184/207, T 757760, FPS 379, 50-training-episode: mean/median 23.6/91.5, min/max -113.8/107.0
+Update 185/207, T 761856, FPS 379, 50-training-episode: mean/median 12.4/25.6, min/max -113.8/107.0
+Update 186/207, T 765952, FPS 379, 50-training-episode: mean/median -6.9/-44.8, min/max -94.1/105.0
+Update 187/207, T 770048, FPS 379, 50-training-episode: mean/median -5.6/-48.1, min/max -94.1/105.0
+Update 188/207, T 774144, FPS 379, 50-training-episode: mean/median -10.0/-73.6, min/max -94.1/102.9
+Update 189/207, T 778240, FPS 379, 50-training-episode: mean/median -11.5/-59.9, min/max -87.3/107.6
+Update 190/207, T 782336, FPS 378, 50-training-episode: mean/median -2.6/-46.2, min/max -87.2/107.6
+Update 191/207, T 786432, FPS 378, 50-training-episode: mean/median -10.2/-53.3, min/max -85.6/107.6
+Update 192/207, T 790528, FPS 378, 50-training-episode: mean/median -11.8/-65.4, min/max -87.4/106.7
+Update 193/207, T 794624, FPS 377, 50-training-episode: mean/median 11.2/-26.4, min/max -87.4/108.3
+Update 194/207, T 798720, FPS 377, 50-training-episode: mean/median -17.4/-73.1, min/max -88.3/108.3
+Update 195/207, T 802816, FPS 377, 50-training-episode: mean/median -17.6/-73.8, min/max -88.3/108.3
+Update 196/207, T 806912, FPS 376, 50-training-episode: mean/median -8.9/-61.8, min/max -87.4/102.6
+Update 197/207, T 811008, FPS 376, 50-training-episode: mean/median -11.9/-46.5, min/max -87.0/108.1
+Update 198/207, T 815104, FPS 376, 50-training-episode: mean/median -5.4/-43.9, min/max -86.2/108.1
+Update 199/207, T 819200, FPS 376, 50-training-episode: mean/median -0.9/-45.7, min/max -86.0/104.6
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Update 200/207, T 823296, FPS 376, 50-training-episode: mean/median -8.7/-46.6, min/max -88.1/104.6
+Update 201/207, T 827392, FPS 375, 50-training-episode: mean/median -28.1/-69.6, min/max -88.1/106.9
+Update 202/207, T 831488, FPS 375, 50-training-episode: mean/median -21.8/-71.6, min/max -87.2/106.9
+Update 203/207, T 835584, FPS 375, 50-training-episode: mean/median -17.5/-48.0, min/max -92.0/107.0
+Update 204/207, T 839680, FPS 375, 50-training-episode: mean/median -7.5/-45.5, min/max -92.0/107.0
+Update 205/207, T 843776, FPS 374, 50-training-episode: mean/median -6.3/-43.3, min/max -87.0/104.1
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Update 206/207, T 847872, FPS 374, 50-training-episode: mean/median -7.0/-44.1, min/max -88.2/105.3
+Stage: 1/2 - noisy3x5b5 b0.8 q0.5 n3500000
+Using Precomputed Plume...
+Using Precomputed Plume...
+2025-07-23 20:13:41.193 python[24089:38947565] +[NSXPCSharedListener endpointForReply:withListenerName:replyErrorCode:]: an error occurred while attempting to obtain endpoint for listener 'ClientCallsAuxiliary': Connection invalid
+2025-07-23 20:13:41.193 python[24090:38947566] +[NSXPCSharedListener endpointForReply:withListenerName:replyErrorCode:]: an error occurred while attempting to obtain endpoint for listener 'ClientCallsAuxiliary': Connection invalid
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x1052b6250>, 't_val_min': 60.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 0.3, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 2.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.7, 'r_shaping': ['step', 'oob'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': False, 'walk_move': 0.05, 'walk_turn': 3.141592653589793, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 21678, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob']
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x1052b6250>, 't_val_min': 60.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'constantx5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 0.3, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 2.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.7, 'r_shaping': ['step', 'oob'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': False, 'walk_move': 0.05, 'walk_turn': 3.141592653589793, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 21678, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+constantx5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob']
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Update 0/854, T 4096, FPS 272, 31-training-episode: mean/median -34.5/-43.3, min/max -94.9/103.9
+Update 1/854, T 8192, FPS 268, 50-training-episode: mean/median -22.2/-42.8, min/max -88.5/98.7
+Update 2/854, T 12288, FPS 267, 50-training-episode: mean/median -26.8/-43.1, min/max -107.8/97.8
+Update 3/854, T 16384, FPS 267, 50-training-episode: mean/median -24.8/-42.0, min/max -107.8/104.9
+Update 4/854, T 20480, FPS 265, 50-training-episode: mean/median -28.1/-44.8, min/max -88.0/103.4
+Update 5/854, T 24576, FPS 262, 50-training-episode: mean/median -16.9/-44.5, min/max -110.5/99.8
+Update 6/854, T 28672, FPS 258, 50-training-episode: mean/median -20.7/-44.0, min/max -110.5/100.2
+Update 7/854, T 32768, FPS 258, 50-training-episode: mean/median -7.8/-41.5, min/max -113.1/101.5
+Update 8/854, T 36864, FPS 259, 50-training-episode: mean/median -21.8/-45.2, min/max -84.2/101.5
+Update 9/854, T 40960, FPS 262, 50-training-episode: mean/median -37.5/-44.6, min/max -115.5/95.7
+Update 10/854, T 45056, FPS 263, 50-training-episode: mean/median -25.5/-42.7, min/max -83.1/103.7
+Update 11/854, T 49152, FPS 264, 50-training-episode: mean/median -33.1/-45.4, min/max -83.8/101.4
+Update 12/854, T 53248, FPS 265, 50-training-episode: mean/median -25.2/-43.4, min/max -87.3/104.4
+Update 13/854, T 57344, FPS 266, 50-training-episode: mean/median -9.3/-43.3, min/max -84.2/105.0
+Update 14/854, T 61440, FPS 267, 50-training-episode: mean/median -17.0/-44.3, min/max -102.3/106.4
+Update 15/854, T 65536, FPS 268, 50-training-episode: mean/median -13.4/-44.7, min/max -92.7/106.4
+Update 16/854, T 69632, FPS 268, 50-training-episode: mean/median -10.4/-42.7, min/max -78.2/103.7
+Update 17/854, T 73728, FPS 268, 50-training-episode: mean/median -20.0/-44.4, min/max -86.0/102.8
+Update 18/854, T 77824, FPS 269, 50-training-episode: mean/median -13.5/-45.7, min/max -81.1/100.9
+Update 19/854, T 81920, FPS 270, 50-training-episode: mean/median -6.4/-43.1, min/max -87.7/102.3
+Update 20/854, T 86016, FPS 270, 50-training-episode: mean/median -21.4/-44.8, min/max -81.0/102.3
+Update 21/854, T 90112, FPS 270, 50-training-episode: mean/median -28.9/-42.5, min/max -97.6/99.9
+Update 22/854, T 94208, FPS 270, 50-training-episode: mean/median -29.9/-43.6, min/max -97.6/97.9
+Update 23/854, T 98304, FPS 271, 50-training-episode: mean/median -25.9/-44.1, min/max -80.6/104.5
+Update 24/854, T 102400, FPS 272, 50-training-episode: mean/median -23.2/-43.5, min/max -84.5/100.1
+Update 25/854, T 106496, FPS 272, 50-training-episode: mean/median -27.6/-45.2, min/max -73.5/95.2
+Update 26/854, T 110592, FPS 272, 50-training-episode: mean/median -25.7/-46.4, min/max -85.6/101.3
+Update 27/854, T 114688, FPS 273, 50-training-episode: mean/median -16.0/-43.6, min/max -84.3/101.2
+Update 28/854, T 118784, FPS 273, 50-training-episode: mean/median -15.8/-43.9, min/max -88.7/99.3
+Update 29/854, T 122880, FPS 273, 50-training-episode: mean/median -9.3/-43.1, min/max -81.5/102.1
+Update 30/854, T 126976, FPS 273, 50-training-episode: mean/median -5.2/-39.6, min/max -69.8/101.8
+Update 31/854, T 131072, FPS 273, 50-training-episode: mean/median -1.1/-36.0, min/max -94.1/100.4
+Update 32/854, T 135168, FPS 273, 50-training-episode: mean/median -11.1/-45.1, min/max -97.3/105.7
+Update 33/854, T 139264, FPS 274, 50-training-episode: mean/median -16.4/-50.0, min/max -91.2/103.1
+Update 34/854, T 143360, FPS 274, 50-training-episode: mean/median -9.4/-51.9, min/max -93.7/103.4
+Update 35/854, T 147456, FPS 275, 50-training-episode: mean/median 4.3/-21.8, min/max -98.6/102.1
+Update 36/854, T 151552, FPS 275, 50-training-episode: mean/median 2.5/-25.3, min/max -91.0/104.0
+Update 37/854, T 155648, FPS 275, 50-training-episode: mean/median 4.7/-33.9, min/max -97.1/101.0
+Update 38/854, T 159744, FPS 275, 50-training-episode: mean/median 0.0/-46.5, min/max -97.1/104.0
+Update 39/854, T 163840, FPS 276, 50-training-episode: mean/median 2.8/-38.6, min/max -85.6/104.6
+Update 40/854, T 167936, FPS 276, 50-training-episode: mean/median 17.9/50.8, min/max -84.2/104.6
+Update 41/854, T 172032, FPS 276, 50-training-episode: mean/median -0.9/-29.7, min/max -99.7/101.2
+Update 42/854, T 176128, FPS 277, 50-training-episode: mean/median -3.7/-48.3, min/max -99.7/101.2
+Update 43/854, T 180224, FPS 277, 50-training-episode: mean/median 12.0/-19.3, min/max -96.3/101.3
+Update 44/854, T 184320, FPS 277, 50-training-episode: mean/median 1.6/-28.0, min/max -68.2/100.4
+Update 45/854, T 188416, FPS 276, 50-training-episode: mean/median 0.9/-27.8, min/max -67.2/103.8
+Update 46/854, T 192512, FPS 276, 50-training-episode: mean/median 2.8/-32.8, min/max -81.3/103.0
+Update 47/854, T 196608, FPS 276, 50-training-episode: mean/median 14.9/-24.9, min/max -97.0/103.4
+Update 48/854, T 200704, FPS 276, 50-training-episode: mean/median -0.5/-39.2, min/max -97.0/105.1
+Update 49/854, T 204800, FPS 276, 50-training-episode: mean/median 7.4/-30.8, min/max -87.2/108.5
+Update 50/854, T 208896, FPS 276, 50-training-episode: mean/median 22.3/-17.7, min/max -101.2/102.5
+Update 51/854, T 212992, FPS 276, 50-training-episode: mean/median 19.4/29.3, min/max -101.2/102.0
+Update 52/854, T 217088, FPS 276, 50-training-episode: mean/median 16.6/-22.4, min/max -77.1/99.9
+Update 53/854, T 221184, FPS 276, 50-training-episode: mean/median 17.0/-20.5, min/max -91.9/100.9
+Update 54/854, T 225280, FPS 276, 50-training-episode: mean/median 10.2/-21.9, min/max -79.7/107.0
+Update 55/854, T 229376, FPS 276, 50-training-episode: mean/median 10.5/-21.3, min/max -101.0/107.0
+Update 56/854, T 233472, FPS 276, 50-training-episode: mean/median -3.9/-33.0, min/max -83.6/101.4
+Update 57/854, T 237568, FPS 276, 50-training-episode: mean/median 15.5/-22.6, min/max -99.5/102.5
+Update 58/854, T 241664, FPS 276, 50-training-episode: mean/median 17.7/-22.3, min/max -93.3/102.4
+Update 59/854, T 245760, FPS 276, 50-training-episode: mean/median -13.7/-44.5, min/max -93.5/101.2
+Update 60/854, T 249856, FPS 276, 50-training-episode: mean/median -12.3/-42.0, min/max -93.5/100.9
+Update 61/854, T 253952, FPS 277, 50-training-episode: mean/median -2.4/-29.8, min/max -88.5/99.2
+Update 62/854, T 258048, FPS 277, 50-training-episode: mean/median -4.6/-33.9, min/max -82.4/99.2
+Update 63/854, T 262144, FPS 277, 50-training-episode: mean/median 8.0/-23.1, min/max -99.9/100.9
+Update 64/854, T 266240, FPS 277, 50-training-episode: mean/median 24.5/34.3, min/max -80.4/103.6
+Update 65/854, T 270336, FPS 277, 50-training-episode: mean/median 6.4/-25.4, min/max -99.0/103.6
+Update 66/854, T 274432, FPS 277, 50-training-episode: mean/median -16.0/-43.2, min/max -99.0/102.9
+Update 67/854, T 278528, FPS 277, 50-training-episode: mean/median 12.6/-20.8, min/max -93.0/99.8
+Update 68/854, T 282624, FPS 277, 50-training-episode: mean/median 10.0/-33.2, min/max -89.6/104.9
+Update 69/854, T 286720, FPS 277, 50-training-episode: mean/median 7.7/-27.8, min/max -90.2/100.8
+Update 70/854, T 290816, FPS 278, 50-training-episode: mean/median 0.9/-39.6, min/max -90.2/101.5
+Update 71/854, T 294912, FPS 278, 50-training-episode: mean/median 10.2/-24.4, min/max -91.5/104.3
+Update 72/854, T 299008, FPS 278, 50-training-episode: mean/median 10.7/-24.8, min/max -79.8/104.3
+Update 73/854, T 303104, FPS 279, 50-training-episode: mean/median 5.4/-26.7, min/max -92.1/102.4
+Update 74/854, T 307200, FPS 279, 50-training-episode: mean/median 10.3/-24.6, min/max -81.1/103.0
+Update 75/854, T 311296, FPS 279, 50-training-episode: mean/median -8.0/-36.9, min/max -85.6/103.0
+Update 76/854, T 315392, FPS 280, 50-training-episode: mean/median -6.7/-26.2, min/max -80.6/102.6
+Update 77/854, T 319488, FPS 280, 50-training-episode: mean/median 5.7/-23.5, min/max -91.3/102.6
+Update 78/854, T 323584, FPS 281, 50-training-episode: mean/median 18.3/54.2, min/max -100.7/100.8
+Update 79/854, T 327680, FPS 281, 50-training-episode: mean/median 9.4/-24.4, min/max -99.0/102.9
+Update 80/854, T 331776, FPS 281, 50-training-episode: mean/median -1.6/-27.5, min/max -84.3/102.9
+Update 81/854, T 335872, FPS 282, 50-training-episode: mean/median 14.3/-19.9, min/max -84.3/99.6
+Update 82/854, T 339968, FPS 282, 50-training-episode: mean/median 12.9/-22.9, min/max -92.5/98.4
+Update 83/854, T 344064, FPS 282, 50-training-episode: mean/median -8.2/-35.5, min/max -93.5/104.9
+Update 84/854, T 348160, FPS 282, 50-training-episode: mean/median 13.7/-25.7, min/max -83.5/106.7
+Update 85/854, T 352256, FPS 282, 50-training-episode: mean/median 6.6/-22.2, min/max -93.4/101.1
+Update 86/854, T 356352, FPS 283, 50-training-episode: mean/median 11.1/-23.8, min/max -93.4/101.1
+Update 87/854, T 360448, FPS 283, 50-training-episode: mean/median 22.4/58.5, min/max -96.0/100.2
+Update 88/854, T 364544, FPS 283, 50-training-episode: mean/median 11.0/-26.0, min/max -88.8/100.2
+Update 89/854, T 368640, FPS 283, 50-training-episode: mean/median 3.5/-26.5, min/max -82.4/101.0
+Update 90/854, T 372736, FPS 283, 50-training-episode: mean/median 11.6/-23.4, min/max -78.6/102.3
+Update 91/854, T 376832, FPS 284, 50-training-episode: mean/median 18.0/-19.9, min/max -91.5/99.0
+Update 92/854, T 380928, FPS 284, 50-training-episode: mean/median -8.7/-33.8, min/max -91.5/99.4
+Update 93/854, T 385024, FPS 284, 50-training-episode: mean/median -4.0/-43.9, min/max -87.1/104.0
+Update 94/854, T 389120, FPS 284, 50-training-episode: mean/median 3.1/-34.7, min/max -97.2/104.0
+Update 95/854, T 393216, FPS 285, 50-training-episode: mean/median 6.2/-29.5, min/max -97.2/103.8
+Update 96/854, T 397312, FPS 285, 50-training-episode: mean/median 3.0/-34.8, min/max -93.9/101.1
+Update 97/854, T 401408, FPS 285, 50-training-episode: mean/median -1.6/-37.5, min/max -88.2/105.8
+Update 98/854, T 405504, FPS 285, 50-training-episode: mean/median -12.2/-47.3, min/max -95.7/101.7
+Update 99/854, T 409600, FPS 285, 50-training-episode: mean/median -1.4/-39.4, min/max -80.1/103.9
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Update 100/854, T 413696, FPS 286, 50-training-episode: mean/median 7.5/-31.8, min/max -95.7/103.9
+Update 101/854, T 417792, FPS 286, 50-training-episode: mean/median 13.9/-24.5, min/max -95.7/103.9
+Update 102/854, T 421888, FPS 286, 50-training-episode: mean/median 14.8/-20.2, min/max -92.9/99.7
+Update 103/854, T 425984, FPS 286, 50-training-episode: mean/median 17.7/-20.7, min/max -84.8/100.7
+Update 104/854, T 430080, FPS 286, 50-training-episode: mean/median 23.7/30.7, min/max -76.3/102.4
+Update 105/854, T 434176, FPS 286, 50-training-episode: mean/median 19.6/-22.8, min/max -86.4/101.7
+Update 106/854, T 438272, FPS 286, 50-training-episode: mean/median 17.6/-22.3, min/max -89.6/103.4
+Update 107/854, T 442368, FPS 286, 50-training-episode: mean/median 12.8/-25.2, min/max -86.6/101.8
+Update 108/854, T 446464, FPS 286, 50-training-episode: mean/median 9.7/-21.7, min/max -87.6/104.5
+Update 109/854, T 450560, FPS 286, 50-training-episode: mean/median 3.8/-28.3, min/max -87.6/104.5
+Update 110/854, T 454656, FPS 286, 50-training-episode: mean/median 5.5/-28.1, min/max -79.6/100.2
+Update 111/854, T 458752, FPS 287, 50-training-episode: mean/median 5.1/-28.0, min/max -95.5/105.7
+Update 112/854, T 462848, FPS 287, 50-training-episode: mean/median 18.5/-18.2, min/max -96.2/102.3
+Update 113/854, T 466944, FPS 287, 50-training-episode: mean/median 16.4/-25.1, min/max -89.3/101.7
+Update 114/854, T 471040, FPS 287, 50-training-episode: mean/median 8.0/-26.7, min/max -92.9/105.5
+Update 115/854, T 475136, FPS 287, 50-training-episode: mean/median 12.0/-24.8, min/max -87.9/102.6
+Update 116/854, T 479232, FPS 287, 50-training-episode: mean/median 18.7/-21.8, min/max -83.1/104.7
+Update 117/854, T 483328, FPS 287, 50-training-episode: mean/median 8.8/-24.3, min/max -81.5/105.8
+Update 118/854, T 487424, FPS 287, 50-training-episode: mean/median 2.2/-30.0, min/max -98.8/104.3
+Update 119/854, T 491520, FPS 287, 50-training-episode: mean/median -0.5/-39.2, min/max -72.3/106.5
+Update 120/854, T 495616, FPS 287, 50-training-episode: mean/median 2.3/-41.9, min/max -87.7/104.5
+Update 121/854, T 499712, FPS 287, 50-training-episode: mean/median -2.4/-32.5, min/max -87.7/101.6
+Update 122/854, T 503808, FPS 287, 50-training-episode: mean/median 19.6/40.7, min/max -86.3/101.6
+Update 123/854, T 507904, FPS 287, 50-training-episode: mean/median 16.5/54.5, min/max -97.4/100.9
+Update 124/854, T 512000, FPS 288, 50-training-episode: mean/median -2.0/-30.3, min/max -97.4/100.9
+Update 125/854, T 516096, FPS 288, 50-training-episode: mean/median -1.4/-30.3, min/max -83.6/100.3
+Update 126/854, T 520192, FPS 288, 50-training-episode: mean/median 10.7/8.9, min/max -106.0/100.9
+Update 127/854, T 524288, FPS 288, 50-training-episode: mean/median 16.6/48.7, min/max -81.1/102.1
+Update 128/854, T 528384, FPS 289, 50-training-episode: mean/median 16.7/45.9, min/max -81.1/102.1
+Update 129/854, T 532480, FPS 289, 50-training-episode: mean/median 32.7/74.9, min/max -90.2/103.2
+Update 130/854, T 536576, FPS 289, 50-training-episode: mean/median 28.6/67.8, min/max -83.7/102.6
+Update 131/854, T 540672, FPS 289, 50-training-episode: mean/median 26.4/26.4, min/max -78.8/100.3
+Update 132/854, T 544768, FPS 289, 50-training-episode: mean/median 29.2/34.6, min/max -70.9/103.7
+Update 133/854, T 548864, FPS 289, 50-training-episode: mean/median 19.6/-21.7, min/max -72.9/99.7
+Update 134/854, T 552960, FPS 289, 50-training-episode: mean/median 8.9/-26.0, min/max -92.9/101.6
+Update 135/854, T 557056, FPS 289, 50-training-episode: mean/median 25.0/19.7, min/max -79.8/102.5
+Update 136/854, T 561152, FPS 289, 50-training-episode: mean/median 24.0/13.4, min/max -85.2/101.3
+Update 137/854, T 565248, FPS 289, 50-training-episode: mean/median 4.5/-27.4, min/max -87.8/99.8
+Update 138/854, T 569344, FPS 289, 50-training-episode: mean/median 20.7/-20.6, min/max -94.1/103.6
+Update 139/854, T 573440, FPS 289, 50-training-episode: mean/median 22.0/26.8, min/max -79.5/104.5
+Update 140/854, T 577536, FPS 289, 50-training-episode: mean/median 24.4/65.6, min/max -106.1/100.2
+Update 141/854, T 581632, FPS 289, 50-training-episode: mean/median -2.0/-28.4, min/max -89.9/102.3
+Update 142/854, T 585728, FPS 289, 50-training-episode: mean/median 11.4/-24.9, min/max -94.0/101.4
+Update 143/854, T 589824, FPS 289, 50-training-episode: mean/median 20.7/-20.0, min/max -74.8/102.4
+Update 144/854, T 593920, FPS 289, 50-training-episode: mean/median 23.3/-22.1, min/max -81.1/101.5
+Update 145/854, T 598016, FPS 289, 50-training-episode: mean/median 9.9/-28.3, min/max -68.0/101.2
+Update 146/854, T 602112, FPS 288, 50-training-episode: mean/median 14.5/-27.4, min/max -93.6/101.3
+Update 147/854, T 606208, FPS 288, 50-training-episode: mean/median 20.4/-23.7, min/max -63.3/104.4
+Update 148/854, T 610304, FPS 288, 50-training-episode: mean/median 12.4/-28.6, min/max -73.2/102.0
+Update 149/854, T 614400, FPS 288, 50-training-episode: mean/median 18.2/-26.3, min/max -64.5/99.7
+Update 150/854, T 618496, FPS 288, 50-training-episode: mean/median 21.6/-25.5, min/max -63.7/102.0
+Update 151/854, T 622592, FPS 288, 50-training-episode: mean/median 24.8/-21.7, min/max -63.2/98.3
+Update 152/854, T 626688, FPS 288, 50-training-episode: mean/median 8.9/-24.9, min/max -59.0/100.4
+Update 153/854, T 630784, FPS 287, 50-training-episode: mean/median 15.8/-26.2, min/max -53.9/102.2
+Update 154/854, T 634880, FPS 287, 50-training-episode: mean/median 19.7/-25.5, min/max -81.7/103.5
+Update 155/854, T 638976, FPS 287, 50-training-episode: mean/median 5.5/-28.5, min/max -63.5/100.8
+Update 156/854, T 643072, FPS 287, 50-training-episode: mean/median 37.8/87.4, min/max -61.0/101.7
+Update 157/854, T 647168, FPS 287, 50-training-episode: mean/median 25.4/30.8, min/max -73.1/100.8
+Update 158/854, T 651264, FPS 287, 50-training-episode: mean/median 13.1/-26.2, min/max -62.6/100.4
+Update 159/854, T 655360, FPS 287, 50-training-episode: mean/median 26.2/32.0, min/max -66.9/99.5
+Update 160/854, T 659456, FPS 287, 50-training-episode: mean/median 25.6/-17.9, min/max -71.9/99.4
+Update 161/854, T 663552, FPS 286, 50-training-episode: mean/median 6.9/-26.9, min/max -63.8/102.1
+Update 162/854, T 667648, FPS 286, 50-training-episode: mean/median 14.1/-24.9, min/max -62.7/100.1
+Update 163/854, T 671744, FPS 286, 50-training-episode: mean/median 7.5/-27.2, min/max -79.8/103.8
+Update 164/854, T 675840, FPS 286, 50-training-episode: mean/median 24.4/-19.5, min/max -65.8/102.1
+Update 165/854, T 679936, FPS 286, 50-training-episode: mean/median 26.2/-22.5, min/max -60.4/101.2
+Update 166/854, T 684032, FPS 286, 50-training-episode: mean/median 29.8/81.5, min/max -57.8/103.8
+Update 167/854, T 688128, FPS 286, 50-training-episode: mean/median 20.3/-23.9, min/max -71.5/100.1
+Update 168/854, T 692224, FPS 286, 50-training-episode: mean/median 19.2/-24.4, min/max -65.7/102.9
+Update 169/854, T 696320, FPS 286, 50-training-episode: mean/median 4.7/-32.6, min/max -95.3/99.2
+Update 170/854, T 700416, FPS 286, 50-training-episode: mean/median 39.7/89.1, min/max -79.8/101.0
+Update 171/854, T 704512, FPS 286, 50-training-episode: mean/median 11.5/-25.5, min/max -91.2/100.5
+Update 172/854, T 708608, FPS 286, 50-training-episode: mean/median 15.6/-22.8, min/max -94.0/99.4
+Update 173/854, T 712704, FPS 286, 50-training-episode: mean/median 26.5/80.0, min/max -96.5/101.9
+Update 174/854, T 716800, FPS 286, 50-training-episode: mean/median -0.3/-34.6, min/max -96.5/98.5
+Update 175/854, T 720896, FPS 286, 50-training-episode: mean/median 36.8/89.0, min/max -65.1/100.8
+Update 176/854, T 724992, FPS 286, 50-training-episode: mean/median 34.7/84.4, min/max -77.9/100.9
+Update 177/854, T 729088, FPS 286, 50-training-episode: mean/median 11.1/-28.6, min/max -56.5/102.4
+Update 178/854, T 733184, FPS 286, 50-training-episode: mean/median 20.7/-24.6, min/max -71.7/100.9
+Update 179/854, T 737280, FPS 286, 50-training-episode: mean/median 17.5/-21.7, min/max -64.5/103.6
+Update 180/854, T 741376, FPS 286, 50-training-episode: mean/median 26.7/29.7, min/max -61.1/107.3
+Update 181/854, T 745472, FPS 285, 50-training-episode: mean/median 19.7/-22.5, min/max -65.8/103.3
+Update 182/854, T 749568, FPS 285, 50-training-episode: mean/median 27.6/28.9, min/max -66.4/102.6
+Update 183/854, T 753664, FPS 285, 50-training-episode: mean/median 17.6/-27.8, min/max -58.5/104.4
+Update 184/854, T 757760, FPS 285, 50-training-episode: mean/median 12.7/-28.7, min/max -78.1/103.3
+Update 185/854, T 761856, FPS 285, 50-training-episode: mean/median 30.0/88.4, min/max -65.8/103.7
+Update 186/854, T 765952, FPS 285, 50-training-episode: mean/median 13.4/-25.2, min/max -84.3/99.9
+Update 187/854, T 770048, FPS 285, 50-training-episode: mean/median 25.4/22.8, min/max -89.6/101.3
+Update 188/854, T 774144, FPS 285, 50-training-episode: mean/median 20.9/-17.1, min/max -69.3/98.5
+Update 189/854, T 778240, FPS 285, 50-training-episode: mean/median 28.0/80.3, min/max -89.6/100.3
+Update 190/854, T 782336, FPS 285, 50-training-episode: mean/median -0.9/-37.8, min/max -70.6/100.6
+Update 191/854, T 786432, FPS 285, 50-training-episode: mean/median 34.0/82.8, min/max -66.8/103.2
+Update 192/854, T 790528, FPS 285, 50-training-episode: mean/median 35.0/83.3, min/max -60.1/100.7
+Update 193/854, T 794624, FPS 285, 50-training-episode: mean/median 46.9/90.5, min/max -80.8/100.6
+Update 194/854, T 798720, FPS 285, 50-training-episode: mean/median 37.8/82.2, min/max -71.7/98.1
+Update 195/854, T 802816, FPS 285, 50-training-episode: mean/median 21.0/-21.4, min/max -64.3/99.7
+Update 196/854, T 806912, FPS 285, 50-training-episode: mean/median 20.9/-22.4, min/max -82.4/98.7
+Update 197/854, T 811008, FPS 285, 50-training-episode: mean/median 20.6/-21.9, min/max -74.6/99.9
+Update 198/854, T 815104, FPS 285, 50-training-episode: mean/median 25.7/70.4, min/max -63.5/98.2
+Update 199/854, T 819200, FPS 285, 50-training-episode: mean/median 27.0/76.7, min/max -72.1/102.1
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt.best
+Update 200/854, T 823296, FPS 285, 50-training-episode: mean/median 24.9/76.0, min/max -88.8/98.5
+Update 201/854, T 827392, FPS 285, 50-training-episode: mean/median 5.9/-29.1, min/max -72.3/97.9
+Update 202/854, T 831488, FPS 285, 50-training-episode: mean/median 33.7/77.7, min/max -87.5/101.6
+Update 203/854, T 835584, FPS 285, 50-training-episode: mean/median 39.3/89.2, min/max -68.2/99.8
+Update 204/854, T 839680, FPS 285, 50-training-episode: mean/median 22.1/63.1, min/max -82.1/99.9
+Update 205/854, T 843776, FPS 285, 50-training-episode: mean/median 21.7/29.7, min/max -83.0/99.3
+Update 206/854, T 847872, FPS 285, 50-training-episode: mean/median 41.7/90.5, min/max -80.9/98.9
+Update 207/854, T 851968, FPS 285, 50-training-episode: mean/median 25.4/75.4, min/max -76.6/99.3
+Update 208/854, T 856064, FPS 285, 50-training-episode: mean/median 16.2/-20.9, min/max -91.3/100.6
+Update 209/854, T 860160, FPS 285, 50-training-episode: mean/median 29.8/82.7, min/max -65.9/99.6
+Update 210/854, T 864256, FPS 285, 50-training-episode: mean/median 41.4/90.6, min/max -80.9/100.0
+Update 211/854, T 868352, FPS 285, 50-training-episode: mean/median 14.3/-24.0, min/max -96.7/102.1
+Update 212/854, T 872448, FPS 285, 50-training-episode: mean/median 15.0/-22.4, min/max -87.5/98.0
+Update 213/854, T 876544, FPS 285, 50-training-episode: mean/median 19.8/22.0, min/max -83.4/98.6
+Update 214/854, T 880640, FPS 285, 50-training-episode: mean/median 41.1/85.3, min/max -63.7/101.0
+Update 215/854, T 884736, FPS 285, 50-training-episode: mean/median 29.4/77.7, min/max -80.4/100.7
+Update 216/854, T 888832, FPS 285, 50-training-episode: mean/median 28.6/80.3, min/max -84.2/98.6
+Update 217/854, T 892928, FPS 285, 50-training-episode: mean/median 22.5/76.1, min/max -91.7/97.5
+Update 218/854, T 897024, FPS 285, 50-training-episode: mean/median 20.8/25.2, min/max -82.1/98.9
+Update 219/854, T 901120, FPS 285, 50-training-episode: mean/median 17.4/24.0, min/max -86.5/104.4
+Update 220/854, T 905216, FPS 285, 50-training-episode: mean/median 4.9/-29.9, min/max -75.5/99.3
+Update 221/854, T 909312, FPS 285, 50-training-episode: mean/median 21.1/71.6, min/max -77.4/102.6
+Update 222/854, T 913408, FPS 285, 50-training-episode: mean/median 33.6/80.4, min/max -79.3/100.2
+Update 223/854, T 917504, FPS 285, 50-training-episode: mean/median 36.9/85.2, min/max -90.5/101.5
+Update 224/854, T 921600, FPS 285, 50-training-episode: mean/median 15.1/-20.3, min/max -92.3/99.4
+Update 225/854, T 925696, FPS 285, 50-training-episode: mean/median 18.4/21.5, min/max -99.8/99.7
+Update 226/854, T 929792, FPS 285, 50-training-episode: mean/median 18.7/23.2, min/max -99.1/99.9
+Update 227/854, T 933888, FPS 285, 50-training-episode: mean/median 33.8/81.0, min/max -76.8/100.6
+Update 228/854, T 937984, FPS 285, 50-training-episode: mean/median 38.7/81.3, min/max -91.7/102.9
+Update 229/854, T 942080, FPS 285, 50-training-episode: mean/median 13.7/-22.3, min/max -78.0/97.8
+Update 230/854, T 946176, FPS 285, 50-training-episode: mean/median 10.2/-22.6, min/max -84.3/103.7
+Update 231/854, T 950272, FPS 285, 50-training-episode: mean/median 7.9/-30.1, min/max -92.8/100.8
+Update 232/854, T 954368, FPS 285, 50-training-episode: mean/median 6.3/-32.3, min/max -78.1/97.3
+Update 233/854, T 958464, FPS 285, 50-training-episode: mean/median 6.6/-29.4, min/max -92.8/101.1
+Update 234/854, T 962560, FPS 285, 50-training-episode: mean/median 27.1/78.7, min/max -97.1/101.1
+Update 235/854, T 966656, FPS 285, 50-training-episode: mean/median 40.7/84.1, min/max -76.0/103.6
+Update 236/854, T 970752, FPS 285, 50-training-episode: mean/median 25.3/79.1, min/max -92.1/103.0
+Update 237/854, T 974848, FPS 285, 50-training-episode: mean/median 25.1/75.4, min/max -92.1/98.7
+Update 238/854, T 978944, FPS 285, 50-training-episode: mean/median 15.0/-18.8, min/max -100.5/98.7
+Update 239/854, T 983040, FPS 285, 50-training-episode: mean/median 5.0/-26.6, min/max -101.5/98.3
+Update 240/854, T 987136, FPS 285, 50-training-episode: mean/median 37.2/83.4, min/max -90.0/101.8
+Update 241/854, T 991232, FPS 285, 50-training-episode: mean/median 10.9/-22.0, min/max -89.4/100.6
+Update 242/854, T 995328, FPS 285, 50-training-episode: mean/median 5.8/-22.1, min/max -103.4/100.6
+Update 243/854, T 999424, FPS 285, 50-training-episode: mean/median 10.8/-22.8, min/max -77.7/100.3
+Update 244/854, T 1003520, FPS 285, 50-training-episode: mean/median 29.3/71.7, min/max -85.0/100.5
+Update 245/854, T 1007616, FPS 285, 50-training-episode: mean/median 14.7/17.7, min/max -106.3/98.5
+Update 246/854, T 1011712, FPS 285, 50-training-episode: mean/median 8.3/-27.5, min/max -88.4/96.2
+Update 247/854, T 1015808, FPS 286, 50-training-episode: mean/median 30.0/80.7, min/max -100.8/102.6
+Update 248/854, T 1019904, FPS 286, 50-training-episode: mean/median 44.2/83.0, min/max -81.1/100.2
+Update 249/854, T 1024000, FPS 286, 50-training-episode: mean/median 17.5/54.0, min/max -97.4/99.6
+Update 250/854, T 1028096, FPS 286, 50-training-episode: mean/median 26.3/73.1, min/max -80.3/101.7
+Update 251/854, T 1032192, FPS 286, 50-training-episode: mean/median 21.1/46.4, min/max -84.8/103.4
+Update 252/854, T 1036288, FPS 286, 50-training-episode: mean/median 8.5/-22.7, min/max -94.6/100.7
+Update 253/854, T 1040384, FPS 286, 50-training-episode: mean/median 18.9/18.8, min/max -101.1/99.7
+Update 254/854, T 1044480, FPS 286, 50-training-episode: mean/median 25.7/79.1, min/max -97.2/100.1
+Update 255/854, T 1048576, FPS 286, 50-training-episode: mean/median 17.9/67.8, min/max -88.0/99.0
+Update 256/854, T 1052672, FPS 286, 50-training-episode: mean/median 48.8/86.3, min/max -85.7/106.3
+Update 257/854, T 1056768, FPS 286, 50-training-episode: mean/median 32.7/87.7, min/max -83.2/104.9
+Update 258/854, T 1060864, FPS 286, 50-training-episode: mean/median 34.1/82.6, min/max -92.2/100.7
+Update 259/854, T 1064960, FPS 286, 50-training-episode: mean/median 16.6/-18.5, min/max -89.4/99.8
+Update 260/854, T 1069056, FPS 286, 50-training-episode: mean/median 42.5/80.2, min/max -78.9/98.9
+Update 261/854, T 1073152, FPS 286, 50-training-episode: mean/median 14.7/-16.7, min/max -97.6/97.8
+Update 262/854, T 1077248, FPS 286, 50-training-episode: mean/median 33.2/78.0, min/max -92.1/102.5
+Update 263/854, T 1081344, FPS 286, 50-training-episode: mean/median 17.4/-19.2, min/max -73.4/99.6
+Update 264/854, T 1085440, FPS 286, 50-training-episode: mean/median 41.3/84.4, min/max -74.5/102.3
+Update 265/854, T 1089536, FPS 286, 50-training-episode: mean/median 35.8/79.1, min/max -75.1/102.9
+Update 266/854, T 1093632, FPS 286, 50-training-episode: mean/median 48.6/89.8, min/max -80.5/101.4
+Update 267/854, T 1097728, FPS 286, 50-training-episode: mean/median 45.7/89.9, min/max -66.2/103.0
+Update 268/854, T 1101824, FPS 286, 50-training-episode: mean/median 33.3/87.1, min/max -74.3/100.0
+Update 269/854, T 1105920, FPS 286, 50-training-episode: mean/median 25.5/68.1, min/max -64.6/101.4
+Update 270/854, T 1110016, FPS 286, 50-training-episode: mean/median 40.4/80.3, min/max -81.1/104.1
+Update 271/854, T 1114112, FPS 286, 50-training-episode: mean/median 32.4/81.2, min/max -92.5/103.4
+Update 272/854, T 1118208, FPS 286, 50-training-episode: mean/median 31.3/80.0, min/max -74.4/101.7
+Update 273/854, T 1122304, FPS 286, 50-training-episode: mean/median 40.7/88.7, min/max -88.9/99.4
+Update 274/854, T 1126400, FPS 286, 50-training-episode: mean/median 24.3/27.0, min/max -94.0/99.2
+Update 275/854, T 1130496, FPS 286, 50-training-episode: mean/median 33.0/83.2, min/max -78.1/102.2
+Update 276/854, T 1134592, FPS 286, 50-training-episode: mean/median 25.1/72.5, min/max -74.6/102.4
+Update 277/854, T 1138688, FPS 286, 50-training-episode: mean/median 25.9/75.1, min/max -69.1/100.5
+Update 278/854, T 1142784, FPS 286, 50-training-episode: mean/median 33.8/77.4, min/max -80.6/102.2
+Update 279/854, T 1146880, FPS 286, 50-training-episode: mean/median 19.1/16.6, min/max -84.3/102.3
+Update 280/854, T 1150976, FPS 286, 50-training-episode: mean/median 22.6/27.4, min/max -82.4/101.5
+Update 281/854, T 1155072, FPS 286, 50-training-episode: mean/median 20.3/-20.9, min/max -77.3/100.9
+Update 282/854, T 1159168, FPS 286, 50-training-episode: mean/median 27.5/74.2, min/max -73.1/100.3
+Update 283/854, T 1163264, FPS 286, 50-training-episode: mean/median 29.1/81.1, min/max -79.4/99.7
+Update 284/854, T 1167360, FPS 286, 50-training-episode: mean/median 30.1/80.3, min/max -90.1/101.1
+Update 285/854, T 1171456, FPS 286, 50-training-episode: mean/median 2.5/-39.4, min/max -98.1/101.5
+Update 286/854, T 1175552, FPS 286, 50-training-episode: mean/median -5.2/-38.2, min/max -99.8/100.2
+Update 287/854, T 1179648, FPS 286, 50-training-episode: mean/median 21.4/-23.0, min/max -70.4/99.3
+Update 288/854, T 1183744, FPS 286, 50-training-episode: mean/median 19.0/-21.2, min/max -76.2/100.1
+Update 289/854, T 1187840, FPS 286, 50-training-episode: mean/median 6.7/-30.8, min/max -77.4/98.9
+Update 290/854, T 1191936, FPS 286, 50-training-episode: mean/median 23.1/-18.0, min/max -73.2/100.0
+Update 291/854, T 1196032, FPS 286, 50-training-episode: mean/median 16.0/-22.1, min/max -77.5/99.6
+Update 292/854, T 1200128, FPS 286, 50-training-episode: mean/median 1.0/-29.0, min/max -84.5/100.6
+Update 293/854, T 1204224, FPS 286, 50-training-episode: mean/median 17.2/-22.8, min/max -85.3/98.8
+Update 294/854, T 1208320, FPS 286, 50-training-episode: mean/median 26.7/65.8, min/max -67.3/99.6
+Update 295/854, T 1212416, FPS 286, 50-training-episode: mean/median 38.5/83.1, min/max -72.2/103.4
+Update 296/854, T 1216512, FPS 286, 50-training-episode: mean/median 33.8/74.9, min/max -68.1/99.9
+Update 297/854, T 1220608, FPS 286, 50-training-episode: mean/median 36.1/79.1, min/max -84.4/102.0
+Update 298/854, T 1224704, FPS 286, 50-training-episode: mean/median 16.5/-19.3, min/max -82.6/101.7
+Update 299/854, T 1228800, FPS 286, 50-training-episode: mean/median 12.0/-25.0, min/max -87.4/101.0
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Update 300/854, T 1232896, FPS 286, 50-training-episode: mean/median 10.4/-26.0, min/max -112.0/103.7
+Update 301/854, T 1236992, FPS 286, 50-training-episode: mean/median 38.0/84.1, min/max -109.5/103.0
+Update 302/854, T 1241088, FPS 286, 50-training-episode: mean/median 29.4/75.9, min/max -99.9/100.3
+Update 303/854, T 1245184, FPS 286, 50-training-episode: mean/median 19.6/12.7, min/max -94.7/102.6
+Update 304/854, T 1249280, FPS 286, 50-training-episode: mean/median 15.6/-20.6, min/max -88.4/100.0
+Update 305/854, T 1253376, FPS 286, 50-training-episode: mean/median 31.2/75.0, min/max -104.7/101.5
+Update 306/854, T 1257472, FPS 286, 50-training-episode: mean/median 37.6/76.6, min/max -113.0/99.2
+Update 307/854, T 1261568, FPS 286, 50-training-episode: mean/median 33.6/76.9, min/max -113.0/103.0
+Update 308/854, T 1265664, FPS 286, 50-training-episode: mean/median 37.5/76.6, min/max -85.8/101.8
+Update 309/854, T 1269760, FPS 286, 50-training-episode: mean/median 38.2/69.8, min/max -94.9/97.6
+Update 310/854, T 1273856, FPS 286, 50-training-episode: mean/median 42.5/87.4, min/max -99.0/101.0
+Update 311/854, T 1277952, FPS 287, 50-training-episode: mean/median 23.9/69.4, min/max -99.0/104.5
+Update 312/854, T 1282048, FPS 287, 50-training-episode: mean/median 25.6/76.7, min/max -94.7/99.7
+Update 313/854, T 1286144, FPS 287, 50-training-episode: mean/median 34.9/76.1, min/max -114.0/98.3
+Update 314/854, T 1290240, FPS 287, 50-training-episode: mean/median 36.6/67.2, min/max -92.2/100.5
+Update 315/854, T 1294336, FPS 287, 50-training-episode: mean/median 42.1/77.9, min/max -92.4/98.9
+Update 316/854, T 1298432, FPS 287, 50-training-episode: mean/median 41.6/79.5, min/max -99.1/101.7
+Update 317/854, T 1302528, FPS 287, 50-training-episode: mean/median 18.1/63.6, min/max -100.4/97.9
+Update 318/854, T 1306624, FPS 287, 50-training-episode: mean/median 28.2/64.1, min/max -101.8/100.1
+Update 319/854, T 1310720, FPS 287, 50-training-episode: mean/median 27.2/75.5, min/max -105.7/100.3
+Update 320/854, T 1314816, FPS 287, 50-training-episode: mean/median 13.9/-19.0, min/max -98.9/99.3
+Update 321/854, T 1318912, FPS 287, 50-training-episode: mean/median 33.4/77.5, min/max -88.6/98.7
+Update 322/854, T 1323008, FPS 287, 50-training-episode: mean/median 23.4/57.1, min/max -87.3/97.4
+Update 323/854, T 1327104, FPS 287, 50-training-episode: mean/median 29.8/79.5, min/max -86.2/98.5
+Update 324/854, T 1331200, FPS 287, 50-training-episode: mean/median 31.5/75.5, min/max -94.8/99.9
+Update 325/854, T 1335296, FPS 287, 50-training-episode: mean/median 23.2/49.8, min/max -91.6/98.8
+Update 326/854, T 1339392, FPS 287, 50-training-episode: mean/median 28.8/80.0, min/max -100.0/101.6
+Update 327/854, T 1343488, FPS 287, 50-training-episode: mean/median 25.0/73.9, min/max -97.9/99.1
+Update 328/854, T 1347584, FPS 287, 50-training-episode: mean/median 47.4/79.0, min/max -74.0/101.4
+Update 329/854, T 1351680, FPS 287, 50-training-episode: mean/median 34.0/79.7, min/max -97.8/98.4
+Update 330/854, T 1355776, FPS 287, 50-training-episode: mean/median 26.0/72.7, min/max -103.9/98.4
+Update 331/854, T 1359872, FPS 287, 50-training-episode: mean/median 24.9/69.9, min/max -110.2/99.4
+Update 332/854, T 1363968, FPS 287, 50-training-episode: mean/median 28.8/74.9, min/max -106.3/99.4
+Update 333/854, T 1368064, FPS 287, 50-training-episode: mean/median 36.7/84.6, min/max -87.6/99.4
+Update 334/854, T 1372160, FPS 287, 50-training-episode: mean/median 18.7/-20.9, min/max -85.3/99.9
+Update 335/854, T 1376256, FPS 287, 50-training-episode: mean/median 37.7/81.0, min/max -91.9/99.2
+Update 336/854, T 1380352, FPS 287, 50-training-episode: mean/median 20.1/71.2, min/max -92.5/96.9
+Update 337/854, T 1384448, FPS 287, 50-training-episode: mean/median 40.1/85.0, min/max -77.8/101.9
+Update 338/854, T 1388544, FPS 287, 50-training-episode: mean/median 38.6/80.7, min/max -105.7/100.7
+Update 339/854, T 1392640, FPS 287, 50-training-episode: mean/median 42.7/88.0, min/max -103.0/103.4
+Update 340/854, T 1396736, FPS 287, 50-training-episode: mean/median 35.6/85.0, min/max -110.7/98.9
+Update 341/854, T 1400832, FPS 287, 50-training-episode: mean/median 32.0/78.3, min/max -103.4/99.1
+Update 342/854, T 1404928, FPS 287, 50-training-episode: mean/median 28.5/70.0, min/max -97.8/97.8
+Update 343/854, T 1409024, FPS 287, 50-training-episode: mean/median 38.7/83.5, min/max -95.0/100.7
+Update 344/854, T 1413120, FPS 287, 50-training-episode: mean/median 18.8/18.4, min/max -96.5/98.5
+Update 345/854, T 1417216, FPS 287, 50-training-episode: mean/median 37.0/85.4, min/max -88.9/102.5
+Update 346/854, T 1421312, FPS 287, 50-training-episode: mean/median 28.7/67.7, min/max -85.4/100.7
+Update 347/854, T 1425408, FPS 287, 50-training-episode: mean/median 42.7/87.2, min/max -110.1/101.8
+Update 348/854, T 1429504, FPS 287, 50-training-episode: mean/median 49.8/81.7, min/max -74.0/100.5
+Update 349/854, T 1433600, FPS 287, 50-training-episode: mean/median 45.0/86.2, min/max -77.4/101.1
+Update 350/854, T 1437696, FPS 287, 50-training-episode: mean/median 25.9/63.3, min/max -78.9/102.2
+Update 351/854, T 1441792, FPS 287, 50-training-episode: mean/median 32.2/82.9, min/max -74.4/101.4
+Update 352/854, T 1445888, FPS 287, 50-training-episode: mean/median 24.5/27.2, min/max -80.7/99.3
+Update 353/854, T 1449984, FPS 287, 50-training-episode: mean/median 36.9/79.9, min/max -101.3/99.8
+Update 354/854, T 1454080, FPS 287, 50-training-episode: mean/median 38.3/84.9, min/max -98.3/106.3
+Update 355/854, T 1458176, FPS 287, 50-training-episode: mean/median 21.3/65.9, min/max -98.3/102.8
+Update 356/854, T 1462272, FPS 287, 50-training-episode: mean/median 21.0/-18.3, min/max -75.8/99.7
+Update 357/854, T 1466368, FPS 287, 50-training-episode: mean/median 26.8/73.5, min/max -87.1/105.4
+Update 358/854, T 1470464, FPS 286, 50-training-episode: mean/median 44.3/85.6, min/max -72.6/98.5
+Update 359/854, T 1474560, FPS 286, 50-training-episode: mean/median 36.9/82.4, min/max -92.3/102.7
+Update 360/854, T 1478656, FPS 286, 50-training-episode: mean/median 24.3/74.8, min/max -78.5/99.8
+Update 361/854, T 1482752, FPS 286, 50-training-episode: mean/median 30.2/72.5, min/max -74.7/99.7
+Update 362/854, T 1486848, FPS 286, 50-training-episode: mean/median 30.3/73.5, min/max -85.8/100.7
+Update 363/854, T 1490944, FPS 286, 50-training-episode: mean/median 21.4/71.3, min/max -104.6/100.7
+Update 364/854, T 1495040, FPS 286, 50-training-episode: mean/median 29.6/77.7, min/max -104.6/99.0
+Update 365/854, T 1499136, FPS 286, 50-training-episode: mean/median 26.6/68.8, min/max -84.3/99.8
+Update 366/854, T 1503232, FPS 286, 50-training-episode: mean/median 32.1/80.2, min/max -90.2/98.2
+Update 367/854, T 1507328, FPS 286, 50-training-episode: mean/median 37.3/81.2, min/max -88.2/103.3
+Update 368/854, T 1511424, FPS 286, 50-training-episode: mean/median 36.2/76.8, min/max -111.0/98.8
+Update 369/854, T 1515520, FPS 286, 50-training-episode: mean/median 27.5/67.4, min/max -104.7/102.4
+Update 370/854, T 1519616, FPS 285, 50-training-episode: mean/median 38.7/86.4, min/max -110.1/99.5
+Update 371/854, T 1523712, FPS 285, 50-training-episode: mean/median 39.9/79.3, min/max -89.9/100.3
+Update 372/854, T 1527808, FPS 285, 50-training-episode: mean/median 9.8/-27.4, min/max -85.5/100.2
+Update 373/854, T 1531904, FPS 285, 50-training-episode: mean/median 39.2/78.0, min/max -80.7/98.2
+Update 374/854, T 1536000, FPS 285, 50-training-episode: mean/median 22.2/71.3, min/max -97.0/99.1
+Update 375/854, T 1540096, FPS 285, 50-training-episode: mean/median 28.2/67.8, min/max -72.1/100.7
+Update 376/854, T 1544192, FPS 285, 50-training-episode: mean/median 36.9/83.3, min/max -90.9/102.4
+Update 377/854, T 1548288, FPS 285, 50-training-episode: mean/median 55.1/85.7, min/max -75.4/100.9
+Update 378/854, T 1552384, FPS 285, 50-training-episode: mean/median 37.5/75.2, min/max -97.2/99.6
+Update 379/854, T 1556480, FPS 285, 50-training-episode: mean/median 30.6/74.8, min/max -111.1/99.0
+Update 380/854, T 1560576, FPS 285, 50-training-episode: mean/median 36.0/77.3, min/max -91.0/101.3
+Update 381/854, T 1564672, FPS 285, 50-training-episode: mean/median 46.4/80.4, min/max -89.2/100.1
+Update 382/854, T 1568768, FPS 285, 50-training-episode: mean/median 41.3/78.3, min/max -76.7/99.9
+Update 383/854, T 1572864, FPS 285, 50-training-episode: mean/median 37.7/79.0, min/max -83.6/101.0
+Update 384/854, T 1576960, FPS 285, 50-training-episode: mean/median 37.8/86.6, min/max -92.9/101.0
+Update 385/854, T 1581056, FPS 285, 50-training-episode: mean/median 44.2/83.7, min/max -95.9/100.1
+Update 386/854, T 1585152, FPS 285, 50-training-episode: mean/median 34.0/83.9, min/max -101.6/98.4
+Update 387/854, T 1589248, FPS 285, 50-training-episode: mean/median 44.8/86.1, min/max -87.9/103.0
+Update 388/854, T 1593344, FPS 285, 50-training-episode: mean/median 27.7/85.0, min/max -108.0/100.0
+Update 389/854, T 1597440, FPS 285, 50-training-episode: mean/median 36.8/78.9, min/max -93.5/98.9
+Update 390/854, T 1601536, FPS 285, 50-training-episode: mean/median 27.1/78.2, min/max -96.3/98.9
+Update 391/854, T 1605632, FPS 285, 50-training-episode: mean/median 43.8/88.9, min/max -104.9/98.3
+Update 392/854, T 1609728, FPS 284, 50-training-episode: mean/median 32.3/81.8, min/max -100.9/99.4
+Update 393/854, T 1613824, FPS 284, 50-training-episode: mean/median 37.3/83.8, min/max -106.3/101.4
+Update 394/854, T 1617920, FPS 284, 50-training-episode: mean/median 37.2/80.4, min/max -94.2/100.2
+Update 395/854, T 1622016, FPS 284, 50-training-episode: mean/median 42.4/80.3, min/max -78.5/105.7
+Update 396/854, T 1626112, FPS 284, 50-training-episode: mean/median 41.1/82.6, min/max -104.6/101.4
+Update 397/854, T 1630208, FPS 284, 50-training-episode: mean/median 47.3/89.2, min/max -107.0/101.7
+Update 398/854, T 1634304, FPS 284, 50-training-episode: mean/median 21.0/68.4, min/max -105.0/101.7
+Update 399/854, T 1638400, FPS 284, 50-training-episode: mean/median 46.5/89.4, min/max -90.8/100.9
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt.best
+Update 400/854, T 1642496, FPS 284, 50-training-episode: mean/median 41.2/89.1, min/max -91.4/100.9
+Update 401/854, T 1646592, FPS 284, 50-training-episode: mean/median 22.1/57.8, min/max -97.5/97.8
+Update 402/854, T 1650688, FPS 284, 50-training-episode: mean/median 29.9/71.3, min/max -96.3/100.0
+Update 403/854, T 1654784, FPS 284, 50-training-episode: mean/median 27.6/86.4, min/max -95.9/103.0
+Update 404/854, T 1658880, FPS 284, 50-training-episode: mean/median 32.9/88.1, min/max -94.1/103.9
+Update 405/854, T 1662976, FPS 284, 50-training-episode: mean/median 29.4/82.5, min/max -97.7/100.3
+Update 406/854, T 1667072, FPS 284, 50-training-episode: mean/median 35.6/88.9, min/max -84.1/100.6
+Update 407/854, T 1671168, FPS 283, 50-training-episode: mean/median 32.8/87.2, min/max -100.1/101.1
+Update 408/854, T 1675264, FPS 283, 50-training-episode: mean/median 24.0/19.7, min/max -89.8/101.7
+Update 409/854, T 1679360, FPS 283, 50-training-episode: mean/median 13.4/-22.9, min/max -100.4/100.6
+Update 410/854, T 1683456, FPS 283, 50-training-episode: mean/median 14.4/-21.6, min/max -88.5/100.6
+Update 411/854, T 1687552, FPS 283, 50-training-episode: mean/median 43.1/91.3, min/max -74.8/104.5
+Update 412/854, T 1691648, FPS 283, 50-training-episode: mean/median 39.1/89.6, min/max -108.0/103.6
+Update 413/854, T 1695744, FPS 283, 50-training-episode: mean/median 42.6/86.0, min/max -87.3/102.0
+Update 414/854, T 1699840, FPS 283, 50-training-episode: mean/median 26.5/74.5, min/max -80.7/98.4
+Update 415/854, T 1703936, FPS 283, 50-training-episode: mean/median 24.8/77.1, min/max -102.5/99.8
+Update 416/854, T 1708032, FPS 283, 50-training-episode: mean/median 18.8/68.9, min/max -107.3/101.2
+Update 417/854, T 1712128, FPS 283, 50-training-episode: mean/median 20.3/58.6, min/max -107.3/101.3
+Update 418/854, T 1716224, FPS 283, 50-training-episode: mean/median 36.8/81.4, min/max -95.9/101.3
+Update 419/854, T 1720320, FPS 283, 50-training-episode: mean/median 39.0/85.2, min/max -101.5/99.3
+Update 420/854, T 1724416, FPS 282, 50-training-episode: mean/median 46.7/87.4, min/max -86.6/101.7
+Update 421/854, T 1728512, FPS 282, 50-training-episode: mean/median 24.5/75.3, min/max -90.1/101.7
+Update 422/854, T 1732608, FPS 282, 50-training-episode: mean/median 40.9/87.2, min/max -90.6/100.5
+Update 423/854, T 1736704, FPS 282, 50-training-episode: mean/median 31.2/78.4, min/max -105.8/100.5
+Update 424/854, T 1740800, FPS 282, 50-training-episode: mean/median 22.8/78.2, min/max -107.9/99.7
+Update 425/854, T 1744896, FPS 282, 50-training-episode: mean/median 32.0/84.5, min/max -107.7/99.9
+Update 426/854, T 1748992, FPS 282, 50-training-episode: mean/median 53.7/88.1, min/max -77.8/98.8
+Update 427/854, T 1753088, FPS 282, 50-training-episode: mean/median 23.5/69.0, min/max -100.3/102.4
+Update 428/854, T 1757184, FPS 282, 50-training-episode: mean/median 34.2/82.9, min/max -100.3/102.4
+Update 429/854, T 1761280, FPS 282, 50-training-episode: mean/median 59.9/88.4, min/max -80.9/102.5
+Update 430/854, T 1765376, FPS 282, 50-training-episode: mean/median 20.3/69.0, min/max -93.6/98.6
+Update 431/854, T 1769472, FPS 282, 50-training-episode: mean/median 43.0/84.1, min/max -92.7/99.9
+Update 432/854, T 1773568, FPS 282, 50-training-episode: mean/median 21.7/71.3, min/max -96.3/98.4
+Update 433/854, T 1777664, FPS 282, 50-training-episode: mean/median 23.4/76.1, min/max -96.3/98.1
+Update 434/854, T 1781760, FPS 282, 50-training-episode: mean/median 34.2/74.0, min/max -84.7/101.4
+Update 435/854, T 1785856, FPS 282, 50-training-episode: mean/median 17.5/75.6, min/max -108.7/101.4
+Update 436/854, T 1789952, FPS 282, 50-training-episode: mean/median 10.2/12.4, min/max -100.4/97.7
+Update 437/854, T 1794048, FPS 282, 50-training-episode: mean/median 26.6/77.2, min/max -100.0/97.4
+Update 438/854, T 1798144, FPS 282, 50-training-episode: mean/median 29.0/77.6, min/max -100.9/98.1
+Update 439/854, T 1802240, FPS 282, 50-training-episode: mean/median 16.1/44.9, min/max -100.9/100.0
+Update 440/854, T 1806336, FPS 282, 50-training-episode: mean/median 36.4/85.2, min/max -92.1/99.7
+Update 441/854, T 1810432, FPS 282, 50-training-episode: mean/median 30.9/73.0, min/max -103.9/98.0
+Update 442/854, T 1814528, FPS 282, 50-training-episode: mean/median 43.4/84.7, min/max -87.5/99.3
+Update 443/854, T 1818624, FPS 282, 50-training-episode: mean/median 47.9/87.2, min/max -103.6/97.2
+Update 444/854, T 1822720, FPS 282, 50-training-episode: mean/median 32.9/82.6, min/max -112.8/97.3
+Update 445/854, T 1826816, FPS 282, 50-training-episode: mean/median 40.0/85.9, min/max -93.4/97.3
+Update 446/854, T 1830912, FPS 282, 50-training-episode: mean/median 28.2/83.2, min/max -107.9/96.9
+Update 447/854, T 1835008, FPS 282, 50-training-episode: mean/median 33.2/80.0, min/max -109.5/100.7
+Update 448/854, T 1839104, FPS 282, 50-training-episode: mean/median 11.1/60.0, min/max -102.9/101.3
+Update 449/854, T 1843200, FPS 282, 50-training-episode: mean/median 23.7/64.7, min/max -102.9/97.9
+Update 450/854, T 1847296, FPS 282, 50-training-episode: mean/median 27.9/63.8, min/max -103.5/98.9
+Update 451/854, T 1851392, FPS 282, 50-training-episode: mean/median 32.2/81.8, min/max -91.6/98.9
+Update 452/854, T 1855488, FPS 282, 50-training-episode: mean/median 31.4/80.0, min/max -110.0/102.4
+Update 453/854, T 1859584, FPS 282, 50-training-episode: mean/median 55.1/83.1, min/max -98.7/99.0
+Update 454/854, T 1863680, FPS 281, 50-training-episode: mean/median 38.1/80.5, min/max -98.1/99.0
+Update 455/854, T 1867776, FPS 281, 50-training-episode: mean/median 44.2/77.7, min/max -98.1/101.2
+Update 456/854, T 1871872, FPS 281, 50-training-episode: mean/median 52.9/84.6, min/max -91.4/101.4
+Update 457/854, T 1875968, FPS 281, 50-training-episode: mean/median 28.6/77.0, min/max -99.4/98.8
+Update 458/854, T 1880064, FPS 281, 50-training-episode: mean/median 46.2/88.8, min/max -99.5/100.5
+Update 459/854, T 1884160, FPS 281, 50-training-episode: mean/median 52.0/84.1, min/max -99.5/102.4
+Update 460/854, T 1888256, FPS 281, 50-training-episode: mean/median 41.9/83.2, min/max -107.1/97.7
+Update 461/854, T 1892352, FPS 281, 50-training-episode: mean/median 49.6/89.8, min/max -107.1/101.0
+Update 462/854, T 1896448, FPS 281, 50-training-episode: mean/median 43.9/89.4, min/max -99.8/103.6
+Update 463/854, T 1900544, FPS 281, 50-training-episode: mean/median 36.5/80.4, min/max -112.8/103.6
+Update 464/854, T 1904640, FPS 281, 50-training-episode: mean/median 34.0/69.6, min/max -91.9/101.1
+Update 465/854, T 1908736, FPS 281, 50-training-episode: mean/median 48.7/87.8, min/max -107.9/101.7
+Update 466/854, T 1912832, FPS 281, 50-training-episode: mean/median 44.5/78.8, min/max -93.9/100.0
+Update 467/854, T 1916928, FPS 281, 50-training-episode: mean/median 33.8/77.3, min/max -94.7/101.5
+Update 468/854, T 1921024, FPS 281, 50-training-episode: mean/median 32.7/78.3, min/max -85.1/99.5
+Update 469/854, T 1925120, FPS 281, 50-training-episode: mean/median 45.0/88.4, min/max -105.6/101.3
+Update 470/854, T 1929216, FPS 281, 50-training-episode: mean/median 42.6/86.0, min/max -102.9/98.7
+Update 471/854, T 1933312, FPS 281, 50-training-episode: mean/median 33.9/79.2, min/max -108.6/98.4
+Update 472/854, T 1937408, FPS 281, 50-training-episode: mean/median 39.4/84.3, min/max -74.9/100.4
+Update 473/854, T 1941504, FPS 281, 50-training-episode: mean/median 36.2/79.4, min/max -98.7/100.2
+Update 474/854, T 1945600, FPS 281, 50-training-episode: mean/median 34.6/79.7, min/max -103.1/99.9
+Update 475/854, T 1949696, FPS 280, 50-training-episode: mean/median 37.6/82.2, min/max -100.7/102.5
+Update 476/854, T 1953792, FPS 280, 50-training-episode: mean/median 53.4/89.3, min/max -100.7/102.6
+Update 477/854, T 1957888, FPS 280, 50-training-episode: mean/median 56.9/88.0, min/max -104.4/101.1
+Update 478/854, T 1961984, FPS 280, 50-training-episode: mean/median 38.4/80.8, min/max -90.6/100.1
+Update 479/854, T 1966080, FPS 280, 50-training-episode: mean/median 55.3/89.9, min/max -96.4/99.2
+Update 480/854, T 1970176, FPS 280, 50-training-episode: mean/median 34.5/79.6, min/max -93.9/97.1
+Update 481/854, T 1974272, FPS 280, 50-training-episode: mean/median 31.6/80.9, min/max -100.8/99.8
+Update 482/854, T 1978368, FPS 280, 50-training-episode: mean/median 45.8/85.0, min/max -106.0/98.7
+Update 483/854, T 1982464, FPS 280, 50-training-episode: mean/median 58.4/86.0, min/max -87.7/102.1
+Update 484/854, T 1986560, FPS 280, 50-training-episode: mean/median 43.4/78.1, min/max -100.5/99.2
+Update 485/854, T 1990656, FPS 280, 50-training-episode: mean/median 28.4/77.5, min/max -104.8/99.7
+Update 486/854, T 1994752, FPS 280, 50-training-episode: mean/median 42.2/84.5, min/max -93.3/98.8
+Update 487/854, T 1998848, FPS 280, 50-training-episode: mean/median 53.0/84.5, min/max -83.0/97.9
+Update 488/854, T 2002944, FPS 280, 50-training-episode: mean/median 43.3/88.9, min/max -110.4/99.0
+Update 489/854, T 2007040, FPS 280, 50-training-episode: mean/median 40.7/86.6, min/max -103.1/99.5
+Update 490/854, T 2011136, FPS 279, 50-training-episode: mean/median 41.3/81.1, min/max -109.0/98.6
+Update 491/854, T 2015232, FPS 279, 50-training-episode: mean/median 27.1/76.2, min/max -109.0/100.5
+Update 492/854, T 2019328, FPS 279, 50-training-episode: mean/median 38.6/79.4, min/max -90.3/96.4
+Update 493/854, T 2023424, FPS 279, 50-training-episode: mean/median 39.6/78.8, min/max -88.5/98.6
+Update 494/854, T 2027520, FPS 279, 50-training-episode: mean/median 46.0/85.6, min/max -94.8/97.3
+Update 495/854, T 2031616, FPS 279, 50-training-episode: mean/median 37.1/84.0, min/max -112.3/100.1
+Update 496/854, T 2035712, FPS 279, 50-training-episode: mean/median 42.4/86.2, min/max -91.0/99.6
+Update 497/854, T 2039808, FPS 279, 50-training-episode: mean/median 34.7/81.6, min/max -94.8/99.6
+Update 498/854, T 2043904, FPS 279, 50-training-episode: mean/median 28.1/82.9, min/max -83.8/103.2
+Update 499/854, T 2048000, FPS 279, 50-training-episode: mean/median 55.4/85.6, min/max -83.7/99.0
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Update 500/854, T 2052096, FPS 279, 50-training-episode: mean/median 46.1/86.0, min/max -87.0/98.9
+Update 501/854, T 2056192, FPS 279, 50-training-episode: mean/median 30.6/79.9, min/max -110.7/101.5
+Update 502/854, T 2060288, FPS 279, 50-training-episode: mean/median 51.9/89.0, min/max -85.1/101.4
+Update 503/854, T 2064384, FPS 279, 50-training-episode: mean/median 42.3/85.8, min/max -110.2/101.4
+Update 504/854, T 2068480, FPS 280, 50-training-episode: mean/median 34.8/82.5, min/max -110.2/99.4
+Update 505/854, T 2072576, FPS 280, 50-training-episode: mean/median 40.7/83.8, min/max -109.3/98.2
+Update 506/854, T 2076672, FPS 280, 50-training-episode: mean/median 37.4/80.2, min/max -100.7/102.8
+Update 507/854, T 2080768, FPS 280, 50-training-episode: mean/median 26.7/67.4, min/max -97.7/98.5
+Update 508/854, T 2084864, FPS 280, 50-training-episode: mean/median 55.5/87.3, min/max -86.5/100.0
+Update 509/854, T 2088960, FPS 280, 50-training-episode: mean/median 44.7/79.1, min/max -94.0/99.6
+Update 510/854, T 2093056, FPS 280, 50-training-episode: mean/median 41.4/83.5, min/max -92.4/98.7
+Update 511/854, T 2097152, FPS 280, 50-training-episode: mean/median 47.9/87.3, min/max -97.1/100.9
+Update 512/854, T 2101248, FPS 280, 50-training-episode: mean/median 38.4/84.5, min/max -82.8/97.9
+Update 513/854, T 2105344, FPS 280, 50-training-episode: mean/median 43.4/88.0, min/max -79.1/100.2
+Update 514/854, T 2109440, FPS 280, 50-training-episode: mean/median 24.1/68.9, min/max -92.7/100.3
+Update 515/854, T 2113536, FPS 280, 50-training-episode: mean/median 38.5/83.2, min/max -107.7/101.1
+Update 516/854, T 2117632, FPS 280, 50-training-episode: mean/median 35.6/81.8, min/max -94.4/99.6
+Update 517/854, T 2121728, FPS 280, 50-training-episode: mean/median 55.3/87.2, min/max -104.9/102.4
+Update 518/854, T 2125824, FPS 280, 50-training-episode: mean/median 46.0/85.6, min/max -86.4/101.3
+Update 519/854, T 2129920, FPS 280, 50-training-episode: mean/median 45.2/81.6, min/max -77.6/100.8
+Update 520/854, T 2134016, FPS 280, 50-training-episode: mean/median 41.1/76.9, min/max -66.0/100.8
+Update 521/854, T 2138112, FPS 280, 50-training-episode: mean/median 32.3/79.1, min/max -95.6/99.7
+Update 522/854, T 2142208, FPS 280, 50-training-episode: mean/median 46.5/84.1, min/max -83.2/99.0
+Update 523/854, T 2146304, FPS 280, 50-training-episode: mean/median 20.4/69.4, min/max -93.8/99.5
+Update 524/854, T 2150400, FPS 280, 50-training-episode: mean/median 55.5/90.2, min/max -73.3/98.7
+Update 525/854, T 2154496, FPS 280, 50-training-episode: mean/median 33.2/81.0, min/max -88.8/99.5
+Update 526/854, T 2158592, FPS 280, 50-training-episode: mean/median 37.2/76.9, min/max -102.1/99.9
+Update 527/854, T 2162688, FPS 280, 50-training-episode: mean/median 33.4/81.0, min/max -90.5/100.4
+Update 528/854, T 2166784, FPS 280, 50-training-episode: mean/median 40.1/88.5, min/max -93.5/103.6
+Update 529/854, T 2170880, FPS 280, 50-training-episode: mean/median 42.4/86.5, min/max -76.4/100.5
+Update 530/854, T 2174976, FPS 280, 50-training-episode: mean/median 34.1/82.6, min/max -95.0/99.4
+Update 531/854, T 2179072, FPS 280, 50-training-episode: mean/median 39.8/85.4, min/max -95.0/100.9
+Update 532/854, T 2183168, FPS 280, 50-training-episode: mean/median 34.7/78.3, min/max -91.0/99.5
+Update 533/854, T 2187264, FPS 280, 50-training-episode: mean/median 34.6/80.3, min/max -95.5/99.0
+Update 534/854, T 2191360, FPS 280, 50-training-episode: mean/median 17.9/64.4, min/max -96.7/99.0
+Update 535/854, T 2195456, FPS 280, 50-training-episode: mean/median 26.6/71.8, min/max -96.7/100.9
+Update 536/854, T 2199552, FPS 280, 50-training-episode: mean/median 38.4/80.1, min/max -101.0/99.7
+Update 537/854, T 2203648, FPS 280, 50-training-episode: mean/median 43.2/82.4, min/max -101.0/101.0
+Update 538/854, T 2207744, FPS 280, 50-training-episode: mean/median 55.5/86.8, min/max -91.4/102.5
+Update 539/854, T 2211840, FPS 280, 50-training-episode: mean/median 53.2/85.4, min/max -76.5/102.1
+Update 540/854, T 2215936, FPS 280, 50-training-episode: mean/median 36.1/73.3, min/max -91.9/103.0
+Update 541/854, T 2220032, FPS 280, 50-training-episode: mean/median 31.7/60.1, min/max -91.9/103.0
+Update 542/854, T 2224128, FPS 280, 50-training-episode: mean/median 40.7/87.9, min/max -98.5/103.8
+Update 543/854, T 2228224, FPS 280, 50-training-episode: mean/median 53.3/87.9, min/max -90.4/101.6
+Update 544/854, T 2232320, FPS 280, 50-training-episode: mean/median 45.0/88.9, min/max -86.0/103.9
+Update 545/854, T 2236416, FPS 280, 50-training-episode: mean/median 23.5/17.8, min/max -85.3/99.0
+Update 546/854, T 2240512, FPS 280, 50-training-episode: mean/median 45.4/87.8, min/max -98.9/101.4
+Update 547/854, T 2244608, FPS 280, 50-training-episode: mean/median 42.2/86.3, min/max -93.5/102.2
+Update 548/854, T 2248704, FPS 280, 50-training-episode: mean/median 40.4/84.0, min/max -109.0/102.2
+Update 549/854, T 2252800, FPS 280, 50-training-episode: mean/median 38.2/80.0, min/max -81.6/101.1
+Update 550/854, T 2256896, FPS 280, 50-training-episode: mean/median 39.5/82.5, min/max -84.5/104.1
+Update 551/854, T 2260992, FPS 280, 50-training-episode: mean/median 50.5/78.7, min/max -96.3/100.4
+Update 552/854, T 2265088, FPS 280, 50-training-episode: mean/median 56.6/79.4, min/max -84.2/101.9
+Update 553/854, T 2269184, FPS 280, 50-training-episode: mean/median 50.0/75.1, min/max -91.1/101.9
+Update 554/854, T 2273280, FPS 280, 50-training-episode: mean/median 31.5/65.5, min/max -82.0/102.1
+Update 555/854, T 2277376, FPS 280, 50-training-episode: mean/median 42.0/84.6, min/max -103.6/100.6
+Update 556/854, T 2281472, FPS 280, 50-training-episode: mean/median 42.7/82.0, min/max -83.5/104.0
+Update 557/854, T 2285568, FPS 280, 50-training-episode: mean/median 39.9/77.8, min/max -98.8/101.0
+Update 558/854, T 2289664, FPS 280, 50-training-episode: mean/median 66.4/87.9, min/max -85.8/103.3
+Update 559/854, T 2293760, FPS 280, 50-training-episode: mean/median 32.6/69.6, min/max -104.0/101.0
+Update 560/854, T 2297856, FPS 280, 50-training-episode: mean/median 40.6/79.8, min/max -104.0/99.0
+Update 561/854, T 2301952, FPS 280, 50-training-episode: mean/median 47.2/84.5, min/max -88.7/102.7
+Update 562/854, T 2306048, FPS 280, 50-training-episode: mean/median 47.4/85.4, min/max -88.7/102.6
+Update 563/854, T 2310144, FPS 280, 50-training-episode: mean/median 50.9/82.3, min/max -82.1/100.7
+Update 564/854, T 2314240, FPS 280, 50-training-episode: mean/median 47.8/83.4, min/max -82.2/104.9
+Update 565/854, T 2318336, FPS 280, 50-training-episode: mean/median 58.3/87.0, min/max -96.4/104.9
+Update 566/854, T 2322432, FPS 280, 50-training-episode: mean/median 44.5/79.5, min/max -96.4/102.2
+Update 567/854, T 2326528, FPS 280, 50-training-episode: mean/median 39.0/76.1, min/max -94.6/104.6
+Update 568/854, T 2330624, FPS 280, 50-training-episode: mean/median 27.3/69.8, min/max -91.1/100.1
+Update 569/854, T 2334720, FPS 280, 50-training-episode: mean/median 47.0/86.7, min/max -91.1/102.8
+Update 570/854, T 2338816, FPS 280, 50-training-episode: mean/median 48.4/82.3, min/max -66.2/100.6
+Update 571/854, T 2342912, FPS 280, 50-training-episode: mean/median 31.8/77.5, min/max -82.9/100.6
+Update 572/854, T 2347008, FPS 280, 50-training-episode: mean/median 24.9/58.8, min/max -91.0/99.6
+Update 573/854, T 2351104, FPS 280, 50-training-episode: mean/median 40.7/83.7, min/max -97.0/101.5
+Update 574/854, T 2355200, FPS 280, 50-training-episode: mean/median 55.0/88.7, min/max -104.9/99.2
+Update 575/854, T 2359296, FPS 280, 50-training-episode: mean/median 42.7/82.5, min/max -99.8/98.5
+Update 576/854, T 2363392, FPS 280, 50-training-episode: mean/median 52.3/82.0, min/max -98.0/100.7
+Update 577/854, T 2367488, FPS 280, 50-training-episode: mean/median 55.2/91.6, min/max -96.3/101.3
+Update 578/854, T 2371584, FPS 280, 50-training-episode: mean/median 63.7/91.4, min/max -86.7/102.4
+Update 579/854, T 2375680, FPS 280, 50-training-episode: mean/median 49.4/83.8, min/max -108.2/102.4
+Update 580/854, T 2379776, FPS 280, 50-training-episode: mean/median 25.8/72.2, min/max -108.2/103.7
+Update 581/854, T 2383872, FPS 280, 50-training-episode: mean/median 32.9/78.8, min/max -101.4/103.7
+Update 582/854, T 2387968, FPS 280, 50-training-episode: mean/median 29.6/69.1, min/max -85.0/100.0
+Update 583/854, T 2392064, FPS 280, 50-training-episode: mean/median 54.9/91.8, min/max -105.2/103.4
+Update 584/854, T 2396160, FPS 280, 50-training-episode: mean/median 45.4/86.0, min/max -105.2/98.8
+Update 585/854, T 2400256, FPS 280, 50-training-episode: mean/median 50.8/82.3, min/max -92.6/99.7
+Update 586/854, T 2404352, FPS 280, 50-training-episode: mean/median 30.1/80.0, min/max -107.1/103.5
+Update 587/854, T 2408448, FPS 280, 50-training-episode: mean/median 48.0/88.3, min/max -90.9/103.0
+Update 588/854, T 2412544, FPS 280, 50-training-episode: mean/median 25.2/79.1, min/max -113.4/100.7
+Update 589/854, T 2416640, FPS 280, 50-training-episode: mean/median 28.5/76.8, min/max -83.3/99.6
+Update 590/854, T 2420736, FPS 280, 50-training-episode: mean/median 37.0/85.0, min/max -90.3/98.7
+Update 591/854, T 2424832, FPS 280, 50-training-episode: mean/median 35.5/83.3, min/max -104.7/102.8
+Update 592/854, T 2428928, FPS 280, 50-training-episode: mean/median 42.4/85.5, min/max -86.7/99.2
+Update 593/854, T 2433024, FPS 280, 50-training-episode: mean/median 48.6/88.6, min/max -87.6/99.9
+Update 594/854, T 2437120, FPS 280, 50-training-episode: mean/median 51.8/81.1, min/max -88.0/98.9
+Update 595/854, T 2441216, FPS 280, 50-training-episode: mean/median 38.9/82.6, min/max -95.1/101.4
+Update 596/854, T 2445312, FPS 280, 50-training-episode: mean/median 42.4/83.2, min/max -109.4/102.7
+Update 597/854, T 2449408, FPS 280, 50-training-episode: mean/median 47.6/83.6, min/max -102.4/100.1
+Update 598/854, T 2453504, FPS 279, 50-training-episode: mean/median 47.3/83.6, min/max -73.4/96.9
+Update 599/854, T 2457600, FPS 279, 50-training-episode: mean/median 53.0/80.3, min/max -83.0/99.1
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Update 600/854, T 2461696, FPS 279, 50-training-episode: mean/median 55.6/82.7, min/max -92.9/99.4
+Update 601/854, T 2465792, FPS 279, 50-training-episode: mean/median 54.3/85.5, min/max -81.5/100.2
+Update 602/854, T 2469888, FPS 279, 50-training-episode: mean/median 63.8/84.5, min/max -105.8/101.2
+Update 603/854, T 2473984, FPS 279, 50-training-episode: mean/median 44.3/79.7, min/max -100.4/102.3
+Update 604/854, T 2478080, FPS 279, 50-training-episode: mean/median 28.1/62.9, min/max -100.4/100.3
+Update 605/854, T 2482176, FPS 279, 50-training-episode: mean/median 44.5/81.7, min/max -104.4/101.3
+Update 606/854, T 2486272, FPS 279, 50-training-episode: mean/median 32.6/71.5, min/max -110.8/100.9
+Update 607/854, T 2490368, FPS 279, 50-training-episode: mean/median 51.3/81.2, min/max -108.1/98.9
+Update 608/854, T 2494464, FPS 279, 50-training-episode: mean/median 34.4/72.9, min/max -108.7/100.5
+Update 609/854, T 2498560, FPS 279, 50-training-episode: mean/median 32.5/72.4, min/max -108.7/99.0
+Update 610/854, T 2502656, FPS 279, 50-training-episode: mean/median 45.9/77.2, min/max -104.0/101.2
+Update 611/854, T 2506752, FPS 279, 50-training-episode: mean/median 42.7/79.1, min/max -112.2/100.4
+Update 612/854, T 2510848, FPS 279, 50-training-episode: mean/median 40.2/80.4, min/max -94.6/99.0
+Update 613/854, T 2514944, FPS 279, 50-training-episode: mean/median 39.2/79.2, min/max -96.2/102.3
+Update 614/854, T 2519040, FPS 279, 50-training-episode: mean/median 46.7/84.4, min/max -92.0/101.4
+Update 615/854, T 2523136, FPS 279, 50-training-episode: mean/median 41.1/87.5, min/max -92.0/99.1
+Update 616/854, T 2527232, FPS 279, 50-training-episode: mean/median 41.7/79.7, min/max -81.2/104.8
+Update 617/854, T 2531328, FPS 279, 50-training-episode: mean/median 50.4/86.2, min/max -99.2/100.2
+Update 618/854, T 2535424, FPS 279, 50-training-episode: mean/median 42.4/83.8, min/max -80.4/100.7
+Update 619/854, T 2539520, FPS 278, 50-training-episode: mean/median 34.9/86.2, min/max -93.5/101.0
+Update 620/854, T 2543616, FPS 278, 50-training-episode: mean/median 33.7/72.1, min/max -77.1/99.1
+Update 621/854, T 2547712, FPS 278, 50-training-episode: mean/median 46.4/86.0, min/max -87.2/101.8
+Update 622/854, T 2551808, FPS 278, 50-training-episode: mean/median 37.7/84.1, min/max -90.5/99.7
+Update 623/854, T 2555904, FPS 278, 50-training-episode: mean/median 37.0/80.6, min/max -85.6/100.4
+Update 624/854, T 2560000, FPS 278, 50-training-episode: mean/median 53.5/82.0, min/max -90.0/98.3
+Update 625/854, T 2564096, FPS 278, 50-training-episode: mean/median 49.9/84.2, min/max -86.1/101.9
+Update 626/854, T 2568192, FPS 278, 50-training-episode: mean/median 51.9/83.4, min/max -76.6/105.5
+Update 627/854, T 2572288, FPS 278, 50-training-episode: mean/median 47.2/79.8, min/max -108.6/101.0
+Update 628/854, T 2576384, FPS 278, 50-training-episode: mean/median 53.1/85.2, min/max -100.0/103.8
+Update 629/854, T 2580480, FPS 278, 50-training-episode: mean/median 46.4/86.3, min/max -88.6/100.9
+Update 630/854, T 2584576, FPS 278, 50-training-episode: mean/median 35.8/72.3, min/max -89.0/100.4
+Update 631/854, T 2588672, FPS 278, 50-training-episode: mean/median 43.2/86.3, min/max -95.0/106.1
+Update 632/854, T 2592768, FPS 278, 50-training-episode: mean/median 52.3/88.6, min/max -97.6/101.3
+Update 633/854, T 2596864, FPS 278, 50-training-episode: mean/median 58.5/80.7, min/max -80.9/99.3
+Update 634/854, T 2600960, FPS 278, 50-training-episode: mean/median 56.1/85.7, min/max -100.7/100.4
+Update 635/854, T 2605056, FPS 277, 50-training-episode: mean/median 48.3/83.8, min/max -100.7/103.7
+Update 636/854, T 2609152, FPS 277, 50-training-episode: mean/median 48.5/86.7, min/max -78.9/100.4
+Update 637/854, T 2613248, FPS 277, 50-training-episode: mean/median 37.4/81.2, min/max -97.4/99.9
+Update 638/854, T 2617344, FPS 277, 50-training-episode: mean/median 58.3/90.2, min/max -100.3/99.8
+Update 639/854, T 2621440, FPS 277, 50-training-episode: mean/median 35.1/74.6, min/max -90.3/100.1
+Update 640/854, T 2625536, FPS 277, 50-training-episode: mean/median 26.0/69.0, min/max -96.5/100.7
+Update 641/854, T 2629632, FPS 277, 50-training-episode: mean/median 44.4/77.6, min/max -100.6/100.7
+Update 642/854, T 2633728, FPS 277, 50-training-episode: mean/median 34.8/78.1, min/max -94.9/98.6
+Update 643/854, T 2637824, FPS 277, 50-training-episode: mean/median 28.1/72.2, min/max -90.9/99.5
+Update 644/854, T 2641920, FPS 277, 50-training-episode: mean/median 48.6/84.5, min/max -100.0/100.1
+Update 645/854, T 2646016, FPS 277, 50-training-episode: mean/median 59.6/87.5, min/max -79.7/102.6
+Update 646/854, T 2650112, FPS 277, 50-training-episode: mean/median 42.4/78.9, min/max -93.6/102.6
+Update 647/854, T 2654208, FPS 277, 50-training-episode: mean/median 36.5/77.4, min/max -92.5/100.8
+Update 648/854, T 2658304, FPS 277, 50-training-episode: mean/median 33.2/75.3, min/max -103.7/100.8
+Update 649/854, T 2662400, FPS 277, 50-training-episode: mean/median 20.2/56.8, min/max -107.6/98.8
+Update 650/854, T 2666496, FPS 277, 50-training-episode: mean/median 47.2/81.7, min/max -107.6/101.0
+Update 651/854, T 2670592, FPS 277, 50-training-episode: mean/median 48.1/87.4, min/max -86.6/107.1
+Update 652/854, T 2674688, FPS 277, 50-training-episode: mean/median 53.3/83.0, min/max -89.9/100.6
+Update 653/854, T 2678784, FPS 277, 50-training-episode: mean/median 46.6/83.2, min/max -84.7/100.3
+Update 654/854, T 2682880, FPS 277, 50-training-episode: mean/median 37.6/77.2, min/max -79.3/103.0
+Update 655/854, T 2686976, FPS 277, 50-training-episode: mean/median 38.2/81.4, min/max -89.6/103.9
+Update 656/854, T 2691072, FPS 277, 50-training-episode: mean/median 46.6/78.5, min/max -90.8/101.7
+Update 657/854, T 2695168, FPS 277, 50-training-episode: mean/median 57.0/85.4, min/max -88.1/103.1
+Update 658/854, T 2699264, FPS 277, 50-training-episode: mean/median 60.2/78.8, min/max -104.0/100.6
+Update 659/854, T 2703360, FPS 277, 50-training-episode: mean/median 60.0/90.9, min/max -110.1/102.6
+Update 660/854, T 2707456, FPS 277, 50-training-episode: mean/median 48.6/87.3, min/max -100.7/100.2
+Update 661/854, T 2711552, FPS 277, 50-training-episode: mean/median 30.1/78.9, min/max -100.7/99.3
+Update 662/854, T 2715648, FPS 276, 50-training-episode: mean/median 46.3/80.6, min/max -93.2/101.5
+Update 663/854, T 2719744, FPS 276, 50-training-episode: mean/median 64.6/87.9, min/max -87.9/100.8
+Update 664/854, T 2723840, FPS 276, 50-training-episode: mean/median 51.3/81.9, min/max -86.7/101.5
+Update 665/854, T 2727936, FPS 276, 50-training-episode: mean/median 39.5/78.3, min/max -88.7/102.8
+Update 666/854, T 2732032, FPS 276, 50-training-episode: mean/median 57.5/82.8, min/max -80.1/101.4
+Update 667/854, T 2736128, FPS 276, 50-training-episode: mean/median 69.8/87.5, min/max -85.5/100.7
+Update 668/854, T 2740224, FPS 276, 50-training-episode: mean/median 59.6/85.3, min/max -81.0/100.3
+Update 669/854, T 2744320, FPS 276, 50-training-episode: mean/median 52.2/87.9, min/max -89.3/100.7
+Update 670/854, T 2748416, FPS 276, 50-training-episode: mean/median 55.2/81.8, min/max -90.5/99.7
+Update 671/854, T 2752512, FPS 276, 50-training-episode: mean/median 46.7/84.9, min/max -97.2/99.6
+Update 672/854, T 2756608, FPS 276, 50-training-episode: mean/median 34.4/80.5, min/max -100.1/102.1
+Update 673/854, T 2760704, FPS 276, 50-training-episode: mean/median 51.9/83.0, min/max -76.9/100.3
+Update 674/854, T 2764800, FPS 276, 50-training-episode: mean/median 41.9/82.6, min/max -80.4/97.6
+Update 675/854, T 2768896, FPS 276, 50-training-episode: mean/median 28.8/75.1, min/max -81.7/103.0
+Update 676/854, T 2772992, FPS 276, 50-training-episode: mean/median 27.4/76.0, min/max -105.1/100.1
+Update 677/854, T 2777088, FPS 276, 50-training-episode: mean/median 45.2/81.5, min/max -91.2/101.1
+Update 678/854, T 2781184, FPS 276, 50-training-episode: mean/median 63.5/81.3, min/max -51.8/101.6
+Update 679/854, T 2785280, FPS 276, 50-training-episode: mean/median 52.4/85.1, min/max -84.0/103.7
+Update 680/854, T 2789376, FPS 276, 50-training-episode: mean/median 51.1/81.0, min/max -54.8/100.5
+Update 681/854, T 2793472, FPS 276, 50-training-episode: mean/median 34.9/77.9, min/max -85.7/101.6
+Update 682/854, T 2797568, FPS 276, 50-training-episode: mean/median 42.2/80.7, min/max -102.0/99.6
+Update 683/854, T 2801664, FPS 276, 50-training-episode: mean/median 43.5/78.7, min/max -97.1/98.2
+Update 684/854, T 2805760, FPS 276, 50-training-episode: mean/median 34.3/78.6, min/max -100.7/101.0
+Update 685/854, T 2809856, FPS 276, 50-training-episode: mean/median 43.5/83.0, min/max -70.8/100.9
+Update 686/854, T 2813952, FPS 276, 50-training-episode: mean/median 34.1/71.1, min/max -89.8/101.9
+Update 687/854, T 2818048, FPS 276, 50-training-episode: mean/median 41.3/86.8, min/max -109.5/96.6
+Update 688/854, T 2822144, FPS 276, 50-training-episode: mean/median 42.6/84.8, min/max -77.4/99.7
+Update 689/854, T 2826240, FPS 276, 50-training-episode: mean/median 47.9/87.2, min/max -71.3/102.9
+Update 690/854, T 2830336, FPS 275, 50-training-episode: mean/median 36.8/81.0, min/max -88.3/99.8
+Update 691/854, T 2834432, FPS 275, 50-training-episode: mean/median 52.7/87.6, min/max -57.1/99.2
+Update 692/854, T 2838528, FPS 275, 50-training-episode: mean/median 35.0/82.0, min/max -103.8/101.4
+Update 693/854, T 2842624, FPS 275, 50-training-episode: mean/median 38.3/84.6, min/max -84.4/101.9
+Update 694/854, T 2846720, FPS 275, 50-training-episode: mean/median 37.4/80.5, min/max -76.5/100.6
+Update 695/854, T 2850816, FPS 275, 50-training-episode: mean/median 49.3/89.6, min/max -84.9/99.2
+Update 696/854, T 2854912, FPS 275, 50-training-episode: mean/median 44.1/83.0, min/max -80.9/101.5
+Update 697/854, T 2859008, FPS 275, 50-training-episode: mean/median 45.3/84.0, min/max -103.7/101.4
+Update 698/854, T 2863104, FPS 275, 50-training-episode: mean/median 41.6/81.4, min/max -97.2/104.7
+Update 699/854, T 2867200, FPS 275, 50-training-episode: mean/median 51.8/81.7, min/max -110.3/103.3
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Update 700/854, T 2871296, FPS 275, 50-training-episode: mean/median 48.6/78.2, min/max -97.2/104.0
+Update 701/854, T 2875392, FPS 275, 50-training-episode: mean/median 42.8/78.0, min/max -111.4/98.9
+Update 702/854, T 2879488, FPS 275, 50-training-episode: mean/median 33.3/77.2, min/max -103.7/100.9
+Update 703/854, T 2883584, FPS 275, 50-training-episode: mean/median 69.8/86.7, min/max -97.3/102.6
+Update 704/854, T 2887680, FPS 275, 50-training-episode: mean/median 51.2/80.5, min/max -97.1/100.6
+Update 705/854, T 2891776, FPS 275, 50-training-episode: mean/median 43.6/71.7, min/max -97.1/100.2
+Update 706/854, T 2895872, FPS 275, 50-training-episode: mean/median 56.7/81.8, min/max -90.3/97.4
+Update 707/854, T 2899968, FPS 275, 50-training-episode: mean/median 53.1/84.6, min/max -86.9/103.3
+Update 708/854, T 2904064, FPS 275, 50-training-episode: mean/median 50.2/81.5, min/max -82.6/103.3
+Update 709/854, T 2908160, FPS 275, 50-training-episode: mean/median 56.4/85.9, min/max -103.0/100.2
+Update 710/854, T 2912256, FPS 275, 50-training-episode: mean/median 44.4/78.9, min/max -91.9/102.6
+Update 711/854, T 2916352, FPS 275, 50-training-episode: mean/median 35.4/75.0, min/max -100.2/101.7
+Update 712/854, T 2920448, FPS 275, 50-training-episode: mean/median 48.8/87.1, min/max -79.8/100.5
+Update 713/854, T 2924544, FPS 275, 50-training-episode: mean/median 26.7/75.9, min/max -91.7/98.6
+Update 714/854, T 2928640, FPS 275, 50-training-episode: mean/median 40.2/80.1, min/max -88.5/100.5
+Update 715/854, T 2932736, FPS 275, 50-training-episode: mean/median 35.5/83.1, min/max -106.5/99.9
+Update 716/854, T 2936832, FPS 275, 50-training-episode: mean/median 50.5/87.4, min/max -101.6/100.0
+Update 717/854, T 2940928, FPS 275, 50-training-episode: mean/median 40.1/80.2, min/max -73.6/101.6
+Update 718/854, T 2945024, FPS 275, 50-training-episode: mean/median 22.5/57.3, min/max -110.5/101.4
+Update 719/854, T 2949120, FPS 274, 50-training-episode: mean/median 48.9/81.5, min/max -102.6/99.0
+Update 720/854, T 2953216, FPS 274, 50-training-episode: mean/median 39.8/72.4, min/max -102.6/98.7
+Update 721/854, T 2957312, FPS 274, 50-training-episode: mean/median 56.6/84.8, min/max -95.0/100.3
+Update 722/854, T 2961408, FPS 274, 50-training-episode: mean/median 58.3/84.6, min/max -94.9/99.5
+Update 723/854, T 2965504, FPS 274, 50-training-episode: mean/median 48.1/84.0, min/max -86.1/99.7
+Update 724/854, T 2969600, FPS 274, 50-training-episode: mean/median 59.9/87.9, min/max -84.4/99.6
+Update 725/854, T 2973696, FPS 274, 50-training-episode: mean/median 62.6/87.7, min/max -88.6/99.8
+Update 726/854, T 2977792, FPS 274, 50-training-episode: mean/median 61.5/84.3, min/max -106.9/99.8
+Update 727/854, T 2981888, FPS 274, 50-training-episode: mean/median 39.7/82.5, min/max -107.2/102.3
+Update 728/854, T 2985984, FPS 274, 50-training-episode: mean/median 30.2/74.4, min/max -107.2/102.3
+Update 729/854, T 2990080, FPS 274, 50-training-episode: mean/median 42.3/75.2, min/max -112.4/99.1
+Update 730/854, T 2994176, FPS 274, 50-training-episode: mean/median 35.2/77.2, min/max -63.1/100.6
+Update 731/854, T 2998272, FPS 274, 50-training-episode: mean/median 47.1/87.3, min/max -88.6/103.1
+Update 732/854, T 3002368, FPS 274, 50-training-episode: mean/median 44.1/86.4, min/max -102.3/104.0
+Update 733/854, T 3006464, FPS 274, 50-training-episode: mean/median 32.8/75.5, min/max -107.1/101.0
+Update 734/854, T 3010560, FPS 274, 50-training-episode: mean/median 46.2/88.4, min/max -67.4/101.6
+Update 735/854, T 3014656, FPS 274, 50-training-episode: mean/median 41.6/83.8, min/max -96.0/99.9
+Update 736/854, T 3018752, FPS 274, 50-training-episode: mean/median 52.1/89.0, min/max -101.2/99.0
+Update 737/854, T 3022848, FPS 274, 50-training-episode: mean/median 54.0/87.9, min/max -66.5/101.5
+Update 738/854, T 3026944, FPS 274, 50-training-episode: mean/median 54.7/89.4, min/max -101.0/103.8
+Update 739/854, T 3031040, FPS 274, 50-training-episode: mean/median 42.8/83.9, min/max -99.2/101.5
+Update 740/854, T 3035136, FPS 274, 50-training-episode: mean/median 63.8/89.2, min/max -69.3/101.3
+Update 741/854, T 3039232, FPS 274, 50-training-episode: mean/median 42.1/82.2, min/max -105.1/100.3
+Update 742/854, T 3043328, FPS 274, 50-training-episode: mean/median 21.9/72.9, min/max -105.1/101.1
+Update 743/854, T 3047424, FPS 274, 50-training-episode: mean/median 32.5/78.9, min/max -107.1/97.9
+Update 744/854, T 3051520, FPS 274, 50-training-episode: mean/median 49.8/83.5, min/max -103.2/102.2
+Update 745/854, T 3055616, FPS 274, 50-training-episode: mean/median 45.0/79.2, min/max -87.2/102.0
+Update 746/854, T 3059712, FPS 274, 50-training-episode: mean/median 56.2/84.4, min/max -96.7/99.4
+Update 747/854, T 3063808, FPS 274, 50-training-episode: mean/median 53.4/88.0, min/max -97.6/100.5
+Update 748/854, T 3067904, FPS 274, 50-training-episode: mean/median 33.9/78.8, min/max -80.8/100.9
+Update 749/854, T 3072000, FPS 274, 50-training-episode: mean/median 41.5/86.6, min/max -91.2/101.8
+Update 750/854, T 3076096, FPS 274, 50-training-episode: mean/median 40.1/79.2, min/max -91.2/101.1
+Update 751/854, T 3080192, FPS 274, 50-training-episode: mean/median 50.7/82.7, min/max -82.7/100.9
+Update 752/854, T 3084288, FPS 274, 50-training-episode: mean/median 44.8/83.1, min/max -81.2/103.1
+Update 753/854, T 3088384, FPS 273, 50-training-episode: mean/median 39.8/85.2, min/max -97.8/102.9
+Update 754/854, T 3092480, FPS 273, 50-training-episode: mean/median 53.3/84.5, min/max -98.9/101.4
+Update 755/854, T 3096576, FPS 273, 50-training-episode: mean/median 37.7/83.6, min/max -99.2/101.4
+Update 756/854, T 3100672, FPS 273, 50-training-episode: mean/median 36.1/77.1, min/max -92.5/101.6
+Update 757/854, T 3104768, FPS 273, 50-training-episode: mean/median 49.0/90.8, min/max -100.0/103.3
+Update 758/854, T 3108864, FPS 273, 50-training-episode: mean/median 55.3/86.8, min/max -109.7/102.3
+Update 759/854, T 3112960, FPS 273, 50-training-episode: mean/median 49.5/77.5, min/max -97.9/101.2
+Update 760/854, T 3117056, FPS 273, 50-training-episode: mean/median 51.7/80.7, min/max -103.7/100.8
+Update 761/854, T 3121152, FPS 273, 50-training-episode: mean/median 40.1/82.5, min/max -105.6/99.4
+Update 762/854, T 3125248, FPS 273, 50-training-episode: mean/median 39.1/78.0, min/max -105.1/103.7
+Update 763/854, T 3129344, FPS 273, 50-training-episode: mean/median 50.0/85.0, min/max -111.1/100.3
+Update 764/854, T 3133440, FPS 273, 50-training-episode: mean/median 51.7/85.4, min/max -98.5/101.2
+Update 765/854, T 3137536, FPS 273, 50-training-episode: mean/median 46.5/83.8, min/max -88.9/100.4
+Update 766/854, T 3141632, FPS 273, 50-training-episode: mean/median 51.8/81.3, min/max -113.0/98.7
+Update 767/854, T 3145728, FPS 273, 50-training-episode: mean/median 30.3/64.0, min/max -113.0/98.4
+Update 768/854, T 3149824, FPS 273, 50-training-episode: mean/median 50.5/85.5, min/max -86.6/99.9
+Update 769/854, T 3153920, FPS 273, 50-training-episode: mean/median 46.0/85.3, min/max -99.7/100.1
+Update 770/854, T 3158016, FPS 273, 50-training-episode: mean/median 31.7/80.4, min/max -95.1/101.1
+Update 771/854, T 3162112, FPS 273, 50-training-episode: mean/median 33.3/86.2, min/max -109.8/101.7
+Update 772/854, T 3166208, FPS 273, 50-training-episode: mean/median 44.7/85.0, min/max -92.6/100.1
+Update 773/854, T 3170304, FPS 273, 50-training-episode: mean/median 32.2/74.1, min/max -97.8/102.3
+Update 774/854, T 3174400, FPS 273, 50-training-episode: mean/median 25.2/64.9, min/max -85.7/103.1
+Update 775/854, T 3178496, FPS 273, 50-training-episode: mean/median 27.0/70.5, min/max -97.7/99.5
+Update 776/854, T 3182592, FPS 273, 50-training-episode: mean/median 22.4/67.2, min/max -75.3/103.2
+Update 777/854, T 3186688, FPS 273, 50-training-episode: mean/median 30.8/71.3, min/max -88.3/98.4
+Update 778/854, T 3190784, FPS 273, 50-training-episode: mean/median 27.8/69.4, min/max -86.1/101.4
+Update 779/854, T 3194880, FPS 273, 50-training-episode: mean/median 47.9/79.3, min/max -104.1/100.4
+Update 780/854, T 3198976, FPS 273, 50-training-episode: mean/median 42.9/80.2, min/max -84.8/98.7
+Update 781/854, T 3203072, FPS 273, 50-training-episode: mean/median 29.7/78.0, min/max -92.3/101.5
+Update 782/854, T 3207168, FPS 273, 50-training-episode: mean/median 51.2/84.1, min/max -89.9/100.2
+Update 783/854, T 3211264, FPS 273, 50-training-episode: mean/median 38.9/75.4, min/max -69.1/102.9
+Update 784/854, T 3215360, FPS 273, 50-training-episode: mean/median 41.3/78.8, min/max -63.1/100.5
+Update 785/854, T 3219456, FPS 273, 50-training-episode: mean/median 33.4/63.7, min/max -100.3/101.4
+Update 786/854, T 3223552, FPS 273, 50-training-episode: mean/median 43.0/85.0, min/max -67.9/101.1
+Update 787/854, T 3227648, FPS 273, 50-training-episode: mean/median 35.8/79.5, min/max -85.9/100.4
+Update 788/854, T 3231744, FPS 273, 50-training-episode: mean/median 53.9/85.1, min/max -102.1/104.3
+Update 789/854, T 3235840, FPS 273, 50-training-episode: mean/median 50.9/82.6, min/max -73.8/98.6
+Update 790/854, T 3239936, FPS 273, 50-training-episode: mean/median 30.5/76.7, min/max -87.7/98.3
+Update 791/854, T 3244032, FPS 273, 50-training-episode: mean/median 42.7/86.0, min/max -72.7/99.6
+Update 792/854, T 3248128, FPS 272, 50-training-episode: mean/median 51.5/88.4, min/max -83.3/102.0
+Update 793/854, T 3252224, FPS 272, 50-training-episode: mean/median 31.7/67.9, min/max -80.7/101.2
+Update 794/854, T 3256320, FPS 272, 50-training-episode: mean/median 34.5/79.3, min/max -83.5/100.3
+Update 795/854, T 3260416, FPS 272, 50-training-episode: mean/median 55.0/79.4, min/max -78.6/100.6
+Update 796/854, T 3264512, FPS 272, 50-training-episode: mean/median 49.1/82.9, min/max -78.8/99.1
+Update 797/854, T 3268608, FPS 272, 50-training-episode: mean/median 39.1/83.6, min/max -91.0/102.8
+Update 798/854, T 3272704, FPS 272, 50-training-episode: mean/median 40.8/81.3, min/max -108.5/101.5
+Update 799/854, T 3276800, FPS 272, 50-training-episode: mean/median 43.4/82.6, min/max -73.4/100.1
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Update 800/854, T 3280896, FPS 272, 50-training-episode: mean/median 44.9/81.0, min/max -92.6/101.3
+Update 801/854, T 3284992, FPS 272, 50-training-episode: mean/median 60.1/90.5, min/max -98.3/103.4
+Update 802/854, T 3289088, FPS 272, 50-training-episode: mean/median 39.6/77.8, min/max -82.9/103.1
+Update 803/854, T 3293184, FPS 272, 50-training-episode: mean/median 42.6/83.1, min/max -101.5/104.1
+Update 804/854, T 3297280, FPS 272, 50-training-episode: mean/median 46.1/84.9, min/max -84.2/102.6
+Update 805/854, T 3301376, FPS 272, 50-training-episode: mean/median 53.5/87.6, min/max -111.0/102.9
+Update 806/854, T 3305472, FPS 272, 50-training-episode: mean/median 45.9/90.0, min/max -94.4/102.8
+Update 807/854, T 3309568, FPS 272, 50-training-episode: mean/median 39.1/76.5, min/max -101.5/99.7
+Update 808/854, T 3313664, FPS 272, 50-training-episode: mean/median 59.4/85.7, min/max -82.0/101.4
+Update 809/854, T 3317760, FPS 272, 50-training-episode: mean/median 33.1/80.5, min/max -86.8/101.9
+Update 810/854, T 3321856, FPS 272, 50-training-episode: mean/median 56.7/89.1, min/max -77.8/103.7
+Update 811/854, T 3325952, FPS 272, 50-training-episode: mean/median 33.9/81.7, min/max -102.7/99.7
+Update 812/854, T 3330048, FPS 272, 50-training-episode: mean/median 51.4/90.2, min/max -102.5/100.7
+Update 813/854, T 3334144, FPS 272, 50-training-episode: mean/median 62.6/88.7, min/max -72.3/101.6
+Update 814/854, T 3338240, FPS 272, 50-training-episode: mean/median 69.7/92.5, min/max -89.1/103.9
+Update 815/854, T 3342336, FPS 272, 50-training-episode: mean/median 36.6/81.8, min/max -73.3/101.1
+Update 816/854, T 3346432, FPS 272, 50-training-episode: mean/median 52.5/86.5, min/max -103.8/102.7
+Update 817/854, T 3350528, FPS 272, 50-training-episode: mean/median 35.3/77.5, min/max -94.0/102.4
+Update 818/854, T 3354624, FPS 272, 50-training-episode: mean/median 55.1/89.3, min/max -72.2/103.5
+Update 819/854, T 3358720, FPS 271, 50-training-episode: mean/median 58.9/90.4, min/max -99.6/104.8
+Update 820/854, T 3362816, FPS 271, 50-training-episode: mean/median 33.9/81.1, min/max -84.3/102.6
+Update 821/854, T 3366912, FPS 271, 50-training-episode: mean/median 60.0/88.1, min/max -68.2/100.7
+Update 822/854, T 3371008, FPS 271, 50-training-episode: mean/median 53.2/92.9, min/max -89.1/103.1
+Update 823/854, T 3375104, FPS 271, 50-training-episode: mean/median 45.8/83.9, min/max -85.8/100.4
+Update 824/854, T 3379200, FPS 271, 50-training-episode: mean/median 30.2/78.0, min/max -105.6/102.8
+Update 825/854, T 3383296, FPS 271, 50-training-episode: mean/median 58.3/91.0, min/max -88.1/101.3
+Update 826/854, T 3387392, FPS 271, 50-training-episode: mean/median 27.1/77.4, min/max -88.9/102.0
+Update 827/854, T 3391488, FPS 271, 50-training-episode: mean/median 37.7/86.2, min/max -75.1/101.5
+Update 828/854, T 3395584, FPS 271, 50-training-episode: mean/median 38.0/89.5, min/max -93.7/102.9
+Update 829/854, T 3399680, FPS 271, 50-training-episode: mean/median 54.4/86.1, min/max -113.2/104.2
+Update 830/854, T 3403776, FPS 271, 50-training-episode: mean/median 32.0/79.0, min/max -113.2/97.9
+Update 831/854, T 3407872, FPS 271, 50-training-episode: mean/median 39.3/86.3, min/max -90.0/100.3
+Update 832/854, T 3411968, FPS 271, 50-training-episode: mean/median 35.5/80.9, min/max -88.5/98.9
+Update 833/854, T 3416064, FPS 271, 50-training-episode: mean/median 32.1/78.8, min/max -95.6/100.1
+Update 834/854, T 3420160, FPS 271, 50-training-episode: mean/median 38.8/80.3, min/max -93.5/100.2
+Update 835/854, T 3424256, FPS 271, 50-training-episode: mean/median 42.3/79.3, min/max -98.2/100.3
+Update 836/854, T 3428352, FPS 271, 50-training-episode: mean/median 28.4/79.9, min/max -85.2/101.3
+Update 837/854, T 3432448, FPS 271, 50-training-episode: mean/median 52.4/86.0, min/max -97.4/102.6
+Update 838/854, T 3436544, FPS 271, 50-training-episode: mean/median 42.4/78.9, min/max -79.1/100.2
+Update 839/854, T 3440640, FPS 271, 50-training-episode: mean/median 47.4/80.0, min/max -87.5/103.9
+Update 840/854, T 3444736, FPS 271, 50-training-episode: mean/median 42.0/84.5, min/max -92.0/100.2
+Update 841/854, T 3448832, FPS 271, 50-training-episode: mean/median 61.8/89.1, min/max -80.7/101.2
+Update 842/854, T 3452928, FPS 271, 50-training-episode: mean/median 45.6/83.6, min/max -103.4/101.5
+Update 843/854, T 3457024, FPS 271, 50-training-episode: mean/median 45.3/86.1, min/max -100.9/100.5
+Update 844/854, T 3461120, FPS 271, 50-training-episode: mean/median 55.5/85.3, min/max -88.9/103.2
+Update 845/854, T 3465216, FPS 271, 50-training-episode: mean/median 39.7/81.8, min/max -109.9/102.3
+Update 846/854, T 3469312, FPS 271, 50-training-episode: mean/median 37.8/80.5, min/max -97.5/102.3
+Update 847/854, T 3473408, FPS 271, 50-training-episode: mean/median 60.4/87.0, min/max -109.4/101.4
+Update 848/854, T 3477504, FPS 271, 50-training-episode: mean/median 38.6/83.8, min/max -104.8/101.4
+Update 849/854, T 3481600, FPS 271, 50-training-episode: mean/median 43.1/79.4, min/max -104.8/98.9
+Update 850/854, T 3485696, FPS 271, 50-training-episode: mean/median 50.9/86.2, min/max -91.2/99.1
+Update 851/854, T 3489792, FPS 271, 50-training-episode: mean/median 58.9/86.8, min/max -107.4/102.2
+Update 852/854, T 3493888, FPS 271, 50-training-episode: mean/median 42.1/84.6, min/max -90.7/101.4
+Saved ./trained_models/ExptMemory20250723/plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Update 853/854, T 3497984, FPS 271, 50-training-episode: mean/median 59.3/88.2, min/max -92.3/102.5
+Saved ./trained_models/ExptMemory20250723//plume_20250723_VRNN_constantx5b5noisy3x5b5_stepoob_bx0.30.8_t8500003500000_q2.00.5_dmx0.80.8_dmn0.70.4_h64_wd0.0001_n2_codeVRNN_seed2167859.pt
+Starting evaluation
+Evaluating on dataset: switch15x5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x17be3e970>, 't_val_min': 60.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'switch15x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': False, 'walk_move': 0.05, 'walk_turn': 3.141592653589793, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 21678, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+switch15x5b5
+Exception: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch15x5b5.pickle'
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 271, in eval_loop
+    env = make_vec_envs(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 132, in make_vec_envs
+    envs = DummyVecEnv(envs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in __init__
+    self.envs = [fn() for fn in env_fns]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in <listcomp>
+    self.envs = [fn() for fn in env_fns]
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 34, in _thunk
+    env = plume_env.PlumeEnvironment(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 116, in __init__
+    self.set_dataset(dataset)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 205, in set_dataset
+    self.data_puffs_all, self.data_wind_all = sim_analysis.load_plume(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 173, in load_plume
+    data_puffs = pandas.read_pickle(puff_filename)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/pickle.py", line 185, in read_pickle
+    with get_handle(
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch15x5b5.pickle'
+Evaluating on dataset: switch30x5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x17be3ed30>, 't_val_min': 60.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'switch30x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': False, 'walk_move': 0.05, 'walk_turn': 3.141592653589793, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 21678, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+switch30x5b5
+Exception: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch30x5b5.pickle'
+Traceback (most recent call last):
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/evalCli.py", line 271, in eval_loop
+    env = make_vec_envs(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 132, in make_vec_envs
+    envs = DummyVecEnv(envs)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in __init__
+    self.envs = [fn() for fn in env_fns]
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 26, in <listcomp>
+    self.envs = [fn() for fn in env_fns]
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/a2c_ppo_acktr/envs.py", line 34, in _thunk
+    env = plume_env.PlumeEnvironment(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 116, in __init__
+    self.set_dataset(dataset)
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../plume_env.py", line 205, in set_dataset
+    self.data_puffs_all, self.data_wind_all = sim_analysis.load_plume(
+  File "/Users/aaravsinha/manyplume/oneplume/ppo/../sim_analysis.py", line 173, in load_plume
+    data_puffs = pandas.read_pickle(puff_filename)
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/pickle.py", line 185, in read_pickle
+    with get_handle(
+  File "/opt/anaconda3/envs/py39/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aaravsinha/plume/plumedata//puff_data_switch30x5b5.pickle'
+Evaluating on dataset: switch45x5b5
+Using Precomputed Plume...
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x17be3ebe0>, 't_val_min': 60.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'switch45x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 1.0, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.0, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': False, 'walk_move': 0.05, 'walk_turn': 3.141592653589793, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': False, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 21678, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+switch45x5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob']
+switch45x5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Using fixed evaluation sequence [time, angle, loc_y]... (240 episodes) 
+Episode: 0, reward_sum: 83.95782061625505, Steps: 251, Reason: HOME
+Episode: 1, reward_sum: 110.00399843801279, Steps: 110, Reason: HOME
+Episode: 2, reward_sum: 105.77492358186282, Steps: 217, Reason: HOME
+Episode: 3, reward_sum: 108.30641623667907, Steps: 131, Reason: HOME
+Episode: 4, reward_sum: -9.357452439144254, Steps: 257, Reason: OOB
+Episode: 5, reward_sum: 109.62241108785383, Steps: 85, Reason: HOME
+Episode: 6, reward_sum: 109.39956376783812, Steps: 84, Reason: HOME
+Episode: 7, reward_sum: 9.106077150558122, Steps: 86, Reason: HOME
+Episode: 8, reward_sum: 106.64527330605779, Steps: 156, Reason: HOME
+Episode: 9, reward_sum: -7.971894843503833, Steps: 222, Reason: OOB
+Episode: 10, reward_sum: 9.299270932155196, Steps: 89, Reason: HOME
+Episode: 11, reward_sum: 9.036986151273595, Steps: 88, Reason: HOME
+Episode: 12, reward_sum: 7.522349719540216, Steps: 125, Reason: HOME
+Episode: 13, reward_sum: -7.696460789884441, Steps: 249, Reason: OOB
+Episode: 14, reward_sum: -7.760736042750068, Steps: 234, Reason: OOB
+Episode: 15, reward_sum: 8.261224782792851, Steps: 117, Reason: HOME
+Episode: 16, reward_sum: 9.372993093216792, Steps: 81, Reason: HOME
+Episode: 17, reward_sum: 7.781803419813514, Steps: 119, Reason: HOME
+Episode: 18, reward_sum: 9.175636261155887, Steps: 86, Reason: HOME
+Episode: 19, reward_sum: 6.5996377845003735, Steps: 172, Reason: HOME
+Episode: 20, reward_sum: 9.11373402812751, Steps: 88, Reason: HOME
+Episode: 21, reward_sum: 9.080475168782868, Steps: 88, Reason: HOME
+Episode: 22, reward_sum: 6.741873991733883, Steps: 170, Reason: HOME
+Episode: 23, reward_sum: 9.071411751909181, Steps: 86, Reason: HOME
+Episode: 24, reward_sum: 5.7324301743356045, Steps: 193, Reason: HOME
+Episode: 25, reward_sum: 3.7243617178173736, Steps: 288, Reason: HOME
+Episode: 26, reward_sum: 7.3776111820479855, Steps: 145, Reason: HOME
+Episode: 27, reward_sum: 9.127848792471923, Steps: 90, Reason: HOME
+Episode: 28, reward_sum: 7.373189861187711, Steps: 148, Reason: HOME
+Episode: 29, reward_sum: 9.156383201625431, Steps: 96, Reason: HOME
+Episode: 30, reward_sum: 8.444072596728802, Steps: 133, Reason: HOME
+Episode: 31, reward_sum: 9.11015643645078, Steps: 99, Reason: HOME
+Episode: 32, reward_sum: 5.6650050040043425, Steps: 248, Reason: HOME
+Episode: 33, reward_sum: 4.905591711285524, Steps: 264, Reason: HOME
+Episode: 34, reward_sum: 3.94075077722664, Steps: 279, Reason: HOME
+Episode: 35, reward_sum: 9.214015532750636, Steps: 97, Reason: HOME
+Episode: 36, reward_sum: 4.550842227588873, Steps: 242, Reason: HOME
+Episode: 37, reward_sum: -5.509199013846228, Steps: 299, Reason: OOT
+Episode: 38, reward_sum: 5.293338299030438, Steps: 213, Reason: HOME
+Episode: 39, reward_sum: -9.202634572051466, Steps: 278, Reason: OOB
+Episode: 40, reward_sum: 9.269210143422242, Steps: 91, Reason: HOME
+Episode: 41, reward_sum: 9.336045996285975, Steps: 82, Reason: HOME
+Episode: 42, reward_sum: 8.78440799866803, Steps: 84, Reason: HOME
+Episode: 43, reward_sum: 8.18840659057605, Steps: 109, Reason: HOME
+Episode: 44, reward_sum: -8.340960109606385, Steps: 243, Reason: OOB
+Episode: 45, reward_sum: 6.022982447291724, Steps: 177, Reason: HOME
+Episode: 46, reward_sum: 6.326508849073434, Steps: 172, Reason: HOME
+Episode: 47, reward_sum: 9.36117189945071, Steps: 80, Reason: HOME
+Episode: 48, reward_sum: 6.772495733341202, Steps: 144, Reason: HOME
+Episode: 49, reward_sum: 5.968682160775643, Steps: 174, Reason: HOME
+Episode: 50, reward_sum: 9.311823590192944, Steps: 86, Reason: HOME
+Episode: 51, reward_sum: 6.023850494995713, Steps: 184, Reason: HOME
+Episode: 52, reward_sum: 6.241858033601602, Steps: 176, Reason: HOME
+Episode: 53, reward_sum: 7.223893576127011, Steps: 137, Reason: HOME
+Episode: 54, reward_sum: 7.3317134596291, Steps: 125, Reason: HOME
+Episode: 55, reward_sum: 106.35831366002094, Steps: 178, Reason: HOME
+Episode: 56, reward_sum: 9.705336682964116, Steps: 80, Reason: HOME
+Episode: 57, reward_sum: 9.426135929301381, Steps: 79, Reason: HOME
+Episode: 58, reward_sum: 6.32266358891502, Steps: 164, Reason: HOME
+Episode: 59, reward_sum: 8.709765805280767, Steps: 88, Reason: HOME
+Episode: 60, reward_sum: 6.897661906055873, Steps: 153, Reason: HOME
+Episode: 61, reward_sum: 9.682106741471216, Steps: 77, Reason: HOME
+Episode: 62, reward_sum: 9.603059073602708, Steps: 78, Reason: HOME
+Episode: 63, reward_sum: 6.378520977712469, Steps: 172, Reason: HOME
+Episode: 64, reward_sum: 9.261219216044992, Steps: 77, Reason: HOME
+Episode: 65, reward_sum: 3.9012729486858007, Steps: 266, Reason: HOME
+Episode: 66, reward_sum: 5.218564139155205, Steps: 209, Reason: HOME
+Episode: 67, reward_sum: 6.615661459742114, Steps: 173, Reason: HOME
+Episode: 68, reward_sum: 5.1313063971247175, Steps: 208, Reason: HOME
+Episode: 69, reward_sum: 4.79829184342816, Steps: 224, Reason: HOME
+Episode: 70, reward_sum: 3.7023327441420406, Steps: 262, Reason: HOME
+Episode: 71, reward_sum: 9.0695370772155, Steps: 136, Reason: HOME
+Episode: 72, reward_sum: 5.284364536986686, Steps: 218, Reason: HOME
+Episode: 73, reward_sum: 6.156041152906255, Steps: 194, Reason: HOME
+Episode: 74, reward_sum: 7.022279230004642, Steps: 157, Reason: HOME
+Episode: 75, reward_sum: 106.07733434380498, Steps: 177, Reason: HOME
+Episode: 76, reward_sum: 9.818646334810182, Steps: 108, Reason: HOME
+Episode: 77, reward_sum: 9.704297010554, Steps: 106, Reason: HOME
+Episode: 78, reward_sum: 8.588993564946577, Steps: 97, Reason: HOME
+Episode: 79, reward_sum: 5.881842121612863, Steps: 186, Reason: HOME
+Episode: 80, reward_sum: 4.635802484932356, Steps: 276, Reason: HOME
+Episode: 81, reward_sum: 4.242798528837739, Steps: 276, Reason: HOME
+Episode: 82, reward_sum: 106.40592911085696, Steps: 220, Reason: HOME
+Episode: 83, reward_sum: -5.604274145967793, Steps: 299, Reason: OOT
+Episode: 84, reward_sum: 104.00521419740835, Steps: 297, Reason: HOME
+Episode: 85, reward_sum: 106.76747388462536, Steps: 204, Reason: HOME
+Episode: 86, reward_sum: 106.97151256282814, Steps: 210, Reason: HOME
+Episode: 87, reward_sum: 110.34669748187298, Steps: 117, Reason: HOME
+Episode: 88, reward_sum: 109.26982771562325, Steps: 152, Reason: HOME
+Episode: 89, reward_sum: 105.10906913047074, Steps: 243, Reason: HOME
+Episode: 90, reward_sum: 108.03507644799538, Steps: 175, Reason: HOME
+Episode: 91, reward_sum: 104.85406512534246, Steps: 253, Reason: HOME
+Episode: 92, reward_sum: 105.91832123172935, Steps: 219, Reason: HOME
+Episode: 93, reward_sum: 106.52142438533701, Steps: 218, Reason: HOME
+Episode: 94, reward_sum: 104.2567612224957, Steps: 277, Reason: HOME
+Episode: 95, reward_sum: 105.99509891844355, Steps: 246, Reason: HOME
+Episode: 96, reward_sum: 106.63526572714909, Steps: 211, Reason: HOME
+Episode: 97, reward_sum: 106.14439325546846, Steps: 249, Reason: HOME
+Episode: 98, reward_sum: 107.06507770437747, Steps: 198, Reason: HOME
+Episode: 99, reward_sum: 107.42747807060368, Steps: 189, Reason: HOME
+Episode: 100, reward_sum: -7.958247798960656, Steps: 299, Reason: OOB
+Episode: 101, reward_sum: -3.07500724052079, Steps: 150, Reason: OOB
+Episode: 102, reward_sum: 110.80283496202901, Steps: 115, Reason: HOME
+Episode: 103, reward_sum: 110.60922433191445, Steps: 115, Reason: HOME
+Episode: 104, reward_sum: 107.86901478907384, Steps: 193, Reason: HOME
+Episode: 105, reward_sum: 105.25305029569427, Steps: 269, Reason: HOME
+Episode: 106, reward_sum: 110.29328656743746, Steps: 130, Reason: HOME
+Episode: 107, reward_sum: 106.72868625179399, Steps: 211, Reason: HOME
+Episode: 108, reward_sum: 106.83496866108908, Steps: 211, Reason: HOME
+Episode: 109, reward_sum: -4.18013001287818, Steps: 299, Reason: OOT
+Episode: 110, reward_sum: 105.2326343570021, Steps: 251, Reason: HOME
+Episode: 111, reward_sum: 105.20265407540137, Steps: 253, Reason: HOME
+Episode: 112, reward_sum: 107.99459344299976, Steps: 196, Reason: HOME
+Episode: 113, reward_sum: 105.71167842525756, Steps: 257, Reason: HOME
+Episode: 114, reward_sum: 105.12603075420066, Steps: 261, Reason: HOME
+Episode: 115, reward_sum: 105.14733551832614, Steps: 252, Reason: HOME
+Episode: 116, reward_sum: -5.7911474094726145, Steps: 299, Reason: OOT
+Episode: 117, reward_sum: -5.90545437252149, Steps: 299, Reason: OOT
+Episode: 118, reward_sum: -6.061302292451728, Steps: 299, Reason: OOT
+Episode: 119, reward_sum: 106.32828057275037, Steps: 213, Reason: HOME
+Episode: 120, reward_sum: -3.8263012308161706, Steps: 161, Reason: OOB
+Episode: 121, reward_sum: -4.255860552453669, Steps: 152, Reason: OOB
+Episode: 122, reward_sum: 110.02171664312482, Steps: 121, Reason: HOME
+Episode: 123, reward_sum: 104.40174369118176, Steps: 248, Reason: HOME
+Episode: 124, reward_sum: 104.11600396805443, Steps: 255, Reason: HOME
+Episode: 125, reward_sum: -3.852273525670171, Steps: 164, Reason: OOB
+Episode: 126, reward_sum: -6.0293191112577915, Steps: 299, Reason: OOT
+Episode: 127, reward_sum: -7.7683236351876985, Steps: 279, Reason: OOB
+Episode: 128, reward_sum: 106.00736113371386, Steps: 213, Reason: HOME
+Episode: 129, reward_sum: 107.69725615647621, Steps: 175, Reason: HOME
+Episode: 130, reward_sum: 106.59523501968943, Steps: 211, Reason: HOME
+Episode: 131, reward_sum: -7.556862043682486, Steps: 279, Reason: OOB
+Episode: 132, reward_sum: -7.780824279820081, Steps: 284, Reason: OOB
+Episode: 133, reward_sum: -4.196973744226852, Steps: 166, Reason: OOB
+Episode: 134, reward_sum: 107.98674469997059, Steps: 159, Reason: HOME
+Episode: 135, reward_sum: 106.59352856496116, Steps: 214, Reason: HOME
+Episode: 136, reward_sum: -7.481643659528345, Steps: 281, Reason: OOB
+Episode: 137, reward_sum: -3.6865400290116668, Steps: 159, Reason: OOB
+Episode: 138, reward_sum: -7.634084350429475, Steps: 282, Reason: OOB
+Episode: 139, reward_sum: 109.47528504324146, Steps: 129, Reason: HOME
+Episode: 140, reward_sum: -4.144819286535494, Steps: 169, Reason: OOB
+Episode: 141, reward_sum: 106.76940895966254, Steps: 212, Reason: HOME
+Episode: 142, reward_sum: -7.506858407519758, Steps: 279, Reason: OOB
+Episode: 143, reward_sum: -7.654349897056818, Steps: 284, Reason: OOB
+Episode: 144, reward_sum: -4.134978783666156, Steps: 167, Reason: OOB
+Episode: 145, reward_sum: -4.761381849879399, Steps: 166, Reason: OOB
+Episode: 146, reward_sum: -5.220105793749099, Steps: 164, Reason: OOB
+Episode: 147, reward_sum: -3.653632552246563, Steps: 177, Reason: OOB
+Episode: 148, reward_sum: -7.5199462149175815, Steps: 288, Reason: OOB
+Episode: 149, reward_sum: -5.520567664760165, Steps: 171, Reason: OOB
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x1052b6250>, 't_val_min': 60.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'noisy3x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 0.8, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.5, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': False, 'walk_move': 0.05, 'walk_turn': 3.141592653589793, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 21678, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+noisy3x5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob']
+PlumeEnvironment: {'self': <plume_env.PlumeEnvironment object at 0x1052b6250>, 't_val_min': 60.0, 'sim_steps_max': 300, 'reset_offset_tmax': 30, 'dataset': 'noisy3x5b5', 'move_capacity': 2.0, 'turn_capacity': 19.634954084936208, 'wind_obsx': 1.0, 'movex': 1.0, 'turnx': 1.0, 'birthx': 0.8, 'birthx_max': 1.0, 'env_dt': 0.04, 'loc_algo': 'uniform', 'qvar': 0.5, 'time_algo': 'uniform', 'angle_algo': 'uniform', 'homed_radius': 0.2, 'stray_max': 2.0, 'wind_rel': True, 'auto_movex': False, 'auto_reward': False, 'diff_max': 0.8, 'diff_min': 0.4, 'r_shaping': ['step', 'oob'], 'rewardx': 1.0, 'rescale': False, 'squash_action': True, 'walking': False, 'walk_move': 0.05, 'walk_turn': 3.141592653589793, 'radiusx': 1.0, 'diffusion_min': 1.0, 'diffusion_max': 1.0, 'action_feedback': False, 'flipping': True, 'odor_scaling': True, 'obs_noise': 0.0, 'act_noise': 0.0, 'dynamic': False, 'seed': 21678, 'verbose': 0, '__class__': <class 'plume_env.PlumeEnvironment'>}
+Squashing actions to 0-1
+noisy3x5b5
+wind: t_val_diff 0.03999999999999915 env_dt 0.04
+puffs: t_val_diff 0.03999999999999915 env_dt 0.04
+Reward Shaping ['step', 'oob']
