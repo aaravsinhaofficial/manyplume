@@ -8,6 +8,7 @@ in odor plume tracking experiments.
 
 import os
 import sys
+import math
 
 # Add the oneplume directory to the path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../oneplume'))
@@ -18,7 +19,7 @@ LOCOMOTOR_CONFIGS = {
     'flying': {
         'walking': False,
         'move_capacity': 2.0,  # m/s
-        'turn_capacity': 6.25 * 3.14159,  # rad/s
+        'turn_capacity': 6.25 * math.pi,  # rad/s (~19.6 rad/s)
         'homed_radius': 0.2,  # m
         'stray_max': 2.0,  # m
         'wind_advection': True,
@@ -28,7 +29,7 @@ LOCOMOTOR_CONFIGS = {
     'walking': {
         'walking': True,
         'move_capacity': 0.05,  # m/s (5 cm/s)
-        'turn_capacity': 3.14159,  # rad/s
+        'turn_capacity': math.pi,  # rad/s (~3.14 rad/s)
         'homed_radius': 0.022,  # m (2.2 cm)
         'stray_max': 0.05,  # m
         'wind_advection': False,

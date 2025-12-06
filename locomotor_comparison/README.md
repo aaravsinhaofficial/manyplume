@@ -11,7 +11,7 @@ The locomotor mode comparison investigates how different movement modalities (fl
 | Feature | Flying Agent | Walking Agent |
 |---------|-------------|---------------|
 | **Move Capacity** | 2.0 m/s | 0.05 m/s (5 cm/s) |
-| **Turn Capacity** | 6.25π rad/s | 3.14 rad/s |
+| **Turn Capacity** | 6.25π rad/s (~19.6 rad/s) | π rad/s (~3.14 rad/s) |
 | **Homed Radius** | 0.2 m | 0.022 m (2.2 cm) |
 | **Stray Max** | 2.0 m | 0.05 m |
 | **Wind Drift** | Yes (advected by wind) | No |

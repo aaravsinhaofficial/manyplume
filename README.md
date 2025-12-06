@@ -13,7 +13,7 @@ One of the central contributions of this research is understanding how different
 | Feature | Flying Agent | Walking Agent |
 |---------|-------------|---------------|
 | **Movement Speed** | 2.0 m/s | 0.05 m/s (5 cm/s) |
-| **Turn Rate** | ~19.6 rad/s | ~3.14 rad/s |
+| **Turn Rate** | 6.25π rad/s (~19.6 rad/s) | π rad/s (~3.14 rad/s) |
 | **Success Radius** | 20 cm | 2.2 cm |
 | **Maximum Stray Distance** | 2.0 m | 5 cm |
 | **Wind Advection** | Affected by wind | Not affected |
